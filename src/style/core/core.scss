@@ -1,5 +1,3 @@
-@import "../system/_mix", "../system/_vars";
-
 .w, .w-fluid {
 	margin-left:auto;
 	margin-right:auto;
@@ -13,4 +11,4 @@
 	max-width:$w + 20px;
 }
 
-.noJs {background:#F47D7D;padding:$padd-xs;text-align:center;color:#fff;font-size:12px;text-shadow:1px 1px 0 rgba(0,0,0,.1);}
+.noJs {background:#F47D7D;padding:2em;text-align:center;color:#fff;font-size:12px;text-shadow:1px 1px 0 rgba(0,0,0,.1);}

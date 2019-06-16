@@ -1,2 +1,26 @@
 @import "../system/_mix", "../system/_vars";
-//Главная страница
+
+.index-jumbo {
+  text-align: center;
+  flex: 0 0 auto;
+
+  &__title {
+
+  }
+}
+
+
+.start-card {
+  color: $color-white;
+  transition: transform $time-base ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  // style
+  &--stydy {
+
+  }
+
+  &--teach {}
+}

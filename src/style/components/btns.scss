@@ -30,11 +30,9 @@
 	}
 
 	//sizes
-	&--xs {}
-	&--sm {}
-	&--md {}
-	&--lg {}
-	&--xl {}
+	&--base {
+		height: 36px;
+	}
 }
 
 
@@ -54,4 +52,33 @@
 
 	&:hover {color:#fff;}
 	&:active {color:#fff;}
+}
+
+
+
+// Ripple
+[data-ripple] {
+  position: relative;
+  overflow: hidden;
+}
+[data-ripple] .ripple {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+[data-ripple] .ripple span {
+  transform: scale(0);
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0.75;
+  background-color: #fff;
+  animation: ripple 1000ms;
+}
+@keyframes ripple {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
 }

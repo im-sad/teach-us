@@ -2,4 +2,23 @@
 
 .footer {
   background: $color-background;
+
+  &__core {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+
+  }
+
+  &__copyright {
+    max-width: 50%;
+  }
+}
+
+// Menu
+.footer-menu {
+
 }

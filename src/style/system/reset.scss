@@ -22,12 +22,26 @@ img {border-style:none;vertical-align:middle; @extend .no-select;}
 b, strong {font-weight:bold}
 
 //links
-a {color:$color-link;background:transparent;font-size:100%;margin:0;padding:0;vertical-align:baseline;text-decoration-skip:spaces;transition:color 0.5s;text-decoration-skip:objects;}
+a {
+	color:$color-link;
+	background:transparent;
+	font-size:100%;
+	margin:0;
+	padding:0;
+	vertical-align:baseline;
+	text-decoration-skip:spaces;
+	transition:color 0.5s;
+	text-decoration-skip:objects;
+	text-decoration: none;
+}
 a:focus {outline:thin dotted}
 a:hover {color:$color-link-hover;transition-duration: 0.2s;}
 a:hover, a:active {outline:0}
 
-a, area, button, input:not([type="range"]), label, select, textarea, .btn {-ms-touch-action: manipulation;touch-action: manipulation;}
+a, area, button, input:not([type="range"]), label, select, textarea, .btn {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
 
 
 //tables
