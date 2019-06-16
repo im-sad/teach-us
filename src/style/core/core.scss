@@ -1,0 +1,16 @@
+@import "../system/_mix", "../system/_vars";
+
+.w, .w-fluid {
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:10px;
+	padding-right:10px;
+	width:100%;
+	flex:0 0 auto;
+}
+
+.w {
+	max-width:$w + 20px;
+}
+
+.noJs {background:#F47D7D;padding:$padd-xs;text-align:center;color:#fff;font-size:12px;text-shadow:1px 1px 0 rgba(0,0,0,.1);}

@@ -1,0 +1,142 @@
+@import "../system/_mix", "../system/_vars";
+
+/* FORMS */
+.form {
+	& {}
+
+	&__row {
+		& {margin-bottom: $padd-sm;}
+		&:last-child {margin-bottom:0;}
+	}
+
+
+	&__label {display: block;line-height: 1;margin-bottom: $padd-xs;font-size: 1.3rem;}
+}
+
+
+
+/* ANY FIELD */
+.field {
+	& {border:1px solid $color-border;background:#fff;}
+
+	&:hover {}
+	&:focus {}
+}
+
+
+
+/* INPUT */
+.input {
+	& {box-sizing:border-box;transition:border .3s, box-shadow .3s;outline:none !important;line-height:$form-line-height;vertical-align:middle;}
+
+
+	&:hover {}
+	&:focus {}
+
+	&--sm {padding:.5rem 1rem;}
+	&--md {padding:1rem 2rem;}
+	&--lg {padding:2rem;}
+
+	&--fluid {width:100%;}
+	&.has-danger {border-color:red;}
+}
+
+
+/* TEXTAREA */
+.textarea {
+	@extend .input;
+
+	& {resize:vertical;min-height: 2rem;height: 6rem;}
+
+	&--sm {@extend .input--sm;}
+	&--md {@extend .input--md;min-height:10rem;}
+	&--lg {@extend .input--lg;}
+
+	&--fluid {@extend .input--fluid;}
+	&.has-danger {@extend .input.has-danger;}
+}
+
+
+/* SELECT */
+.select {
+	@extend .input;
+	& {cursor:pointer;}
+
+	&--sm {@extend .input--sm;height: calc(3rem + 2px);}
+	&--md {@extend .input--md;height: calc(4rem + 2px);}
+	&--lg {@extend .input--lg;height: calc(6rem + 2px);}
+
+	&--fluid {@extend .input--fluid;}
+	&.has-danger {@extend .input.has-danger;}
+}
+
+
+
+//https://codepen.io/sadisme/pen/RGpROd
+/* RADIO & CHECKBOX */
+$size: 20px;
+$border-color: #ccc;
+$bg-color: #1F95DE;
+
+.checkbox, .radio {
+  @extend .no-select;
+
+  & {cursor: pointer;position:relative;display:inline-block;vertical-align: middle;line-height: $size;}
+  &__title {padding-left: ($size + 8px);display:inline-block;vertical-align:top;}
+  &__title:before {position: absolute;}
+
+  input {vertical-align: top;margin: 0 3px 0 0;width: 17px;height: 17px;}
+  input:not(checked) {position: absolute;opacity: 0;visibility: hidden;margin:2px 3px 0 0;}
+}
+
+/* checkbox */
+.checkbox {
+	& {}
+
+  &__title {
+    &:before {content:'';box-shadow: 0 1px 3px rgba(0,0,0,.1);width: $size;height: $size;line-height: $size;left: 0;top: 0;border-radius: 3px;border: 1px solid $border-color;text-align: center;transition: background-color .1s, border-color .1s;font-size:0;background:#fff;}
+  }
+
+
+  //disabled
+  input:disabled ~ &__title {
+    & {cursor: default;}
+    &:before {opacity: .7;background: #eee;filter:grayscale(1);}
+  }
+
+  //checked
+  input:checked ~ &__title:before {border-color: darken($bg-color, 2%);color: #fff;font-size: 14px;text-shadow: 1px 1px 0 rgba(0,0,0,.05);background:$bg-color url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzAgNzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSI0Ny43MTUsMjMuNjg2IDMyLjE1OSwzOS4yNDMgMjIuMjg1LDI5LjM2OSAxOC43NDksMzIuOTA0IDMyLjE1OSw0Ni4zMTQgNTEuMjUxLDI3LjIyMiIvPjwvc3ZnPg==') no-repeat center center;background-size:$size+4px $size+4px;}
+
+  //hover
+  &:hover input:not(:checked) ~ &__title:before {border-color:lighten($bg-color, 20%);}
+  &:hover input:checked + &__title:before {border-color: darken($bg-color, 15%);}
+
+  //focus
+  & input:focus + &__title:before {box-shadow: 0 0 0 2px lighten($bg-color, 40%);}
+}
+
+
+/* radio */
+.radio {
+  & {}
+
+  & &__title:before {content: '';box-shadow: 0 1px 3px rgba(0,0,0,.1);width: $size;height: $size;line-height: $size;background: #fff;left: 0;top: 0;border-radius: 50%;border: 1px solid $border-color;box-sizing: border-box;text-align: center;transition: all .1s;}
+
+  //checked
+  input:checked  ~ &__title:after {content: '';background: #1F95DE;position: absolute;left: 5px;top: 5px;width: 10px;height: 10px;border-radius: 50%;box-shadow: inset 0 1px 3px rgba(0,0,0,.2);}
+
+  //disabled
+  input:disabled ~ &__title {
+    & {cursor: default;}
+    &:before {opacity: .9;background: #eee;}
+    &:before, &:after {filter:grayscale(1);}
+  }
+
+  //hover
+  &:hover input:not(:checked) ~ &__title:before {border-color:lighten($bg-color, 20%);}
+  &:hover input[disabled][checked] ~ &__title:before {border-color:$border-color;} // 'not disabled' no work
+  &:hover input:checked + &__title:before {border-color: darken($bg-color, 2%);}
+
+  //focus
+  & input:focus + &__title:before {box-shadow: 0 0 0 2px lighten($bg-color, 40%);}
+}

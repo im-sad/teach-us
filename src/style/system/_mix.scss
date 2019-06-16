@@ -1,0 +1,15 @@
+//Mixins
+@mixin font-size($sizeValue) {
+	font-size: ($sizeValue / 10px) + rem; //px to rem
+}
+
+@mixin line-height($fontSize, $fontInterliase) {
+	line-height: $fontInterliase / $fontSize;
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content}
+	&::-moz-placeholder {@content}
+	&:-moz-placeholder {@content}
+	&:-ms-input-placeholder {@content}
+}

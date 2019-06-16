@@ -1,0 +1,68 @@
+// Base
+$w: 1200px;
+$bg: #fafafa;
+$img: '../img';
+$fonts: '../fonts';
+
+// Colors
+$color-black: #000;
+$color-white: #fff;
+
+$color-main: #009d98;
+$color-accent: #feca00;
+$color-background: #023838;
+$color-border: #b1b1b1;
+
+$color-muted: lighten($color-main, 20%);
+
+
+// Colors-text
+$color-text: $color-black;
+$color-link: $color-main;
+$color-link-hover: darken($color-main, 20%);
+
+// Paddings
+$padd-xs: 1rem;
+$padd-sm: 2rem;
+$padd-md: 3rem;
+$padd-lg: 4rem;
+$padd-xl: 5rem;
+
+//Fonts family
+$font-Arial: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+$font-ArialBlack: "Arial Black", "Helvetica CY", "Nimbus Sans L" sans-serif;
+$font-ComicSans: "Comic Sans MS", "Monaco CY", cursive;
+$font-Courier: "Courier New", "Nimbus Mono L", monospace;
+$font-Georgia: Georgia, "Century Schoolbook L", Serif;
+$font-Impact: Impact, "Charcoal CY", sa ns-serif;
+$font-LucidaConsole: "Lucida Console", Monaco, monospace;
+$font-LucidaSans: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+$font-Palatino: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$font-Tahoma: Tahoma, "Geneva CY", sans-serif;
+$font-TimesNew: "Times New Roman", "Times CY", "Nimbus Roman No9 L", serif;
+$font-Trebuchet: "Trebuchet MS", "Helvetica CY", sans-serif;
+$font-Verdana: Verdana, "Geneva CY", "DejaVu Sans", sans-serif;
+
+// Fonts options
+$font: $font-Arial;
+$font-base: 62.5%;
+$font-size: 16px;
+$line-height: 1.5;
+
+$btn-line-heigh: 1.25;
+$form-line-height: 1.25;
+
+$h0: 48px;
+$h1: 32px;
+$h2: 3.2rem;
+$h3: 2.8rem;
+$h4: 2.4rem;
+$h5: 2rem;
+$h6: 1.8rem;
+
+// Media
+$media-xs: 320px;
+$media-sm: 480px;
+$media-md: 620px;
+$media-lg: 960px;
+$media-xl: 1200px;

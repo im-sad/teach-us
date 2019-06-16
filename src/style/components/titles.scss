@@ -1,0 +1,23 @@
+@import "../system/_mix", "../system/_vars";
+//Различные блоки
+
+/* TITLES */
+.title {
+	display:block;
+	font-weight:bold;
+	cursor:default;
+	clear:both;
+
+	&--h1 {
+		font-size: $h1;
+		font-weight: 500;
+		@include line-height($h1, 38px);
+	}
+
+}
+
+
+/* ICONS */
+svg.icn {@extend .no-select;@extend .no-events;
+	& {display:inline-block;vertical-align:middle;fill:currentColor;}
+}

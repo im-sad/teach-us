@@ -1,0 +1,14 @@
+@import "../system/_mix", "../system/_vars";
+
+@font-face {
+	font-family: 'Font';
+	src: url('#{$fonts}/font.eot');
+	src: local('PT Sans'), local('PTSans-Regular'),
+			url('#{$fonts}/font.eot?#iefix') format('embedded-opentype'),
+			url('#{$fonts}/font.woff2') format('woff2'),
+			url('#{$fonts}/font.woff') format('woff'),
+			url('#{$fonts}/font.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

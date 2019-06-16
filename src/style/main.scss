@@ -1,0 +1,26 @@
+//Base
+//@import "system/fonts";
+@import "system/normalize";
+@import "system/reset";
+
+
+// Core
+@import "core/core";
+@import "core/header";
+@import "core/footer";
+
+// Components
+@import "components/titles";
+@import "components/forms"; // эл-ты форм
+@import "components/btns"; // кнопки
+
+// Sections
+
+// Blocks
+
+// Pages
+@import "pages/pages";
+@import "pages/index"; //главная
+
+// Helpres
+@import "components/assists"; //в конце, для большего приоритета

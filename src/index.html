@@ -1,0 +1,34 @@
+@@include('tpl/outer/start.html', { "title": "Главная страница" })
+
+
+<body>
+<noscript><div class="noJs">Для полноценной работы сайта, необходимо включить JavaScript!</div></noscript>
+
+<script>
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "img/sprite.svg", true);
+ajax.send();
+ajax.onload = function(e) {
+	var div = document.createElement("div");
+	div.innerHTML = ajax.responseText;
+	document.body.insertBefore(div, document.body.childNodes[0]);
+}
+</script>
+
+
+
+@@include('tpl/header.html')
+
+<!-- TEST -->
+@@include('tpl/pages/test.html')
+
+
+@@include('tpl/footer.html')
+
+<!-- FIXED -->
+@@include('tpl/fixed.html')
+
+
+
+</body>
+</html>
