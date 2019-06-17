@@ -12,3 +12,13 @@
 }
 
 .noJs {background:#F47D7D;padding:2em;text-align:center;color:#fff;font-size:12px;text-shadow:1px 1px 0 rgba(0,0,0,.1);}
+
+.body {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+
+	&__core {
+		flex: 0 0 auto;
+	}
+}

@@ -9,6 +9,7 @@ $color-black: #000;
 $color-white: #fff;
 
 $color-main: #009d98;
+$color-main-dark: #033131;
 $color-accent: #feca00;
 $color-background: #023838;
 $color-border: #b1b1b1;
@@ -63,7 +64,8 @@ $h6: 1.8rem;
 
 // Time
 $time-base: 0.3s;
-
+$time-medium: 0.5s;
+$time-large: 1s;
 
 // Media
 $media-xs: 320px;

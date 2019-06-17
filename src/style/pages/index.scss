@@ -2,25 +2,116 @@
 
 .index-jumbo {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 0 0 auto;
+  height: 670px;
+  background: $color-main-dark;
+  color: $color-white;
+
+  &__icn {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 16px;
+  }
 
   &__title {
+    
+  }
 
+  &__title-span {
+    display: block;
+  }
+}
+
+
+.index-cats {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__core {
+    max-width: 908px - 16px * 4;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 24px;
+  }
+
+  &__list-item {
+    width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 
 
 .start-card {
+  display: block;
+  position: relative;
   color: $color-white;
-  transition: transform $time-base ease;
+  transition: transform $time-medium ease, box-shadow $time-large ease;
+  background-size: cover;
+  height: 225px;
+  border-radius: 5px;
+  padding: 16px 24px;
+  user-select: none;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
+    color: $color-white;
   }
+
   // style
-  &--stydy {
+  &--study {
+    background-image: url('#{$img}/index/card-study.jpg');
+    background-color: #2FA67D;
 
+    @include retina {
+      background-image: url('#{$img}/index/card-study@2x.jpg');
+    }
+
+    &:hover {
+      box-shadow: 0 5px 10px rgba(#2FA67D, 0.5);
+    }
   }
 
-  &--teach {}
+  &--teach {
+    background-image: url('#{$img}/index/card-teach.jpg');
+    background-color: #16376E;
+
+    @include retina {
+      background-image: url('#{$img}/index/card-teach@2x.jpg');
+    }
+
+    &:hover {
+      box-shadow: 0 5px 10px rgba(#16376E, 0.5);
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    @include line-height(21px, 26px);
+    font-weight: 500;
+  }
+
+  &__btn {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    width: 192px;
+  }
 }

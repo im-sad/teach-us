@@ -1,7 +1,7 @@
 @@include('tpl/outer/start.html', { "title": "Index page" })
 
 
-<body>
+<body class="body">
 <noscript><div class="noJs">Для полноценной работы сайта, необходимо включить JavaScript!</div></noscript>
 
 <script>
@@ -15,12 +15,13 @@ ajax.onload = function(e) {
 }
 </script>
 
-
-@@include('tpl/header.html')
-
-@@include('tpl/pages/index.html')
+<div class="body__core">
+	@@include('tpl/header.html')
+	@@include('tpl/pages/index.html')
+</div>
 
 @@include('tpl/footer.html')
+
 
 </body>
 </html>

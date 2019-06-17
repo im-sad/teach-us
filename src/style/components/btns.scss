@@ -2,10 +2,13 @@
 
 /* BTNS */
 .btn {
-	display:inline-block;
-	text-decoration:none;
-	vertical-align:middle;
-	line-height:$btn-line-heigh;
+	display: inline-flex;
+	text-decoration: none;
+	vertical-align: middle;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	line-height: $btn-line-heigh;
 	text-align:center;
 	transition:background .3s;
 	position:relative;
@@ -47,11 +50,17 @@
 
 // Accent button
 .btn-accent {
-	background:$color-accent;
-	color:$color-text;
+	background: $color-accent;
+	color: $color-text;
+	border-radius: 3px;
 
-	&:hover {color:#fff;}
-	&:active {color:#fff;}
+	&:hover {
+		color: $color-text;
+	}
+
+	&:active {
+		
+	}
 }
 
 
