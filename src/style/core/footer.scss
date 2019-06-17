@@ -2,6 +2,10 @@
 
 .footer {
   background: $color-background;
+  margin-top: auto;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: $color-white;
 
   &__core {
     display: flex;
@@ -13,6 +17,20 @@
 
   }
 
+  &__logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 115px;
+    height: 32px;
+    margin-right: 32px;
+    background: url('#{$img}/logo.svg') no-repeat center center;
+    background-size: cover;
+  }
+
+  &__menu {
+    margin-right: 32px;
+  }
+
   &__copyright {
     max-width: 50%;
   }
@@ -20,5 +38,17 @@
 
 // Menu
 .footer-menu {
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+  }
 
+  &__link {
+    color: $color-accent;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
