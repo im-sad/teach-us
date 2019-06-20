@@ -1,14 +1,14 @@
 .w, .w-fluid {
-	margin-left:auto;
-	margin-right:auto;
-	padding-left:10px;
-	padding-right:10px;
-	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 32px;
+	padding-right: 32px;
+	width: 100%;
 	flex:0 0 auto;
 }
 
 .w {
-	max-width:$w + 20px;
+	max-width: $w + (32px * 2);
 }
 
 .noJs {background:#F47D7D;padding:2em;text-align:center;color:#fff;font-size:12px;text-shadow:1px 1px 0 rgba(0,0,0,.1);}

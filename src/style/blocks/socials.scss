@@ -9,6 +9,7 @@
   &__item {
     display: inline-block;
     vertical-align: top;
+    line-height: 1;
     margin-right: 16px;
 
     &:last-child {
@@ -17,6 +18,8 @@
   }
 
   &__link {
+    display: inline-block;
+    vertical-align: top;
     color: $color-accent;
     transition: color $time-base ease;
 
