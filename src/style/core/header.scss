@@ -32,3 +32,29 @@
     display: block;
   }
 }
+
+
+.header-profile {
+  &__ava {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 24px;
+  }
+
+  &__ava-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__link {
+    color: $color-white;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
