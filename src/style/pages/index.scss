@@ -1,14 +1,21 @@
 @import "../system/_mix", "../system/_vars";
 
 .index-jumbo {
+  position: relative;
+  overflow: hidden;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 0 0 auto;
   height: 670px;
-  background: $color-main-dark;
+  background: $color-main-dark url('#{$img}/index/jumbo.jpg') no-repeat center center;
+  background-size: contain;
   color: $color-white;
+
+  @include retina {
+    background-image: url('#{$img}/index/jumbo@2x.jpg');
+  }
 
   &__icn {
     display: inline-block;
@@ -113,5 +120,15 @@
     left: 24px;
     bottom: 24px;
     width: 192px;
+  }
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
