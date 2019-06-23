@@ -1,0 +1,57 @@
+// Tabs base
+.tabs-base {
+  &__switch {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 24px;
+    user-select: none;
+  }
+
+  &__switch-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    flex: 0 1 auto;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 24px;
+    padding-bottom: 10px;
+    transition: box-shadow $time-base ease;
+    box-shadow: inset 0 0 0 rgba($color-white, 0.01);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      font-weight: 500;
+    }
+
+    &.is-active {
+      font-weight: 500;
+      box-shadow: inset 0 -2px 0 $color-main;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  &__content {
+    transition: height $time-base ease-in;
+  }
+
+  &__content-item {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity $time-base 0.1s, visible $time-base 0.1s;
+
+    &.is-active {
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
