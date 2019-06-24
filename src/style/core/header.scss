@@ -8,19 +8,25 @@
   height: 88px;
   position: relative;
 
-  &__core {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .w {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__logo, &__profile {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   &__logo {
+    left: 32px;
     display: inline-block;
     vertical-align: top;
     max-width: 144px;
     user-select: none;
     transition: opacity $time-base ease-in;
+    outline: none;
 
     &:hover {
       opacity: 0.8;
@@ -30,6 +36,10 @@
   &__logo-img {
     width: 100%;
     display: block;
+  }
+
+  &__profile {
+    right: 32px;
   }
 }
 
@@ -56,5 +66,54 @@
     &:hover {
       color: $color-accent;
     }
+  }
+}
+
+
+.role-switcher {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-size: 18px;
+  line-height: 1;
+  user-select: none;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 34px;
+    color: rgba($color-white, 0.5);
+    border: 1px solid rgba($color-white, 0.5);
+
+    &.is-active {
+      font-weight: 700;
+      background: $color-accent;
+      border-color: $color-accent;
+      color: $color-text;
+      cursor: default;
+    }
+
+    &:not(.is-active):hover {
+      color: $color-accent;
+      border-color: $color-accent;
+    }
+  }
+
+  &__item:first-child &__link {
+    border-right-color: transparent;
+    border-radius: 5px 0 0 5px;
+  }
+
+  &__item:last-child &__link {
+    border-left-color: transparent;
+    border-radius: 0 5px 5px 0;
   }
 }

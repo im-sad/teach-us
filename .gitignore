@@ -4,3 +4,5 @@ node_modules
 build
 bower_components
 src/img/\.DS_Store
+
+\.DS_Store
