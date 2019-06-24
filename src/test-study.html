@@ -1,0 +1,27 @@
+@@include('tpl/outer/start.html', { "title": "Index page" })
+
+
+<body class="body">
+<noscript><div class="noJs">Для полноценной работы сайта, необходимо включить JavaScript!</div></noscript>
+
+<script>
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "img/sprite.svg", true);
+ajax.send();
+ajax.onload = function(e) {
+	var div = document.createElement("div");
+	div.innerHTML = ajax.responseText;
+	document.body.insertBefore(div, document.body.childNodes[0]);
+}
+</script>
+
+<div class="body__core">
+	@@include('tpl/header.html')
+	@@include('tpl/pages/test-study.html')
+</div>
+
+@@include('tpl/footer.html')
+
+
+</body>
+</html>

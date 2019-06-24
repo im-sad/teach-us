@@ -1,0 +1,23 @@
+.inputs-list {
+  &__item {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+///.select {
+///	@extend .input;
+///	& {cursor:pointer;}
+///
+///	&--sm {@extend .input--sm;height: calc(3rem + 2px);}
+///	&--md {@extend .input--md;height: calc(4rem + 2px);}
+///	&--lg {@extend .input--lg;height: calc(6rem + 2px);}
+///
+///	&--fluid {@extend .input--fluid;}
+///	&.has-danger {@extend .input.has-danger;}
+///}

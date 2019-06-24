@@ -80,14 +80,14 @@ mark, .mark {background-color:#fcf8e3;padding:.2em;}
 	p {@extend .p;}
 	img, embed, iframe, object, video {max-width:100%;height:auto !important;}
 
-	img[style*="float:left"], img[style*="float: left"], img[style*="float :left"], img[style*="float : left"] {margin-right:$padd-sm !important;}
-	img[style*="float:right"], img[style*="float: right"], img[style*="float :right"], img[style*="float : right"] {margin-left:$padd-sm !important;}
+	img[style*="float:left"], img[style*="float: left"], img[style*="float :left"], img[style*="float : left"] {margin-right: 16px !important;}
+	img[style*="float:right"], img[style*="float: right"], img[style*="float :right"], img[style*="float : right"] {margin-left: 16px !important;}
 
 
 	& > p:last-child, & > ul:last-child, & > table:last-child {margin-bottom:0}
 
 
-	table {width:100%;max-width:100%;margin-bottom:$padd-md;}
+	table {width:100%;max-width:100%;margin-bottom:24px;}
 	td, th {vertical-align:top;padding:.5em;}
 	th {font-weight:bold;}
 	td {border:1px solid $color-border;}
@@ -111,7 +111,7 @@ mark, .mark {background-color:#fcf8e3;padding:.2em;}
 .h5, .txt .h5 {font-size:$h5;}
 .h6, .txt .h6 {font-size:$h6;text-transform:uppercase;}
 
-.p {margin-bottom:$padd-md;}
+.p {margin-bottom: 24px;}
 
 
 

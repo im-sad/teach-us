@@ -1,0 +1,127 @@
+.page-testing {
+  padding-top: 54px;
+  padding-bottom: 64px;
+}
+
+
+.testing-section {
+  &__title {
+    margin-bottom: 30px;
+  }
+
+
+}
+
+
+.testing {
+  position: relative;
+
+  &__steps {
+    position: absolute;
+    left: -32px;
+    top: 0;
+    transform: translateX(-100%);
+  }
+
+  &__variants {
+
+  }
+
+  &__head {
+    margin-bottom: 24px;
+  }
+
+  &__variants-list {
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: -16px;
+  }
+
+  &__variants-list.has-limit .checkbox-btn {
+    cursor: default;
+    border-color: $color-border;
+  }
+
+  &__variants-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  &__next {
+    text-align: right;
+    padding-top: 24px;
+  }
+
+  .js-test-next {
+    display: none;
+  }
+}
+
+
+// Reg
+.testing-reg {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('#{$img}/testing/testing.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(10px);
+    transition: filter $time-large ease;
+  }
+
+  .is-step2 &::before {
+    filter: blur(0);
+  }
+
+  &__form {
+    position: relative;
+    z-index: 1;
+    background: $color-white;
+    border-radius: 8px;
+    width: 100%;
+    flex: 0 0 auto;
+    max-width: 437px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba($color-black, 0.5);
+    transition: transform $time-large ease-in-out;
+  }
+
+  .is-step2 &__form {
+    transform: translateY(100vh);
+  }
+
+  &__title {
+    text-align: center;
+    display: block;
+    font-size: 24px;
+    @include line-height(24px, 28px);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  &__rules {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  &__footer {
+    text-align: center;
+    padding-top: 24px;
+  }
+}

@@ -18,6 +18,13 @@
 		@include line-height($h1, 38px);
 	}
 
+	&--h2 {
+		font-size: $h2;
+		font-weight: 500;
+		@include line-height($h2, 28px);
+	}
+
+
 
 	// paddings
 	&--padd-base {

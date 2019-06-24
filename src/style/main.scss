@@ -8,12 +8,18 @@
 @import "core/core";
 @import "core/header";
 @import "core/footer";
+@import "core/grid";
 
 // Components
 @import "components/titles";
-@import "components/forms"; // эл-ты форм
-@import "components/btns"; // кнопки
 @import "components/tabs";
+@import "components/btns";
+@import "components/checkbox-btn";
+@import "components/stepper";
+// Forms
+@import "components/forms/forms";
+@import "components/forms/input-text";
+@import "components/forms/checkbox";
 
 // Sections
 
@@ -21,7 +27,9 @@
 @import "blocks/socials";
 
 // Pages
-@import "pages/index"; //главная
+@import "pages/pages";
+@import "pages/index";
+@import "pages/testing";
 
 // Helpres
 @import "components/assists"; //в конце, для большего приоритета

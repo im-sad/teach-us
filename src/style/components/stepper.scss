@@ -1,0 +1,49 @@
+.stepper-vertical {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  width: 40px;
+  user-select: none;
+  cursor: default;
+
+  &__step {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 1;
+    border-radius: 50%;
+    border: 1px solid $color-border;
+    font-size: 16px;
+    color: $color-border;
+    transition: color $time-base ease, background $time-base ease, border $time-base ease;
+    flex: 0 0 auto;
+
+    &:hover {
+      color: $color-main;
+      border-color: $color-main;
+    }
+
+    &.is-active {
+      background: $color-main;
+      color: $color-white;
+      border-color: $color-main;
+    }
+  }
+
+  &__sep {
+    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: top;
+    width: 1px;
+    height: 24px;
+    background: $color-border;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}

@@ -1,0 +1,32 @@
+.input {
+  border: 1px solid $color-border;
+  background: $color-white;
+  border-radius: 3px;
+  transition: border $time-base ease;
+
+  &::placeholder {
+    opacity: 1;
+    color: $color-border;
+  }
+
+  &:hover {
+    border-color: darken($color-border, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-main;
+  }
+
+  // sizes
+  &--fluid {
+    width: 100%;
+  }
+
+  &--base {
+    font-size: 16px;
+    height: 36px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

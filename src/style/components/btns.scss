@@ -9,21 +9,28 @@
 	align-content: center;
 	align-items: center;
 	line-height: $btn-line-heigh;
-	text-align:center;
-	transition:background .3s;
-	position:relative;
-	bottom:0;
-	box-sizing:border-box;
-	border:1px solid transparent; //1px border для равной с .field высоты
+	text-align: center;
+	transition: background .3s;
+	position: relative;
+	bottom: 0;
+	box-sizing: border-box;
+	border: 1px solid transparent; //1px border для равной с .field высоты
 	max-width:100%;
 	opacity:1;
-	text-overflow:ellipsis;
+	text-overflow: ellipsis;
 	user-select: none;
+	transition: color $time-base ease, border $time-base ease;
 
 	//state
 	&:hover:not(.no-hover), &--hover {text-decoration:none;cursor:pointer;}
-	&:active, &--active {}
+	&:active, &--active {
+		outline: none;
+	}
 	&:disabled, &--disabled {cursor:default;opacity:.7;}
+
+	&:focus {
+		outline: none;
+	}
 
 	//mod
 	&--fluid {
@@ -32,9 +39,24 @@
 		clear:both;
 	}
 
+	&--min-width {
+		min-width: 192px;
+	}
+
 	//sizes
 	&--base {
 		height: 36px;
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+
+	// icns
+	&--plus:before {
+		content: '\2b ';
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 0.3em;
+		margin-top: -0.15em;
 	}
 }
 
@@ -60,6 +82,18 @@
 
 	&:active {
 		
+	}
+}
+
+// Hollow green
+.btn-hollow-green {
+	border-color: $color-main;
+	color: $color-main;
+	border-radius: 5px;
+
+	&:hover {
+		border-color: lighten($color-main, 10%);
+		color: lighten($color-main, 10%);
 	}
 }
 

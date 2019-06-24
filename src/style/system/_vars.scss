@@ -1,8 +1,11 @@
 // Base
-$w: 1374px;
+$w: 1376px;
 $bg: #fafafa;
 $img: '../img';
 $fonts: '../fonts';
+
+$w-content: 1024px;
+
 
 // Colors
 $color-black: #000;
@@ -13,25 +16,20 @@ $color-main-dark: #033131;
 $color-accent: #feca00;
 $color-background: #023838;
 $color-border: #b1b1b1;
-
-$color-muted: lighten($color-main, 20%);
+$color-fill-grey: #D8D8D8;
+$color-fill-smoke: #F6F6F6;
+$color-important: #FF5760;
+$color-muted: #787878;
 
 
 // Colors-text
 $color-text: $color-black;
 $color-link: $color-main;
-$color-link-hover: darken($color-main, 20%);
-
-// Paddings
-$padd-xs: 1rem;
-$padd-sm: 2rem;
-$padd-md: 3rem;
-$padd-lg: 4rem;
-$padd-xl: 5rem;
+$color-link-hover: lighten($color-main, 10%);
 
 
 // Fonts options
-$font: 'Helvetica Neue', Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+$font: 'Helvetica Neue', 'Roboto', Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
 $font-base: 62.5%;
 $font-size: 16px;
 $line-height: 1.5;
@@ -41,7 +39,8 @@ $form-line-height: 1.25;
 
 $h0: 48px;
 $h1: 32px;
-$h2: 3.2rem;
+$h2: 24px;
+
 $h3: 2.8rem;
 $h4: 2.4rem;
 $h5: 2rem;
@@ -49,13 +48,7 @@ $h6: 1.8rem;
 
 
 // Time
+$time-small: 0.1s;
 $time-base: 0.3s;
 $time-medium: 0.5s;
 $time-large: 1s;
-
-// Media
-$media-xs: 320px;
-$media-sm: 480px;
-$media-md: 620px;
-$media-lg: 960px;
-$media-xl: 1200px;

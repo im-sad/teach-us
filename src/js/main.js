@@ -1,4 +1,5 @@
 @@include('./ripple-effect.js')
+@@include('./testing.js')
 @@include('./pass-eye.js')
 @@include('./tabs.js')
 @@include('./init.js')
