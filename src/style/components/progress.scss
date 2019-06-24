@@ -1,0 +1,26 @@
+.progress {
+  display: block;
+  background: $color-fill-grey;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__bar {
+    border-radius: 6px;
+    width: 100%;
+    height: 6px;
+    background: $color-accent;
+  }
+
+  // mods
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &--accent &__bar {
+    background-color: $color-accent;
+  }
+
+  &--important &__bar {
+    background-color: $color-important;
+  }
+}

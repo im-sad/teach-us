@@ -16,6 +16,8 @@
 @import "components/btns";
 @import "components/checkbox-btn";
 @import "components/stepper";
+@import "components/progress";
+
 // Forms
 @import "components/forms/forms";
 @import "components/forms/input-text";
@@ -24,12 +26,15 @@
 // Sections
 
 // Blocks
+@import "blocks/box";
 @import "blocks/socials";
+@import "blocks/side-nav";
 
 // Pages
 @import "pages/pages";
 @import "pages/index";
 @import "pages/testing";
+@import "pages/profile";
 
 // Helpres
 @import "components/assists"; //в конце, для большего приоритета
