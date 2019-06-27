@@ -1,0 +1,25 @@
+.link {
+  
+}
+
+// Link for tips with icon
+.i-help {
+  cursor: help;
+  color: $color-muted;
+  text-decoration: none;
+  user-select: none;
+  transition: color $time-base ease;
+
+  &:hover {
+    color: $color-main;
+  }
+
+  &__icn {
+    margin-right: 0.2em;
+  }
+
+  &__label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

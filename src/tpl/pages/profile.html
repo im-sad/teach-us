@@ -4,43 +4,27 @@
 
     <div class="page-layout">
       <aside class="page-layout__side">
-        <nav class="side-nav">
-          <ul class="side-nav__list">
-            <li class="side-nav__item is-active">
-              <a href="/profile.html " class="side-nav__link">Profile</a>
-            </li>
-            <li class="side-nav__item">
-              <a href="/" class="side-nav__link">Goals</a>
-            </li>
-            <li class="side-nav__item">
-              <a href="/" class="side-nav__link">Requests</a>
-            </li>
-            <li class="side-nav__item">
-              <a href="/" class="side-nav__link">Connections</a>
-            </li>
-            <li class="side-nav__item">
-              <a href="/" class="side-nav__link">Settings</a>
-            </li>
-          </ul>
-        </nav>
+        @@include('../blocks/nav-user.html', {"active" : "profile"})
       </aside>
 
       <main class="page-layout__content">
 
         <div class="box box--padd-base box--marg-base">
           <div class="box__content">
-            <div class="user-card">
-              <figure class="user-card__ava">
-                <img class="user-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
-              </figure>
+            <div class="user-card custom-table custom-table--45_55 custom-table--padds-cols-large">
+              <div class="user-card__main custom-table__col">
+                <figure class="user-card__ava">
+                  <img class="user-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
+                </figure>
 
-              <div class="user-card__base">
-                <b class="user-card__name title title--h2">Johnathan Carlisle</b>
-                <span class="user-card__date">Since 05.09.2018</span>
-                <span class="btn btn-hollow-green btn--base" data-ripple>Show public profile</span>
+                <div class="user-card__base">
+                  <b class="user-card__name title title--h2">Johnathan Carlisle</b>
+                  <span class="user-card__date">Since 05.09.2018</span>
+                  <span class="btn btn-hollow-green btn--base" data-ripple>Show public profile</span>
+                </div>
               </div>
-              
-              <div class="user-card__full">
+
+              <div class="user-card__full custom-table__col">
                 <ul class="user-card__info user-info">
                   <li class="user-info__item">
                     <span class="user-info__label">Age:</span>
@@ -62,108 +46,282 @@
 
         <div class="box box--padd-base box--marg-base">
           <div class="box__content">
-            <ul class="skills-list">
-              <li class="skills-list__item">
-                <span class="skill-list__label">Math</span>
-                <div class="skill-list__content">
-                  <div class="skill-list__progress progress progress--accent">
-                    <div class="progress__bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                  </div>
-                  <span class="skill-list__val">76</span>
-                </div>
-              </li>
-            </ul>
+            <div class="custom-table custom-table--45_55 custom-table--padds-cols-large">
+              <div class="custom-table__col">
+                <h2 class="title title--h1 title--padd-base">Skill score</h2>
+              </div>
+              <div class="custom-table__col custom-table__col--align-bottom">
+                <h2 class="title title--h2 title--padd-base">Top skills</h2>
+              </div>
 
+              <div class="custom-table__col custom-table__col--full-width demo">
+                <span class="demo__alert">
+                  <span class="demo__alert-msg">Here you'll see job offers relevant to your skills and background</span>
+                </span>
+
+                <div class="custom-table custom-table--45_55 custom-table--padds-cols-large">
+                  <div class="custom-table__col">
+                    <div class="skill-scores">
+                      <ul class="skill-scores__table">
+                        <li class="skill-scores__row">
+                          <div class="skill-scores__cell skill-scores__cell--label">
+                            Overall skill score
+                          </div>
+                          <div class="skill-scores__cell skill-scores__cell--value">
+                            <span class="marked-value">38,600</span>
+                          </div>
+                          <div class="skill-scores__cell skill-scores__cell--desc">
+                            <a href="#" class="i-help">
+                              <span class="i-help__icn icn-help">?</span>
+                              <span class="i-help__label">What is this?</span>
+                            </a>
+                          </div>
+                        </li>
+                        <li class="skill-scores__row">
+                          <div class="skill-scores__cell skill-scores__cell--label">
+                            Change from last week
+                          </div>
+                          <div class="skill-scores__cell skill-scores__cell--value">
+                            <span class="marked-value">+ 250</span>
+                          </div>
+                          <div class="skill-scores__cell skill-scores__cell--desc">
+                            <a href="#">Show history</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="custom-table__col">
+                    <ul class="skills-list">
+                      <li class="skills-list__row">
+                        <div class="skills-list__cell--label skills-list__cell">Math</div>
+                        <div class="skills-list__cell--content skills-list__cell">
+                          <div class="skills-list__progress progress progress--accent">
+                            <div class="progress__bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%"></div>
+                          </div>
+                        </div>
+                        <div class="skills-list__cell--val skills-list__cell">76</div>
+                      </li>
+                      <li class="skills-list__row">
+                        <div class="skills-list__cell--label skills-list__cell">Physics</div>
+                        <div class="skills-list__cell--content skills-list__cell">
+                          <div class="skills-list__progress progress progress--accent">
+                            <div class="progress__bar" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%"></div>
+                          </div>
+                        </div>
+                        <div class="skills-list__cell--val skills-list__cell">71</div>
+                      </li>
+                      <li class="skills-list__row">
+                        <div class="skills-list__cell--label skills-list__cell">Communication</div>
+                        <div class="skills-list__cell--content skills-list__cell">
+                          <div class="skills-list__progress progress progress--accent">
+                            <div class="progress__bar" role="progressbar" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100" style="width: 69%"></div>
+                          </div>
+                        </div>
+                        <div class="skills-list__cell--val skills-list__cell">69</div>
+                      </li>
+                      <li class="skills-list__row">
+                        <div class="skills-list__cell--label skills-list__cell">French</div>
+                        <div class="skills-list__cell--content skills-list__cell">
+                          <div class="skills-list__progress progress progress--accent">
+                            <div class="progress__bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
+                          </div>
+                        </div>
+                        <div class="skills-list__cell--val skills-list__cell">65</div>
+                      </li>
+                      <li class="skills-list__row">
+                        <div class="skills-list__cell--label skills-list__cell">English Literature</div>
+                        <div class="skills-list__cell--content skills-list__cell">
+                          <div class="skills-list__progress progress progress--accent">
+                            <div class="progress__bar" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" style="width: 64%"></div>
+                          </div>
+                        </div>
+                        <div class="skills-list__cell--val skills-list__cell">64</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
 
+
+        <!--  -->
         <div class="box-offers box box--padd-base box--marg-base">
           <h2 class="title title--h1 title--padd-base">Job offers</h2>
 
-          <div class="box__content demo">
+          <div class="demo">
             <span class="demo__alert">
               <span class="demo__alert-msg">Here you'll see job offers relevant to your skills and background</span>
             </span>
-            <div class="box-grid box-grid--3cols">
-              <div class="box-grid__col">
-                <div class="job-card">
-                  <b class="job-card__title">Manager Trainee </b>
-                  <div class="job-card__info">Baron's, Inc | Atlantic City, New Jersey</div>
-                  <div class="job-card__text">
-                    <p>Paid time off including vacation days, sick days and holidays</p>
-                    <p>Five day work week, Sundays always off!</p>
+
+            <div class="box__content">
+              <div class="box-grid box-grid--3cols">
+                <div class="box-grid__col">
+                  <div class="job-card">
+                    <b class="job-card__title">Manager Trainee </b>
+                    <div class="job-card__info">Baron's, Inc | Atlantic City, New Jersey</div>
+                    <div class="job-card__text">
+                      <p>Paid time off including vacation days, sick days and holidays</p>
+                      <p>Five day work week, Sundays always off!</p>
+                    </div>
+                    <a href="#" class="job-card__more">Show more</a>
                   </div>
-                  <a href="#" class="job-card__more">Show more</a>
                 </div>
-              </div>
-              <div class="box-grid__col">
-                <div class="job-card">
-                  <b class="job-card__title">Manager Trainee </b>
-                  <div class="job-card__info">Baron's, Inc | Atlantic City, New Jersey</div>
-                  <div class="job-card__text">
-                    <p>Paid time off including vacation days, sick days and holidays</p>
-                    <p>Five day work week, Sundays always off!</p>
+                <div class="box-grid__col">
+                  <div class="job-card">
+                    <b class="job-card__title">Manager Trainee </b>
+                    <div class="job-card__info">Baron's, Inc | Atlantic City, New Jersey</div>
+                    <div class="job-card__text">
+                      <p>Paid time off including vacation days, sick days and holidays</p>
+                      <p>Five day work week, Sundays always off!</p>
+                    </div>
+                    <a href="#" class="job-card__more">Show more</a>
                   </div>
-                  <a href="#" class="job-card__more">Show more</a>
                 </div>
-              </div>
-              <div class="box-grid__col">
-                <div class="job-card">
-                  <b class="job-card__title">Manager Trainee </b>
-                  <div class="job-card__info">Baron's, Inc | Atlantic City, New Jersey</div>
-                  <div class="job-card__text">
-                    <p>Paid time off including vacation days, sick days and holidays</p>
-                    <p>Five day work week, Sundays always off!</p>
+                <div class="box-grid__col">
+                  <div class="job-card">
+                    <b class="job-card__title">Manager Trainee </b>
+                    <div class="job-card__info">Baron's, Inc | Atlantic City, New Jersey</div>
+                    <div class="job-card__text">
+                      <p>Paid time off including vacation days, sick days and holidays</p>
+                      <p>Five day work week, Sundays always off!</p>
+                    </div>
+                    <a href="#" class="job-card__more">Show more</a>
                   </div>
-                  <a href="#" class="job-card__more">Show more</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+        <!--  -->
 
+
+
+        <!--  -->
         <div class="box box--padd-base box--marg-base">
           <h2 class="title title--h1 title--padd-base">Education</h2>
 
-          <div class="box__content demo">
+          <div class="demo">
             <span class="demo__alert">
               <span class="demo__alert-msg">All your education history in one place</span>
             </span>
-            <div class="box-grid box-grid--3cols">
-              <div class="box-grid__col">
-                <div class="education-card">
-                  <b class="education-card__title">Innsmouth High School</b>
-                  <ul class="education-card__grades">
-                    <li class="education-card__grades-item">
-                      <span class="education-card__grades-label">Grades added</span>
-                      <span class="education-card__grades-val">4</span>
-                    </li>
-                    <li class="education-card__grades-item">
-                      <span class="education-card__grades-label">Grades verified</span>
-                      <span class="education-card__grades-val">3</span>
-                    </li>
-                  </ul>
+
+            <div class="box__content">
+              <div class="box-grid box-grid--3cols">
+                <div class="box-grid__col">
+                  <div class="education-card">
+                    <b class="education-card__title">Innsmouth High School</b>
+                    <ul class="education-card__grades">
+                      <li class="education-card__grades-item">
+                        <span class="education-card__grades-label">Grades added</span>
+                        <span class="education-card__grades-val">4</span>
+                      </li>
+                      <li class="education-card__grades-item">
+                        <span class="education-card__grades-label">Grades verified</span>
+                        <span class="education-card__grades-val">3</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              <div class="box-grid__col">
-                <div class="education-card">
-                  <b class="education-card__title">Innsmouth College</b>
-                  <ul class="education-card__grades">
-                    <li class="education-card__grades-item">
-                      <span class="education-card__grades-label">Grades added</span>
-                      <span class="education-card__grades-val">1</span>
-                    </li>
-                    <li class="education-card__grades-item">
-                      <span class="education-card__grades-label">Grades verified</span>
-                      <span class="education-card__grades-val">0</span>
-                    </li>
-                  </ul>
+                <div class="box-grid__col">
+                  <div class="education-card">
+                    <b class="education-card__title">Innsmouth College</b>
+                    <ul class="education-card__grades">
+                      <li class="education-card__grades-item">
+                        <span class="education-card__grades-label">Grades added</span>
+                        <span class="education-card__grades-val">1</span>
+                      </li>
+                      <li class="education-card__grades-item">
+                        <span class="education-card__grades-label">Grades verified</span>
+                        <span class="education-card__grades-val">0</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!--  -->
+
+
+        <!--  -->
+        <div class="box box--padd-base box--marg-base">
+          <div class="titles-box titles-box--padd-base titles-box--align-bottom">
+            <h2 class="title title--h1">Grades</h2>
+            <b class="title">Each verified grade earns you skill score points</b>
+          </div>
+
+
+          <div class="demo">
+            <span class="demo__alert">
+              <span class="demo__alert-msg">All your education history in one place</span>
+            </span>
+
+            <div class="box__content">
+              <div class="grades-table table">
+                <div class="grades-table__row grades-table__row--title table__row table__row--head">
+                  <div class="grades-table__cell grades-table__cell--name table__cell">Class / course name</div>
+                  <div class="grades-table__cell grades-table__cell--school table__cell">School</div>
+                  <div class="grades-table__cell grades-table__cell--grade table__cell">Grade</div>
+                  <div class="grades-table__cell grades-table__cell--status table__cell">Status</div>
+                </div>
+                <div class="table__row">
+                  <div class="grades-table__cell grades-table__cell--name table__cell">Algebra I</div>
+                  <div class="grades-table__cell grades-table__cell--school table__cell">Innsmouth High School</div>
+                  <div class="grades-table__cell grades-table__cell--grade table__cell">A+</div>
+                  <div class="grades-table__cell grades-table__cell--status table__cell">
+                    <svg class="grades-table__icn grades-table__icn--main icn"><use xlink:href="#icn-check" /></svg>
+                    <span class="inline-block">Verified</span>
+                  </div>
+                </div>
+                <div class="table__row">
+                  <div class="grades-table__cell grades-table__cell--name table__cell">Introduction to Physical Science</div>
+                  <div class="grades-table__cell grades-table__cell--school table__cell">Innsmouth High School</div>
+                  <div class="grades-table__cell grades-table__cell--grade table__cell">A+</div>
+                  <div class="grades-table__cell grades-table__cell--status table__cell">
+                    <svg class="grades-table__icn grades-table__icn--main icn"><use xlink:href="#icn-check" /></svg>
+                    <span class="inline-block">Verified</span>
+                  </div>
+                </div>
+                <div class="table__row">
+                  <div class="grades-table__cell grades-table__cell--name table__cell">English Literature</div>
+                  <div class="grades-table__cell grades-table__cell--school table__cell">Innsmouth High School</div>
+                  <div class="grades-table__cell grades-table__cell--grade table__cell">A+</div>
+                  <div class="grades-table__cell grades-table__cell--status table__cell">
+                    <svg class="grades-table__icn grades-table__icn--main icn"><use xlink:href="#icn-check" /></svg>
+                    <span class="inline-block">Verified</span>
+                  </div>
+                </div>
+                <div class="table__row">
+                  <div class="grades-table__cell grades-table__cell--name table__cell">French I</div>
+                  <div class="grades-table__cell grades-table__cell--school table__cell">Innsmouth High School</div>
+                  <div class="grades-table__cell grades-table__cell--grade table__cell">A+</div>
+                  <div class="grades-table__cell grades-table__cell--status table__cell">
+                    <svg class="grades-table__icn grades-table__icn--grey icn"><use xlink:href="#icn-check" /></svg>
+                    <span class="inline-block">Verified</span>
+                  </div>
+                </div>
+                <div class="table__row">
+                  <div class="grades-table__cell grades-table__cell--name table__cell">Computer Science</div>
+                  <div class="grades-table__cell grades-table__cell--school table__cell">Innsmouth High School</div>
+                  <div class="grades-table__cell grades-table__cell--grade table__cell">A+</div>
+                  <div class="grades-table__cell grades-table__cell--status table__cell">
+                    <svg class="grades-table__icn grades-table__icn--grey icn"><use xlink:href="#icn-check" /></svg>
+                    <span class="inline-block">Verified</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="btn-hollow-green btn btn--base btn--plus">Add grade</a>
+            </div>
+          </div>
+        </div>
+        <!--  -->
 
 
         <div class="box box--padd-base box--marg-base">
@@ -217,7 +375,7 @@
         </div>
 
 
-
+        <!--  -->
         <div class="box box--padd-base box--marg-base">
           <h2 class="title title--h1 title--padd-base">Additional education</h2>
 
@@ -238,7 +396,10 @@
             </div>
           </div>
         </div>
+        <!--  -->
 
+
+        <!--  -->
         <div class="box box--padd-base box--marg-base">
           <h2 class="title title--h1 title--padd-base">Work experience</h2>
 
@@ -257,6 +418,7 @@
             </div>
           </div>
         </div>
+        <!--  -->
 
       </main>
     </div>

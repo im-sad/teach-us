@@ -1,0 +1,119 @@
+<div class="page page-profile">
+  <div class="w">
+
+
+    <div class="page-layout">
+      <aside class="page-layout__side">
+        @@include('../blocks/nav-user.html', {"active" : "setting"})
+      </aside>
+
+      <main class="page-layout__content">
+
+        <div class="box box--padd-base box--marg-base">
+          <h2 class="title title--h1 title--padd-base">Account settings</h2>
+
+          <div class="box__content">
+            <b class="title title--h3 title--padd-small">Linked accounts</b>
+
+            <div class="row">
+              <div class="col-4">
+                <div class="social-card">
+                  <span class="social-card__soc">
+                    <img class="social-card__soc-icn" src="/img/soc/fb.svg" alt="">
+                  </span>
+
+                  <span class="social-card__del">
+                    <svg class="social-card__del-icn icn">
+                      <use xlink:href="#icn-cross"/>
+                    </svg>
+                  </span>
+                  <div class="social-card__content">
+                    <figure class="social-card__ava">
+                      <img class="social-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
+                    </figure>
+                    <b class="social-card__name">Johnathan Carlisle</b>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="social-card">
+                  <span class="social-card__soc">
+                    <img class="social-card__soc-icn" src="/img/soc/google.svg" alt="">
+                  </span>
+
+                  <span class="social-card__del">
+                    <svg class="social-card__del-icn icn">
+                      <use xlink:href="#icn-cross"/>
+                    </svg>
+                  </span>
+                  <div class="social-card__content">
+                    <figure class="social-card__ava">
+                      <img class="social-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
+                    </figure>
+                    <b class="social-card__name">Johnathan Carlisle</b>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="social-card social-card--empty">
+                  <span class="social-card__soc">
+                    <img class="social-card__soc-icn" src="/img/soc/twitter.svg" alt="">
+                  </span>
+
+                  <div class="social-card__content">
+                    <button class="btn-hollow-green btn btn--base btn--plus">Connect</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box box--padd-base box--marg-base">
+          <h2 class="title title--h1 title--padd-base">Change password</h2>
+          <div class="box__content">
+
+              <div class="row">
+                <div class="col-3">
+              <div class="field">
+                <label for="old_pass" class="field__label">Old password</label>
+                <div class="field__content">
+                  <input type="password" class="input input--base input--fluid input--pass" />
+                  <span class="show-pass js-pass-eye"></span>
+                </div>
+              </div>
+                </div>
+                <div class="col-3">
+                                <div class="field">
+                <label for="old_pass" class="field__label">New password</label>
+                <div class="field__content">
+                  <input type="password" class="input input--base input--fluid input--pass" />
+                  <span class="show-pass js-pass-eye"></span>
+                </div>
+              </div>
+                </div>
+                <div class="col-3">
+                  <div class="field">
+                      <span class="field__label">&nbsp;</span>
+                      <div class="field__content">
+                        <button class="btn-accent btn btn--base" data-ripple>Save</button>
+                      </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+
+
+              
+          </div>
+        </div>
+
+
+      </main>
+    </div>
+
+      
+
+  </div>
+</div>

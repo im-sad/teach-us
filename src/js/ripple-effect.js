@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     ripples = document.querySelectorAll('[data-ripple]');
-    console.log(ripples);
 
     for (i = 0, len = ripples.length; i < len; i++) {
       ripple = ripples[i];

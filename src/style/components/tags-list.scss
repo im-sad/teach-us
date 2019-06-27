@@ -1,0 +1,40 @@
+.tags-list {
+  user-select: none;
+  margin-bottom: -4px;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 4px;
+    background: $color-fill-smoke;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 2px 6px;
+    color: $color-text;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--issue,
+    &--help,
+    &--interview {
+      text-shadow: 1px 1px 0 rgba($color-black, 0.05);
+    }
+
+    &--issue {
+      background: $color-main;
+      color: $color-white;
+    }
+
+    &--help {
+      color: $color-white;
+      background: $color-important-light;
+    }
+
+    &--interview {
+      color: $color-white;
+      background: $color-accent;
+    }
+  }
+}

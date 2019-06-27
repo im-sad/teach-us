@@ -2,4 +2,7 @@
 @@include('./testing.js')
 @@include('./pass-eye.js')
 @@include('./tabs.js')
+@@include('./filters.js')
+@@include('./animations.js')
+@@include('./contacts-filter.js')
 @@include('./init.js')

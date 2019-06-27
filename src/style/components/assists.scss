@@ -4,9 +4,15 @@
 
 
 // Colors
-.color-main {color:$color-main;}
+.color-main {color: $color-main;}
 .color-accent {color:$color-accent;}
 .color-muted {color:$color-muted;}
+
+// Display
+.inline-block {
+	display: inline-block;
+	vertical-align: middle;
+}
 
 
 // Fill's
@@ -70,7 +76,7 @@ mark, .mark {background-color:#fcf8e3;padding:.2em;}
 .txt {
 	&:after {content:'';clear:both;width:100%;display:table;}
 
-	ul, ol {margin:1em 0 1em 1em;}
+	ul, ol {margin:18px 0 18px 1em;}
 	ul {list-style:disc}
 	ol {list-style:decimal}
 	ul ul, ol ul, ul ol, ol ol {margin-bottom: 0;}
@@ -87,7 +93,7 @@ mark, .mark {background-color:#fcf8e3;padding:.2em;}
 	& > p:last-child, & > ul:last-child, & > table:last-child {margin-bottom:0}
 
 
-	table {width:100%;max-width:100%;margin-bottom:24px;}
+	table {width:100%;max-width:100%;margin-bottom:18px;}
 	td, th {vertical-align:top;padding:.5em;}
 	th {font-weight:bold;}
 	td {border:1px solid $color-border;}
@@ -111,7 +117,7 @@ mark, .mark {background-color:#fcf8e3;padding:.2em;}
 .h5, .txt .h5 {font-size:$h5;}
 .h6, .txt .h6 {font-size:$h6;text-transform:uppercase;}
 
-.p {margin-bottom: 24px;}
+.p {margin-bottom: 18px;}
 
 
 

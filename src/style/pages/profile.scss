@@ -15,9 +15,21 @@
 
 // User
 .user-card {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  //display: flex;
+  //justify-content: flex-start;
+  //align-items: flex-start;
+
+  &__main {
+    //width: 45%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__full {
+    //width: 55%;
+    align-self: flex-end;
+  }
 
   &__ava {
     position: relative;
@@ -78,21 +90,73 @@
 }
 
 
+// Skill scores
+.skill-scores {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+
+  &__table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__row {
+    display: table-row;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  &__cell {
+    display: table-cell;
+    padding-bottom: 20px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &--label ,
+    &--value {
+      padding-right: 16px;
+    }
+  }
+}
+
 // Skils
 .skills-list {
-  &__item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  display: table;
+  width: 100%;
+
+  &__row {
+    display: table-row;
+    width: 100%;
+  }
+
+  &__cell {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 12px;
     font-size: 14px;
+    @include line-height(14px, 18px);
+
+    &--label {
+      min-width: 150px - 16px; // minus padd
+      padding-right: 16px;
+    }
+
+    &--content {
+      width: 100%;
+    }
+
+    &--val {
+      width: 1px;
+      padding-left: 16px;
+    }
   }
 
-  &__label {
-    
-  }
-
-  &__content {
-
+  &__row:last-child &__cell {
+    padding-bottom: 0;
   }
 
   &__progress {
@@ -105,6 +169,10 @@
     white-space: nowrap;
   }
 }
+
+
+
+
 
 
 // Job offer
@@ -181,6 +249,35 @@
   }
 }
 
+
+// Grades
+.grades-table {
+  margin-bottom: 28px - 12px; // minus cell padd
+
+  &__cell {
+    &--grade,
+    &--status {
+      width: 1px;
+      white-space: nowrap;
+    }
+  }
+
+  &__icn {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+
+    &--main {
+      color: $color-main;
+    }
+
+    &--grey {
+      color: $color-fill-grey;
+    }
+  }
+}
+
+
 // Test scores
 .score-card {
   background: $color-fill-smoke;
@@ -248,6 +345,7 @@
   &__sum-icn {
     width: 16px;
     height: 16px;
+    color: $color-main;
     vertical-align: bottom;
   }
 
@@ -286,69 +384,5 @@
 
   &__btn {
     margin-top: 24px;
-  }
-}
-
-
-
-// DEMO (delete after realise)
-.demo {
-  &__alert {
-    opacity: 0;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    
-    transition: opacity $time-small ease, transform $time-small ease;
-    user-select: none;
-    cursor: default;
-
-    & + * {
-      filter: blur(0);
-      transition: filter $time-base ease;
-    }
-  }
-
-  &__alert:hover + * {
-    filter: blur(5px);
-  }
-
-  &:hover &__alert {
-    opacity: 1;
-  }
-
-  &__alert-msg {
-    display: inline-block;
-    vertical-align: top;
-    background: $color-white;
-    padding: 16px 24px;
-    border-radius: 8px;
-    border: 1px solid $color-background;
-    font-size: 14px;
-    @include line-height(14px, 16px);
-    opacity: 0;
-    transform: scale(1.2);
-    transition: transform $time-base ease-in-out, opacity $time-base ease;
-  }
-
-  &:hover &__alert-msg {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  &__content {
-    will-change: filter;
-    transition: filter $time-base ease;
-  }
-
-  &:hover &__content {
-    filter: blur(4px);
   }
 }

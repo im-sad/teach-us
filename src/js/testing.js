@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (var i = 0; i < testingVarsItems.length; i++) {
           testingVarsItems[i].addEventListener('change', function(e) {
-            console.log(checkedNum(testingVarsItems));
+            //console.log(checkedNum(testingVarsItems));
 
             if (checkedNum(testingVarsItems) >= varsLimit) {
               testingVars.classList.add('has-limit');

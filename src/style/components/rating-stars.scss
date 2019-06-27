@@ -1,0 +1,283 @@
+$star-rating-base: 16px;
+$star-rating-small: 12px;
+
+.stars-rate {
+  flex: 0 0 auto;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: ($star-rating-base * 5) + (4 * 4);
+  height: $star-rating-base;
+  background-image: url('#{$img}/star-empty.svg'), url('#{$img}/star-empty.svg'), url('#{$img}/star-empty.svg'), url('#{$img}/star-empty.svg'), url('#{$img}/star-empty.svg');
+  background-repeat: no-repeat;
+  background-size: $star-rating-base $star-rating-base;
+  background-position: 0 0, ($star-rating-base + 4px) top, ($star-rating-base * 2 + 4px * 2) top, ($star-rating-base * 3 + 4px * 3) top, right top;
+  user-select: none;
+  overflow: hidden;
+  cursor: default;
+
+  &__width {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__width:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: ($star-rating-base * 5) + (4 * 4);
+    height: 100%;
+    background-image: url('#{$img}/star-fill.svg'), url('#{$img}/star-fill.svg'), url('#{$img}/star-fill.svg'), url('#{$img}/star-fill.svg'), url('#{$img}/star-fill.svg');
+    background-position: 0 0, ($star-rating-base + 4px) top, ($star-rating-base * 2 + 4px * 2) top, ($star-rating-base * 3 + 4px * 3) top, right top;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+  }
+
+  [data-rating^='0.1'],
+  [data-rating^='0.2'],
+  [data-rating^='0.3'],
+  [data-rating^='0.4'],
+  [data-rating^='0.5'] {
+    width: calc(10% - 2px);
+  }
+
+  [data-rating^='0.6'],
+  [data-rating^='0.7'],
+  [data-rating^='0.8'],
+  [data-rating^='0.9'],
+  [data-rating='1'] {
+    width: calc(20% - 2px);
+  }
+
+  [data-rating^='1.1'],
+  [data-rating^='1.2'],
+  [data-rating^='1.3'],
+  [data-rating^='1.4'],
+  [data-rating^='1.5'] {
+    width: calc(30% - 1px);
+  }
+
+  [data-rating^='1.6'],
+  [data-rating^='1.7'],
+  [data-rating^='1.8'],
+  [data-rating^='1.9'],
+  [data-rating='2'] {
+    width: calc(40% - 1px);
+  }
+
+  [data-rating^='2.1'],
+  [data-rating^='2.2'],
+  [data-rating^='2.3'],
+  [data-rating^='2.4'],
+  [data-rating^='2.5'] {
+    width: 50%;
+  }
+
+  [data-rating^='2.6'],
+  [data-rating^='2.7'],
+  [data-rating^='2.8'],
+  [data-rating^='2.9'],
+  [data-rating='3'] {
+    width: calc(60% - 1px);
+  }
+
+  [data-rating^='3.1'],
+  [data-rating^='3.2'],
+  [data-rating^='3.3'],
+  [data-rating^='3.4'],
+  [data-rating^='3.5'] {
+    width: calc(70% + 1px);
+  }
+
+  [data-rating^='3.6'],
+  [data-rating^='3.7'],
+  [data-rating^='3.8'],
+  [data-rating^='3.9'],
+  [data-rating='4'] {
+    width: 80%;
+  }
+
+  [data-rating^='4.1'],
+  [data-rating^='4.2'],
+  [data-rating^='4.3'],
+  [data-rating^='4.4'],
+  [data-rating^='4.5'] {
+    width: calc(90% + 2px);
+  }
+
+  [data-rating^='4.6'],
+  [data-rating^='4.7'],
+  [data-rating^='4.8'],
+  [data-rating^='4.9'],
+  [data-rating^='5'] {
+    width: 100%;
+  }
+
+
+  // mod 'small' star
+  &--small {
+    width: ($star-rating-small * 5) + (4 * 4);
+    height: $star-rating-small;
+    background-position: 0 0, ($star-rating-small + 4px) top, ($star-rating-small * 2 + 4px * 2) top, ($star-rating-small * 3 + 4px * 3) top, right top;
+    background-size: $star-rating-small $star-rating-small;
+  }
+
+  &--small &__width:before {
+    width: ($star-rating-small * 5) + (4 * 4);
+    height: 100%;
+    background-position: 0 0, ($star-rating-small + 4px) top, ($star-rating-small * 2 + 4px * 2) top, ($star-rating-small * 3 + 4px * 3) top, right top;
+    background-size: $star-rating-small $star-rating-small;
+    background-repeat: no-repeat;
+  }
+
+  // mod 'single' star
+  &--single {
+    width: $star-rating-base;
+    height: $star-rating-base;
+  }
+
+  &--single &__width {
+    width: $star-rating-base;
+  }
+
+  // mod 'single' and small star
+  @at-root #{&}--single#{&}--small {
+    width: $star-rating-small;
+    height: $star-rating-small;
+  }
+
+  @at-root #{&}--single#{&}--small &__width {
+    width: $star-rating-small;
+  }
+}
+
+.stars-rate-input {
+  position: relative;
+  width: ($star-rating-base * 5) + (4 * 4);
+  height: $star-rating-base;
+  background-image: url('star.svg'), url('star.svg'), url('star.svg'), url('star.svg'), url('star.svg');
+  background-repeat: no-repeat;
+  background-size: $star-rating-base $star-rating-base;
+  background-position: 0 0, ($star-rating-base + 4px) top, ($star-rating-base * 2 + 4px * 2) top, ($star-rating-base * 3 + 4px * 3) top, right top;
+
+  &:focus {
+    outline: none;
+  }
+
+  &__star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: $star-rating-base;
+    font-size: inherit;
+    appearance: none;
+    background-size: $star-rating-base $star-rating-base;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+
+    &:hover,
+    &:checked {
+      background-image: url('star-fill.svg'), url('star-fill.svg'), url('star-fill.svg'), url('star-fill.svg'), url('star-fill.svg');
+      background-position: 0 0, ($star-rating-base + 4px) top, ($star-rating-base * 2 + 4px * 2) top, ($star-rating-base * 3 + 4px * 3) top, right top;
+      background-repeat: no-repeat;
+    }
+
+    &:hover ~ .stars-rate-input__star {
+      background-image: url('star.svg'), url('star.svg'), url('star.svg'), url('star.svg'), url('star.svg');
+      background-position: 0 0, ($star-rating-base + 4px) top, ($star-rating-base * 2 + 4px * 2) top, ($star-rating-base * 3 + 4px * 3) top, right top;
+      background-size: $star-rating-base $star-rating-base;
+      background-repeat: no-repeat;
+    }
+
+    /* Options */
+
+    &:nth-of-type(1) {
+      z-index: 5;
+      width: ($star-rating-base );
+    }
+
+    &:nth-of-type(2) {
+      z-index: 4;
+      width: ($star-rating-base * 2) + (1 * 4);
+    }
+
+    &:nth-of-type(3) {
+      z-index: 3;
+      width: ($star-rating-base * 3) + (2 * 4);
+    }
+
+    &:nth-of-type(4) {
+      z-index: 2;
+      width: ($star-rating-base * 4) + (3 * 4);
+    }
+
+    &:nth-of-type(5) {
+      z-index: 1;
+      width: ($star-rating-base * 5) + (4 * 4);
+    }
+  }
+
+  &--small {
+    width: ($star-rating-small * 5) + (4 * 4);
+    height: $star-rating-small;
+    background-position: 0 0, ($star-rating-small + 4px) top, ($star-rating-small * 2 + 4px * 2) top, ($star-rating-small * 3 + 4px * 3) top, right top;
+    background-size: $star-rating-small $star-rating-small;
+
+    .stars-rate-input__star {
+      height: $star-rating-small;
+      background-size: $star-rating-small $star-rating-small;
+
+      &:hover,
+      &:checked {
+        background-image: url('star-fill.svg'), url('star-fill.svg'), url('star-fill.svg'), url('star-fill.svg'), url('star-fill.svg');
+        background-position: 0 0, ($star-rating-small + 4px) top, ($star-rating-small * 2 + 4px * 2) top, ($star-rating-small * 3 + 4px * 3) top, right top;
+      }
+
+      &:hover ~ .stars-rate-input__star {
+        background-image: url('star.svg'), url('star.svg'), url('star.svg'), url('star.svg'), url('star.svg');
+        background-position: 0 0, ($star-rating-small + 4px) top, ($star-rating-small * 2 + 4px * 2) top, ($star-rating-small * 3 + 4px * 3) top, right top;
+        background-size: $star-rating-small $star-rating-small;
+      }
+
+      /* Options */
+
+      &:nth-of-type(1) {
+        z-index: 5;
+        width: ($star-rating-small );
+      }
+
+      &:nth-of-type(2) {
+        z-index: 4;
+        width: ($star-rating-small * 2) + (1 * 4);
+      }
+
+      &:nth-of-type(3) {
+        z-index: 3;
+        width: ($star-rating-small * 3) + (2 * 4);
+      }
+
+      &:nth-of-type(4) {
+        z-index: 2;
+        width: ($star-rating-small * 4) + (3 * 4);
+      }
+
+      &:nth-of-type(5) {
+        z-index: 1;
+        width: ($star-rating-small * 5) + (4 * 4);
+      }
+    }
+  }
+
+  &.is-disable {
+    pointer-events: none;
+  }
+}

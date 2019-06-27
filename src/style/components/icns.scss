@@ -1,7 +1,21 @@
-/* ICONS */
 svg.icn {
 	user-select: none;
-	display:inline-block;
-	vertical-align:middle;
-	fill:currentColor;
+	display: inline-block;
+	fill: currentColor;
+}
+
+// Help icon
+.icn-help {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  line-height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  background: $color-border;
+  color: $color-white;
+  font-weight: 700;
+	user-select: none;
 }

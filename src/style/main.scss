@@ -8,17 +8,28 @@
 @import "core/core";
 @import "core/header";
 @import "core/footer";
-@import "core/grid";
+@import "core/site-grid";
+@import "core/bootstrap-grid";
 
 // Components
 @import "components/titles";
-@import "components/tabs";
+@import "components/icns";
 @import "components/btns";
+@import "components/tabs";
 @import "components/checkbox-btn";
 @import "components/stepper";
 @import "components/progress";
+@import "components/links";
+@import "components/marked-value";
+@import "components/rating-stars";
+@import "components/tables";
+@import "components/tags-list";
+
+@import "components/table-grids";
+@import "components/demo";
 
 // Forms
+@import "components/forms/field";
 @import "components/forms/forms";
 @import "components/forms/input-text";
 @import "components/forms/checkbox";
@@ -35,6 +46,10 @@
 @import "pages/index";
 @import "pages/testing";
 @import "pages/profile";
+@import "pages/profile-setting";
+@import "pages/profile-requests";
+@import "pages/profile-goals";
+@import "pages/profile-contacts";
 
 // Helpres
 @import "components/assists"; //в конце, для большего приоритета

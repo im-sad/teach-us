@@ -12,14 +12,18 @@ $color-black: #000;
 $color-white: #fff;
 
 $color-main: #009d98;
+$color-main-lightes: #A4EFE1;
 $color-main-dark: #033131;
 $color-accent: #feca00;
 $color-background: #023838;
 $color-border: #b1b1b1;
 $color-fill-grey: #D8D8D8;
 $color-fill-smoke: #F6F6F6;
+$color-important-dark: #FF414B;
 $color-important: #FF5760;
+$color-important-light: #EF9A9A;
 $color-muted: #787878;
+$color-mark: rgba($color-accent, 0.2);
 
 
 // Colors-text
@@ -34,14 +38,17 @@ $font-base: 62.5%;
 $font-size: 16px;
 $line-height: 1.5;
 
+// Elements size
+$btn-base: 36px;
 $btn-line-heigh: 1.25;
 $form-line-height: 1.25;
 
+// Titles
 $h0: 48px;
 $h1: 32px;
 $h2: 24px;
+$h3: 18px;
 
-$h3: 2.8rem;
 $h4: 2.4rem;
 $h5: 2rem;
 $h6: 1.8rem;

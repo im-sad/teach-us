@@ -1,0 +1,124 @@
+<div class="page page--base  page-request">
+  <div class="w">
+
+
+    <div class="page-layout">
+      <aside class="page-layout__side">
+        @@include('../blocks/nav-user.html', {"active" : "req"})
+      </aside>
+
+      <main class="page-layout__content">
+
+        <div class="box box--padd-base box--marg-base">
+          <h2 class="title title--h1 title--padd-base">New request</h2>
+
+          <div class="box__content">
+            <div class="box-grid box-grid--3cols">
+              <div class="box-grid__col">
+                <div class="create-req create-req--issue">
+                  <b class="create-req__title title title--h2">A Single Issue</b>
+                  <div class="create-req__text">I need help solving a single problem, e.g. I don’t understand a math equation, my code won’t work, etc.</div>
+                  <a href="#" class="create-req__btn btn btn-accent btn--base" data-ripple>Create request</a>
+                </div>
+              </div>
+              <div class="box-grid__col">
+                <div class="create-req create-req--help">
+                  <b class="create-req__title title title--h2">Exam help</b>
+                  <div class="create-req__text">I need help preparing for a specific exam or test</div>
+                  <a href="#" class="create-req__btn btn btn-accent btn--base" data-ripple>Create request</a>
+                </div>
+              </div>
+              <div class="box-grid__col">
+                <div class="create-req create-req--interview">
+                  <b class="create-req__title title title--h2">Interview Prep</b>
+                  <div class="create-req__text">I need to evaluate my skills before a job interview and get advice on how to improve my skillset.</div>
+                  <a href="#" class="create-req__btn btn btn-accent btn--base" data-ripple>Create request</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="request-box">
+          <h2 class="title title--h1 title--padd-base">My requests</h2>
+
+          <ul class="request-box__filter tabs-base__switch js-filter">
+            <li class="filter__item tabs-base__switch-item is-active" data-filter="all">All</li>
+            <li class="filter__item tabs-base__switch-item" data-filter="issue">Single problems</li>
+            <li class="filter__item tabs-base__switch-item" data-filter="help">Exam help</li>
+            <li class="filter__item tabs-base__switch-item" data-filter="interview">Pre-interviews</li>
+          </ul>
+
+          <div class="request-box__items">
+            <div class="card-req card-req--issue">
+              <strong class="card-req__title title title--h3">Seeking advice on which mathematical model to use for dataset</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--issue">Single Issue</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--issue">
+              <strong class="card-req__title title title--h3">How do I calculate the integer number of vertices in a 2 dimensional triangle?</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--issue">Single Issue</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--issue">
+              <strong class="card-req__title title title--h3">How to create a dictionary within a dictionary</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--issue">Single Issue</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--interview">
+              <strong class="card-req__title title title--h3">What would be a good Spanish translation for ‘loophole’?</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--interview">Interview</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--help">
+              <strong class="card-req__title title title--h3">Need help prepping for Spanish 201</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--help">Exam Help</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Spanish language</li>
+                </ul>
+                <span class="card-req__date">Created December 2, 2020</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </main>
+    </div>
+
+      
+
+  </div>
+</div>

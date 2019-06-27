@@ -1,0 +1,42 @@
+.table {
+  display: table;
+  width: 100%;
+
+  &__row {
+    display: table-row;
+
+    &--head {
+      font-weight: 500;
+    }
+  }
+
+  &__cell {
+    display: table-cell;
+    vertical-align: top;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    transition: background-color $time-small ease;
+    padding-left: 32px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  &__row--head &__cell {
+    padding-bottom: 0;
+  }
+
+  &__row:not(&__row--head):hover &__cell {
+    background: $color-mark;
+  }
+
+  &__row:not(&__row--head) &__cell {
+    border-bottom: 1px solid $color-fill-grey;
+  }
+
+  &__row:last-child &__cell {
+    padding-bottom: 12px;
+    border-bottom: 0;
+  }
+}

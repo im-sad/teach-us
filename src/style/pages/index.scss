@@ -76,6 +76,7 @@
   border-radius: 5px;
   padding: 16px 24px;
   user-select: none;
+  will-change: box-shadow, transform;
 
   &:hover {
     transform: scale(1.01);

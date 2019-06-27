@@ -3,7 +3,6 @@
   box-shadow: 0 9px 46px 3px rgba($color-black, 0.06);
   border-radius: 5px;
 
-
   &__content {
     position: relative;
   }
@@ -19,7 +18,9 @@
   }
 }
 
-// Grid inside !!!box
+
+
+// Grid inside box (only box)
 .box-grid {
   display: flex;
   justify-content: flex-start;

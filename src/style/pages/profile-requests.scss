@@ -1,0 +1,100 @@
+.create-req {
+  position: relative;
+  display: block;
+  background: $color-fill-smoke;
+  border-radius: 5px;
+  text-align: center;
+  padding: 16px;
+
+  &:before {
+    content: '';
+    border-radius: 5px;
+    width: calc(100% - 32px);
+    position: absolute;
+    height: 4px;
+    top: 8px;
+    left: 16px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+
+  &__text {
+    @include line-height(16px, 22px);
+    height: 66px;
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  // mods
+  &--issue:before {
+    background-color: $color-main;
+  }
+
+  &--help:before {
+    background-color: $color-important-light;
+  }
+
+  &--interview:before {
+    background-color: $color-accent;
+  }
+}
+
+
+.request-box {
+  margin-top: 40px;
+
+  &__filter {
+
+  }
+
+  &__items {
+
+  }
+}
+
+// Request element
+.card-req {
+  background: $color-white;
+  padding: 24px;
+  border-radius: 5px;
+  box-shadow: 0 9px 46px 3px rgba($color-black, 0.06);
+
+  & + & {
+    margin-top: 16px;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+  }
+
+  &__tags {
+    font-size: 12px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__date {
+    cursor: default;
+    font-size: 12px;
+    color: $color-muted;
+    white-space: nowrap;
+    margin-left: 24px;
+  }
+}

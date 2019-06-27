@@ -1,0 +1,17 @@
+<ul class="side-nav side-nav__list">
+  <li class="side-nav__item @@if (context.active == 'profile') {is-active}"">
+    <a href="/profile.html " class="side-nav__link">Profile</a>
+  </li>
+  <li class="side-nav__item @@if (context.active == 'goals') {is-active}">
+    <a href="/profile-goals.html" class="side-nav__link">Goals</a>
+  </li>
+  <li class="side-nav__item @@if (context.active == 'req') {is-active}">
+    <a href="/profile-requests.html" class="side-nav__link">Requests</a>
+  </li>
+  <li class="side-nav__item @@if (context.active == 'contacts') {is-active}">
+    <a href="/profile-contacts.html" class="side-nav__link">Connections</a>
+  </li>
+  <li class="side-nav__item @@if (context.active == 'setting') {is-active}">
+    <a href="/profile-setting.html" class="side-nav__link">Settings</a>
+  </li>
+</ul>

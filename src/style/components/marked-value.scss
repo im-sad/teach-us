@@ -1,0 +1,11 @@
+.marked-value {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+  @include line-height(18px, 22px);
+  font-weight: 700;
+  padding: 4px 8px;
+  background: $color-mark;
+  border-radius: 8px;
+  cursor: default;
+}

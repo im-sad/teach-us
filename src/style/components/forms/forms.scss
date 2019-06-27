@@ -10,14 +10,17 @@
   }
 }
 
-///.select {
-///	@extend .input;
-///	& {cursor:pointer;}
-///
-///	&--sm {@extend .input--sm;height: calc(3rem + 2px);}
-///	&--md {@extend .input--md;height: calc(4rem + 2px);}
-///	&--lg {@extend .input--lg;height: calc(6rem + 2px);}
-///
-///	&--fluid {@extend .input--fluid;}
-///	&.has-danger {@extend .input.has-danger;}
-///}
+
+.show-pass {
+  display: inline-block;
+  vertical-align: middle;
+  background: url('#{$img}/eye.svg') no-repeat center center;
+  width: 19px;
+  height: 19px;
+  transition: transform $time-base ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,24 @@
+.custom-table {
+  display: grid;
+  max-width: 100%;
+
+  &--45_55 {
+    grid-template-columns: 1fr 55%;
+  }
+
+
+  &__col {
+    &--full-width {
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    &--align-bottom {
+      align-self: flex-end;
+    }
+  }
+
+  &--padds-cols-large {
+    grid-column-gap: 48px;
+  }
+}

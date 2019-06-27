@@ -19,9 +19,13 @@
 
 <symbol id="icn-check" viewBox="0 0 16 16" width="16" height="16">
   <g fill="none" fill-rule="evenodd">
-    <circle cx="8" cy="8" r="8" fill="#009D98"/>
+    <circle cx="8" cy="8" r="8" fill="currentColor"/>
     <polygon fill="#FFF" points="3.667 8.128 4.6 7.231 7 9.538 12.067 4.667 13 5.564 7 11.333"/>
   </g>
+</symbol>
+
+<symbol id="icn-cross" viewBox="0 0 10 10" width="10" height="10">
+  <polygon fill="currentColor" fill-rule="evenodd" points="295.75 12 297 13.25 293.25 17 297 20.75 295.75 22 292 18.25 288.25 22 287 20.75 290.75 17 287 13.25 288.25 12 292 15.75" transform="translate(-287 -12)"/>
 </symbol>
 
 </defs>

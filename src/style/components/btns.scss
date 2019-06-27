@@ -19,7 +19,7 @@
 	opacity:1;
 	text-overflow: ellipsis;
 	user-select: none;
-	transition: color $time-base ease, border $time-base ease;
+	transition: color $time-base ease, background-color $time-base ease, border $time-base ease;
 
 	//state
 	&:hover:not(.no-hover), &--hover {text-decoration:none;cursor:pointer;}
@@ -34,9 +34,8 @@
 
 	//mod
 	&--fluid {
-		width:100%;
-		display:block;
-		clear:both;
+		width: 100%;
+		clear: both;
 	}
 
 	&--min-width {
@@ -45,7 +44,7 @@
 
 	//sizes
 	&--base {
-		height: 36px;
+		height: $btn-base;
 		padding-left: 24px;
 		padding-right: 24px;
 	}
@@ -63,8 +62,8 @@
 
 // Main button
 .btn-main {
-	background:$color-main;
-	color:$color-text;
+	background: $color-main;
+	color: $color-text;
 
 	&:hover {color:#fff;}
 	&:active {color:#fff;}
@@ -78,6 +77,7 @@
 
 	&:hover {
 		color: $color-text;
+		background-color: lighten($color-accent, 10%);
 	}
 
 	&:active {
@@ -104,6 +104,7 @@
   position: relative;
   overflow: hidden;
 }
+
 [data-ripple] .ripple {
   position: absolute;
   top: 0;
@@ -111,6 +112,7 @@
   bottom: 0;
   left: 0;
 }
+
 [data-ripple] .ripple span {
   transform: scale(0);
   border-radius: 100%;
@@ -118,7 +120,9 @@
   opacity: 0.75;
   background-color: #fff;
   animation: ripple 1000ms;
+	will-change: opacity, transform;
 }
+
 @keyframes ripple {
   to {
     opacity: 0;

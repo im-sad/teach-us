@@ -1,0 +1,193 @@
+.goals-grid {
+  &__row {
+    margin-bottom: -24px;
+  }
+
+  &__col {
+    margin-bottom: 24px;
+  }
+}
+
+
+// Timeline
+.goal-timeline {
+  overflow: auto;
+  max-width: 100%;
+  padding-bottom: 100px;
+
+  &__track {
+    width: 1000px;
+    height: 6px;
+    background: $color-fill-grey;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  &__point {
+    display: inline-block;
+    vertical-align: middle;
+    width: 120px;
+    text-align: center;
+    margin-bottom: -20px;
+  }
+
+  &__point-stage {
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: $color-muted;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  &__point-title {
+    display: block;
+    font-weight: 700;
+  }
+
+  &__point-dot {
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    background: $color-accent;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px $color-white;
+  }
+}
+
+
+
+// Item
+.goal-card {
+  border-radius: 5px;
+  background: $color-fill-smoke;
+
+  &__core {
+    padding: 12px 16px;
+  }
+
+  &__title {
+    display: block;
+    font-weight: 500;
+    overflow: hidden;
+    width: 100%;
+    height: 44px;
+  }
+
+  &__stat {
+    margin-top: 8px;
+    font-size: 14px;
+    cursor: default;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__stat-rate {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__stat-val {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 16px;
+    line-height: 1;
+  }
+
+  &__location {
+    display: block;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    line-height: 1;
+  }
+
+  &__price {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  &__more {
+    margin-left: 8px;
+  }
+
+  &__part {
+    padding: 8px 16px;
+    background: rgba($color-accent, 0.16);
+    border-radius: 0 0 5px 5px;
+    cursor: default;
+  }
+
+  &__part-title {
+    display: block;
+    font-size: 12px;
+    @include line-height(12px, 16px);
+    margin-bottom: 2px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__part-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__part-name {
+    font-weight: 500;
+    font-size: 16px;
+    @include line-height(16px, 22px);
+    margin-right: 16px;
+  }
+
+  &__part-more {
+    flex: 0 0 auto;
+    color: $color-text;
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-text;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// Add form
+.add-goal {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 16px;
+    font-weight: 500;
+    display: block;
+  }
+
+  &__input {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  &__help {
+    color: $color-muted;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  &__btn {
+    margin-top: 16px;
+  }
+}

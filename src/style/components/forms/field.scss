@@ -1,0 +1,24 @@
+.field {
+  position: relative;
+
+  &__label {
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+  }
+
+  &__content {
+    position: relative;
+  }
+  
+  .show-pass {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    margin-top: -10px;
+  }
+}
