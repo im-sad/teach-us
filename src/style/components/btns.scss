@@ -32,6 +32,25 @@
 		outline: none;
 	}
 
+  &.has-load {
+    color: transparent !important;
+    text-shadow: none !important;
+    cursor: default;
+    pointer-events: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: inline-block;
+      vertical-align: top;
+      animation: spin 0.8s linear infinite;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
 	//mod
 	&--fluid {
 		width: 100%;
@@ -83,6 +102,15 @@
 	&:active {
 		
 	}
+
+	&.has-load::before {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    background-size: 20px 20px;
+    @extend %spinner-black;
+  }
 }
 
 // Hollow green

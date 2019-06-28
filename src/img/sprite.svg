@@ -28,5 +28,27 @@
   <polygon fill="currentColor" fill-rule="evenodd" points="295.75 12 297 13.25 293.25 17 297 20.75 295.75 22 292 18.25 288.25 22 287 20.75 290.75 17 287 13.25 288.25 12 292 15.75" transform="translate(-287 -12)"/>
 </symbol>
 
+<symbol id="icn-arrow-left" viewBox="0 0 8 12" width="8" height="12">
+  <polygon fill="currentColor" fill-rule="evenodd" points="45.6 8.5 47 9.824 41 15.5 35 9.824 36.4 8.5 41 12.851" transform="rotate(90 25.5 -9.5)"/>
+</symbol>
+
+<symbol id="icn-arrow-right" viewBox="0 0 8 12" width="8" height="12">
+  <polygon fill="currentColor" fill-rule="evenodd" points="208.6 8.5 210 9.824 204 15.5 198 9.824 199.4 8.5 204 12.851" transform="rotate(-90 101 109)"/>
+</symbol>
+
+<symbol id="icn-arrows-left" viewBox="0 0 14 12" width="14" height="12">
+  <g fill="currentColor" fill-rule="evenodd" transform="translate(0 -.5)">
+    <polygon points="14.6 3 16 4.324 10 10 4 4.324 5.4 3 10 7.351" transform="rotate(90 10 6.5)"/>
+    <polygon points="8.6 3 10 4.324 4 10 -2 4.324 -.6 3 4 7.351" transform="rotate(90 4 6.5)"/>
+  </g>
+</symbol>
+
+<symbol id="icn-arrows-right" viewBox="0 0 14 12" width="14" height="12">
+  <g fill="currentColor" fill-rule="evenodd" transform="translate(-.5 -.5)">
+    <polygon points="8.6 3 10 4.324 4 10 -2 4.324 -.6 3 4 7.351" transform="rotate(-90 4 6.5)"/>
+    <polygon points="14.6 3 16 4.324 10 10 4 4.324 5.4 3 10 7.351" transform="rotate(-90 10 6.5)"/>
+  </g>
+</symbol>
+
 </defs>
 </svg>

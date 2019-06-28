@@ -1,3 +1,4 @@
+@@include('./common.js')
 @@include('./ripple-effect.js')
 @@include('./testing.js')
 @@include('./pass-eye.js')
@@ -5,4 +6,6 @@
 @@include('./filters.js')
 @@include('./animations.js')
 @@include('./contacts-filter.js')
+@@include('./user-settings.js')
+
 @@include('./init.js')

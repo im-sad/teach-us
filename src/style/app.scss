@@ -2,7 +2,7 @@
 //@import "system/fonts";
 @import "system/normalize";
 @import "system/reset";
-
+@import "system/animations";
 
 // Core
 @import "core/core";
@@ -10,6 +10,7 @@
 @import "core/footer";
 @import "core/site-grid";
 @import "core/bootstrap-grid";
+
 
 // Components
 @import "components/titles";
@@ -24,6 +25,7 @@
 @import "components/rating-stars";
 @import "components/tables";
 @import "components/tags-list";
+@import "components/pagination";
 
 @import "components/table-grids";
 @import "components/demo";

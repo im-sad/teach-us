@@ -1,3 +1,78 @@
+.user-control {
+  &__setting {
+    margin-bottom: 24px;
+  }
+}
+
+.user-setting {
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+    cursor: default;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    vertical-align: top;
+    width: 134px;
+    padding-right: 16px;
+  }
+
+  &__val {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 500;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  &__edit {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__edit-icn {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    text-indent: 110%;
+    overflow: hidden;
+    background: url('#{$img}/edit.svg') no-repeat center center;
+    transition: transform $time-base ease;
+    user-select: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  &__edit-field {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .input {
+      margin-right: 12px;
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+}
+
 .social-card {
   padding: 12px;
   display: flex;

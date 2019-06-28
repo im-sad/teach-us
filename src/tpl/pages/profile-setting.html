@@ -1,4 +1,4 @@
-<div class="page page-profile">
+<div class="page page--base page-setting">
   <div class="w">
 
 
@@ -12,56 +12,80 @@
         <div class="box box--padd-base box--marg-base">
           <h2 class="title title--h1 title--padd-base">Account settings</h2>
 
-          <div class="box__content">
+          <div class="user-control">
+            <ul class="user-control__setting user-setting">
+              <li class="user-setting__item">
+                <div class="user-setting__label">E-mail</div>
+                <div class="user-setting__content">
+                  <span class="user-setting__val">k.konstantinopolsky@mail.ru</span>
+                </div>
+              </li>
+              <li class="user-setting__item">
+                <div class="user-setting__label">Phone</div>
+                <div class="user-setting__content" id="js-editval">
+                  <span class="user-setting__val" data-val>+ 7 931 534 07 07</span>
+                  <div class="user-setting__edit">
+                    <span class="user-setting__edit-icn js-editval-change" title="Edit">edit</span>
+                    <div class="user-setting__edit-field is-hidden js-editval-field">
+                      <input type="text" class="input input--base">
+                      <button class="btn-accent btn btn--base" data-ripple>Save</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
             <b class="title title--h3 title--padd-small">Linked accounts</b>
 
-            <div class="row">
-              <div class="col-4">
-                <div class="social-card">
-                  <span class="social-card__soc">
-                    <img class="social-card__soc-icn" src="/img/soc/fb.svg" alt="">
-                  </span>
+            <div class="user-control__soc user-socials">
+              <div class="user-socials__row row">
+                <div class="user-socials__col col-4">
+                  <div class="social-card">
+                    <span class="social-card__soc">
+                      <img class="social-card__soc-icn" src="/img/soc/fb.svg" alt="">
+                    </span>
 
-                  <span class="social-card__del">
-                    <svg class="social-card__del-icn icn">
-                      <use xlink:href="#icn-cross"/>
-                    </svg>
-                  </span>
-                  <div class="social-card__content">
-                    <figure class="social-card__ava">
-                      <img class="social-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
-                    </figure>
-                    <b class="social-card__name">Johnathan Carlisle</b>
+                    <span class="social-card__del">
+                      <svg class="social-card__del-icn icn">
+                        <use xlink:href="#icn-cross"/>
+                      </svg>
+                    </span>
+                    <div class="social-card__content">
+                      <figure class="social-card__ava">
+                        <img class="social-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
+                      </figure>
+                      <b class="social-card__name">Johnathan Carlisle</b>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-4">
-                <div class="social-card">
-                  <span class="social-card__soc">
-                    <img class="social-card__soc-icn" src="/img/soc/google.svg" alt="">
-                  </span>
+                <div class="user-socials__col col-4">
+                  <div class="social-card">
+                    <span class="social-card__soc">
+                      <img class="social-card__soc-icn" src="/img/soc/google.svg" alt="">
+                    </span>
 
-                  <span class="social-card__del">
-                    <svg class="social-card__del-icn icn">
-                      <use xlink:href="#icn-cross"/>
-                    </svg>
-                  </span>
-                  <div class="social-card__content">
-                    <figure class="social-card__ava">
-                      <img class="social-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
-                    </figure>
-                    <b class="social-card__name">Johnathan Carlisle</b>
+                    <span class="social-card__del">
+                      <svg class="social-card__del-icn icn">
+                        <use xlink:href="#icn-cross"/>
+                      </svg>
+                    </span>
+                    <div class="social-card__content">
+                      <figure class="social-card__ava">
+                        <img class="social-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
+                      </figure>
+                      <b class="social-card__name">Johnathan Carlisle</b>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-4">
-                <div class="social-card social-card--empty">
-                  <span class="social-card__soc">
-                    <img class="social-card__soc-icn" src="/img/soc/twitter.svg" alt="">
-                  </span>
+                <div class="user-socials__col col-4">
+                  <div class="social-card social-card--empty">
+                    <span class="social-card__soc">
+                      <img class="social-card__soc-icn" src="/img/soc/twitter.svg" alt="">
+                    </span>
 
-                  <div class="social-card__content">
-                    <button class="btn-hollow-green btn btn--base btn--plus">Connect</button>
+                    <div class="social-card__content">
+                      <button class="btn-hollow-green btn btn--base btn--plus">Connect</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -69,43 +93,43 @@
           </div>
         </div>
 
+        <!-- Pass -->
         <div class="box box--padd-base box--marg-base">
           <h2 class="title title--h1 title--padd-base">Change password</h2>
-          <div class="box__content">
 
-              <div class="row">
-                <div class="col-3">
-              <div class="field">
-                <label for="old_pass" class="field__label">Old password</label>
-                <div class="field__content">
-                  <input type="password" class="input input--base input--fluid input--pass" />
-                  <span class="show-pass js-pass-eye"></span>
-                </div>
-              </div>
-                </div>
-                <div class="col-3">
-                                <div class="field">
-                <label for="old_pass" class="field__label">New password</label>
-                <div class="field__content">
-                  <input type="password" class="input input--base input--fluid input--pass" />
-                  <span class="show-pass js-pass-eye"></span>
-                </div>
-              </div>
-                </div>
-                <div class="col-3">
-                  <div class="field">
+          <div class="box__content">
+            <div class="user-setpass">
+              <form id="js-form-pass" class="user-setpass__form" action="/">
+                <div class="user-setpass__row row">
+                  <div class="user-setpass__col col-3">
+                    <div class="field">
+                      <label for="old_pass" class="field__label">Old password</label>
+                      <div class="field__content">
+                        <input type="password" class="input input--base input--fluid input--pass" id="old_pass" required />
+                        <span class="show-pass js-pass-eye"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="user-setpass__col col-3">
+                    <div class="field">
+                      <label for="new_pass" class="field__label">New password</label>
+                      <div class="field__content">
+                        <input type="password" class="input input--base input--fluid input--pass" id="new_pass" required />
+                        <span class="show-pass js-pass-eye"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="user-setpass__col col-3">
+                    <div class="field">
                       <span class="field__label">&nbsp;</span>
                       <div class="field__content">
                         <button class="btn-accent btn btn--base" data-ripple>Save</button>
                       </div>
+                    </div>
                   </div>
-                  
                 </div>
-              </div>
-
-
-
-              
+              </form>
+            </div>
           </div>
         </div>
 
