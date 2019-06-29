@@ -1,3 +1,4 @@
+// Standart text input
 .input {
   border: 1px solid $color-border;
   background: $color-white;
@@ -33,5 +34,9 @@
   // mods
   &--pass {
     padding-right: 38px;
+  }
+
+  &.has-error {
+    border-color: $color-important;
   }
 }

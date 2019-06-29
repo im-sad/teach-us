@@ -10,5 +10,7 @@
 ### Init project
 `$ gulp`
 
+`http://localhost:9000`
+
 ### Structure
 style/system - базовые стили, шрифты и настройки

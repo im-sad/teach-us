@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>My Requests</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="format-detection" content="telephone=no">
+
+<!-- STYLES -->
+<link rel="stylesheet" href="css/app.css">
+
+<!-- SCRIPTS -->
+<script>document.documentElement.classList.remove('no-js')</script>
+<script src="js/main.js"></script>
+
+</head>
+
+
+<body class="body">
+<noscript><div class="noJs">Для полноценной работы сайта, необходимо включить JavaScript!</div></noscript>
+
+<script>
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "img/sprite.svg", true);
+ajax.send();
+ajax.onload = function(e) {
+	var div = document.createElement("div");
+	div.innerHTML = ajax.responseText;
+	document.body.insertBefore(div, document.body.childNodes[0]);
+}
+</script>
+
+<div class="body__core">
+	<header class="header">
+	<a href="/" class="header__logo">
+		<img class="header__logo-img" src="/img/logo-c.svg" alt="TeachMePlease" />
+	</a>
+
+	<div class="w">
+		<ul class="role-switcher header__switch">
+			<li class="role-switcher__item">
+				<a href="/profile.html" class="role-switcher__link is-active">Student</a>
+			</li>
+			<li class="role-switcher__item">
+				<a href="#" class="role-switcher__link">Educator</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<div class="header__profile">
+		<div class="header-profile">
+			<span class="header-profile__ava">
+				<img class="header-profile__ava-img" src="/img/no-foto.svg" alt="Its not U" />
+				<!-- <img class="header-profile__ava-img" src="/tmp/user.jpg" srcset="/tmp/user@2x.jpg 2x" alt="Its U" /> -->
+			</span>
+
+			<a href="#" class="header-profile__link">Sign out</a>
+		</div>
+	</div>
+</header>
+	<div class="page page--base  page-request">
+  <div class="w">
+
+
+    <div class="page-layout">
+      <aside class="page-layout__side">
+        <ul class="side-nav side-nav__list">
+  <li class="side-nav__item "">
+    <a href="/profile.html " class="side-nav__link">Profile</a>
+  </li>
+  <li class="side-nav__item ">
+    <a href="/profile-goals.html" class="side-nav__link">Goals</a>
+  </li>
+  <li class="side-nav__item is-active">
+    <a href="/profile-requests.html" class="side-nav__link">Requests</a>
+  </li>
+  <li class="side-nav__item ">
+    <a href="/profile-contacts.html" class="side-nav__link">Connections</a>
+  </li>
+  <li class="side-nav__item ">
+    <a href="/profile-setting.html" class="side-nav__link">Settings</a>
+  </li>
+</ul>
+      </aside>
+
+      <main class="page-layout__content">
+
+        <div class="box box--padd-base box--marg-base">
+          <h2 class="title title--h1 title--padd-base">New request</h2>
+
+          <div class="box__content">
+            <div class="box-grid box-grid--3cols">
+              <div class="box-grid__col">
+                <div class="create-req create-req--issue">
+                  <b class="create-req__title title title--h2">A Single Issue</b>
+                  <div class="create-req__text">I need help solving a single problem, e.g. I don’t understand a math equation, my code won’t work, etc.</div>
+                  <a href="#" class="create-req__btn btn btn-accent btn--base" data-ripple>Create request</a>
+                </div>
+              </div>
+              <div class="box-grid__col">
+                <div class="create-req create-req--help">
+                  <b class="create-req__title title title--h2">Exam help</b>
+                  <div class="create-req__text">I need help preparing for a specific exam or test</div>
+                  <a href="#" class="create-req__btn btn btn-accent btn--base" data-ripple>Create request</a>
+                </div>
+              </div>
+              <div class="box-grid__col">
+                <div class="create-req create-req--interview">
+                  <b class="create-req__title title title--h2">Interview Prep</b>
+                  <div class="create-req__text">I need to evaluate my skills before a job interview and get advice on how to improve my skillset.</div>
+                  <a href="#" class="create-req__btn btn btn-accent btn--base" data-ripple>Create request</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="request-box">
+          <h2 class="title title--h1 title--padd-base">My requests</h2>
+
+          <ul class="request-box__filter tabs-base__switch js-filter">
+            <li class="filter__item tabs-base__switch-item is-active" data-filter="all">All</li>
+            <li class="filter__item tabs-base__switch-item" data-filter="issue">Single problems</li>
+            <li class="filter__item tabs-base__switch-item" data-filter="help">Exam help</li>
+            <li class="filter__item tabs-base__switch-item" data-filter="interview">Pre-interviews</li>
+          </ul>
+
+          <div class="request-box__items">
+            <div class="card-req card-req--issue">
+              <strong class="card-req__title title title--h3">Seeking advice on which mathematical model to use for dataset</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--issue">Single Issue</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--issue">
+              <strong class="card-req__title title title--h3">How do I calculate the integer number of vertices in a 2 dimensional triangle?</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--issue">Single Issue</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--issue">
+              <strong class="card-req__title title title--h3">How to create a dictionary within a dictionary</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--issue">Single Issue</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--interview">
+              <strong class="card-req__title title title--h3">What would be a good Spanish translation for ‘loophole’?</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--interview">Interview</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Math</li>
+                </ul>
+                <span class="card-req__date">Created May 30, 2020</span>
+              </div>
+            </div>
+            <div class="card-req card-req--help">
+              <strong class="card-req__title title title--h3">Need help prepping for Spanish 201</strong>
+
+              <div class="card-req__content">
+                <ul class="card-req__tags tags-list">
+                  <li class="tags-list__item tags-list__item--help">Exam Help</li>
+                  <li class="tags-list__item">College level</li>
+                  <li class="tags-list__item">Spanish language</li>
+                </ul>
+                <span class="card-req__date">Created December 2, 2020</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </main>
+    </div>
+
+      
+
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+	<div class="w">
+
+		<div class="footer__core">
+			<div class="footer__content">
+				<span class="footer__logo"></span>
+
+				<ul class="footer__soc socials">
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-youtube" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-twitter" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-inst" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-fb" />
+							</svg>
+						</a>
+					</li>
+				</ul>
+
+				<ul class="footer__menu footer-menu">
+					<li class="footer-menu__item">
+						<a href="" class="footer-menu__link">Terms</a>
+					</li>
+					<li class="footer-menu__item">
+						<a href="" class="footer-menu__link">Privacy</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__copyright">&copy; 2019 Teach Me Please Corporation. All right reserved.</div>
+		</div>
+
+	</div>
+</footer>
+
+
+</body>
+</html>

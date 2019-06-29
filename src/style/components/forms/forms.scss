@@ -1,11 +1,29 @@
 .inputs-list {
   &__item {
-    display: block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     margin-bottom: 12px;
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: default;
+    line-height: 1;
+
+    a {
+      color: $color-text;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: $color-main;
     }
   }
 }
@@ -23,4 +41,15 @@
   &:hover {
     transform: scale(1.05);
   }
+}
+
+
+.text-error {
+  display: block;
+  max-width: 100%;
+  flex: 0 0 auto;
+  color: $color-important;
+  font-size: 12px;
+  cursor: default;
+  @include line-height(12px, 16px);
 }

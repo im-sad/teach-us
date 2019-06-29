@@ -94,13 +94,10 @@
 	color: $color-text;
 	border-radius: 3px;
 
-	&:hover {
+	&:hover,
+	&:active {
 		color: $color-text;
 		background-color: lighten($color-accent, 10%);
-	}
-
-	&:active {
-		
 	}
 
 	&.has-load::before {

@@ -1,4 +1,4 @@
-.page-testing {
+ .page-testing {
   padding-top: 54px;
   padding-bottom: 64px;
 }
@@ -37,11 +37,6 @@
     margin-bottom: -16px;
   }
 
-  &__variants-list.has-limit .checkbox-btn {
-    cursor: default;
-    border-color: $color-border;
-  }
-
   &__variants-item {
     display: inline-block;
     vertical-align: top;
@@ -51,12 +46,23 @@
   }
 
   &__next {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     text-align: right;
     padding-top: 24px;
   }
 
-  .js-test-next {
-    display: none;
+  &__next-title {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 24px;
+    opacity: 0;
+    transition: opacity $time-base ease;
+
+    .is-step2 & {
+      opacity: 1;
+    }
   }
 }
 

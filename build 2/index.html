@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Index page</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="format-detection" content="telephone=no">
+
+<!-- STYLES -->
+<link rel="stylesheet" href="css/app.css">
+
+<!-- SCRIPTS -->
+<script>document.documentElement.classList.remove('no-js')</script>
+<script src="js/main.js"></script>
+
+</head>
+
+
+<body class="body">
+<noscript><div class="noJs">Для полноценной работы сайта, необходимо включить JavaScript!</div></noscript>
+
+<script>
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "img/sprite.svg", true);
+ajax.send();
+ajax.onload = function(e) {
+	var div = document.createElement("div");
+	div.innerHTML = ajax.responseText;
+	document.body.insertBefore(div, document.body.childNodes[0]);
+}
+</script>
+
+<div class="body__core">
+	<header class="header">
+	<a href="/" class="header__logo">
+		<img class="header__logo-img" src="/img/logo-c.svg" alt="TeachMePlease" />
+	</a>
+
+	<div class="w">
+		<ul class="role-switcher header__switch">
+			<li class="role-switcher__item">
+				<a href="/profile.html" class="role-switcher__link is-active">Student</a>
+			</li>
+			<li class="role-switcher__item">
+				<a href="#" class="role-switcher__link">Educator</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<div class="header__profile">
+		<div class="header-profile">
+			<span class="header-profile__ava">
+				<img class="header-profile__ava-img" src="/img/no-foto.svg" alt="Its not U" />
+				<!-- <img class="header-profile__ava-img" src="/tmp/user.jpg" srcset="/tmp/user@2x.jpg 2x" alt="Its U" /> -->
+			</span>
+
+			<a href="#" class="header-profile__link">Sign out</a>
+		</div>
+	</div>
+</header>
+	<div class="page page-index">
+
+  <section class="index-jumbo">
+    <div class="w">
+      <img src="img/teach.svg" alt="" class="index-jumbo__icn">
+      <h1 class="index-jumbo__title title title--h0">
+        TeachMePlease is coming
+        <span class="index-jumbo__title-span color-accent">to the United States</span>
+      </h1>
+    </div>
+  </section>
+
+
+  <section class="index-cats">
+    <div class="w">
+
+      <h2 class="index-cats__title title title--h1 title--padd-base">Be the first to join our global education community</h2>
+
+      <div class="index-cats__core">
+        <ul class="index-cats__list">
+          <li class="index-cats__list-item">
+            <a class="start-card start-card--study" href="/test-study.html">
+              <span class="start-card__title">Study</span>
+              <span class="start-card__btn btn btn--base btn-accent">Continue</span>
+            </a>
+          </li>
+          <li class="index-cats__list-item">
+            <a class="start-card start-card--teach" href="/teach.html">
+              <span class="start-card__title">Teach</span>
+              <span class="start-card__btn btn btn--base btn-accent">Continue</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+      <h2 class="index-cats__title title title--h1">Take a sneak peek at what we're building!</h2>
+
+    </div>
+  </section>
+
+
+</div>
+</div>
+
+<footer class="footer">
+	<div class="w">
+
+		<div class="footer__core">
+			<div class="footer__content">
+				<span class="footer__logo"></span>
+
+				<ul class="footer__soc socials">
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-youtube" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-twitter" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-inst" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-fb" />
+							</svg>
+						</a>
+					</li>
+				</ul>
+
+				<ul class="footer__menu footer-menu">
+					<li class="footer-menu__item">
+						<a href="" class="footer-menu__link">Terms</a>
+					</li>
+					<li class="footer-menu__item">
+						<a href="" class="footer-menu__link">Privacy</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__copyright">&copy; 2019 Teach Me Please Corporation. All right reserved.</div>
+		</div>
+
+	</div>
+</footer>
+
+
+</body>
+</html>

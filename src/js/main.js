@@ -1,5 +1,6 @@
 @@include('./common.js')
 @@include('./ripple-effect.js')
+@@include('./notus.js')
 @@include('./testing.js')
 @@include('./pass-eye.js')
 @@include('./tabs.js')
@@ -7,5 +8,4 @@
 @@include('./animations.js')
 @@include('./contacts-filter.js')
 @@include('./user-settings.js')
-
 @@include('./init.js')

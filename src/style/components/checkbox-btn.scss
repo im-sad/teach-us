@@ -24,12 +24,16 @@
 
   &:hover &__label {
     border-color: $color-main;
-    border-color: $color-main;
+    color: $color-main;
   }
 
   input:checked + &__label {
     color: $color-white;
     background-color: $color-main;
     border-color: $color-main;
+  }
+
+  &:hover input:checked + &__label {
+    color: $color-white;
   }
 }

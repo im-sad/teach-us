@@ -5,12 +5,15 @@
   align-items: center;
   justify-content: flex-start;
   background: $color-background;
-  height: 88px;
   position: relative;
+  z-index: $z-header;
 
-  .w {
-    position: relative;
-    z-index: 2;
+
+  &__core {
+    height: $header-height;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   &__logo, &__profile {
@@ -25,6 +28,7 @@
     vertical-align: top;
     max-width: 144px;
     user-select: none;
+    margin-right: 24px;
     transition: opacity $time-base ease-in;
     outline: none;
 
@@ -40,6 +44,18 @@
 
   &__profile {
     right: 32px;
+    margin-left: auto;
+  }
+
+  @media screen and (max-width: $media-header-break) {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    &__logo,
+    &__profile {
+      position: static;
+      transform: none;
+    }
   }
 }
 

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Index page</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="format-detection" content="telephone=no">
+
+<!-- STYLES -->
+<link rel="stylesheet" href="css/app.css">
+
+<!-- SCRIPTS -->
+<script>document.documentElement.classList.remove('no-js')</script>
+<script src="js/main.js"></script>
+
+</head>
+
+
+<body class="body">
+<noscript><div class="noJs">Для полноценной работы сайта, необходимо включить JavaScript!</div></noscript>
+
+<script>
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "img/sprite.svg", true);
+ajax.send();
+ajax.onload = function(e) {
+	var div = document.createElement("div");
+	div.innerHTML = ajax.responseText;
+	document.body.insertBefore(div, document.body.childNodes[0]);
+}
+</script>
+
+<div class="body__core">
+	<header class="header">
+	<a href="/" class="header__logo">
+		<img class="header__logo-img" src="/img/logo-c.svg" alt="TeachMePlease" />
+	</a>
+
+	<div class="w">
+		<ul class="role-switcher header__switch">
+			<li class="role-switcher__item">
+				<a href="/profile.html" class="role-switcher__link is-active">Student</a>
+			</li>
+			<li class="role-switcher__item">
+				<a href="#" class="role-switcher__link">Educator</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<div class="header__profile">
+		<div class="header-profile">
+			<span class="header-profile__ava">
+				<img class="header-profile__ava-img" src="/img/no-foto.svg" alt="Its not U" />
+				<!-- <img class="header-profile__ava-img" src="/tmp/user.jpg" srcset="/tmp/user@2x.jpg 2x" alt="Its U" /> -->
+			</span>
+
+			<a href="#" class="header-profile__link">Sign out</a>
+		</div>
+	</div>
+</header>
+	<div class="page page-testing">
+  <div class="w">
+
+
+      <div class="page-testing__row grid justify-content-center">
+        <div class="grid__col-10">
+
+            <section class="testing-section">
+              <h1 class="testing-section__title title title--h1">First, please answer three questions:</h1>
+
+              <div class="testing" id="js-testing-student">
+                <div class="testing__content box box--padd-base">
+                  <div class="testing__head">
+                    <h2 class="testing__title title title--h2">What subjects are you most interested in?</h2>
+                    <p class="testing__limit">(choose up to 3 options)</p>
+                  </div>
+
+                  <div class="testing__variants">
+                    <ul class="testing__variants-list js-test-vars" data-max="3">
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" value="Finance" />
+                          <span class="checkbox-btn__label">Finance</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" value="Business" />
+                          <span class="checkbox-btn__label">Business</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" class="Management" />
+                          <span class="checkbox-btn__label">Management</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" value="Economics" />
+                          <span class="checkbox-btn__label">Economics</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" value="Mathematics" />
+                          <span class="checkbox-btn__label">Mathematics</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" />
+                          <span class="checkbox-btn__label">Physics</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" />
+                          <span class="checkbox-btn__label">Astronomy</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" />
+                          <span class="checkbox-btn__label">Chemistry</span>
+                        </label>
+                      </li>
+                      <li class="testing__variants-item">
+                        <label class="checkbox-btn">
+                          <input type="checkbox" />
+                          <span class="checkbox-btn__label">Biology</span>
+                        </label>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                  <div class="testing__steps stepper-vertical js-test-steps">
+                    <span class="stepper-vertical__step" data-step="3">3</span>
+                    <span class="stepper-vertical__sep"></span>
+                    <span class="stepper-vertical__step" data-step="2">2</span>
+                    <span class="stepper-vertical__sep"></span>
+                    <span class="stepper-vertical__step is-active" data-step="1">1</span>
+                  </div>
+                </div>
+
+                <div class="testing-reg" id="js-fastreg">
+                  <div class="testing-reg__form">
+                    <b class="testing-reg__title">Please enter your e-mail to continue and save your results</b>
+                    <input type="email" class="input input--base input--fluid js-fastreg-email" placeholder="E-mail address">
+
+                    <ul class="testing-reg__rules inputs-list">
+                      <li class="inputs-list__item">
+                        <label class="checkbox">
+                          <input type="checkbox" checked />
+                          <span class="checkbox__title">I agree to receive promotional materials</span>
+                        </label>
+                      </li>
+                      <li class="inputs-list__item">
+                        <label class="checkbox">
+                          <input type="checkbox" checked />
+                          <span class="checkbox__title">I agree with Terms of Service and Privacy Policy</span>
+                        </label>
+                      </li>
+                    </ul>
+
+                    <div class="testing-reg__footer">
+                      <button class="btn-accent btn btn--base btn--min-width" data-ripple>Continue</button>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="testing__next">
+                  <span class="btn btn-accent btn--base btn--min-width js-test-next" style="display: inline-flex" data-step="1" data-ripple>Continue</span>
+                  <span class="btn btn-accent btn--base btn--min-width js-test-next" data-step="2" data-ripple>Continue</span>
+                  <span class="btn btn-accent btn--base btn--min-width js-test-next" data-step="3" data-ripple>Continue</span>
+                  <span class="btn btn-accent btn--base btn--min-width js-test-finish" data-ripple>Continue</span>
+                </div>
+              </div>
+            </section>
+
+
+        </div>
+      </div>
+
+
+
+
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+	<div class="w">
+
+		<div class="footer__core">
+			<div class="footer__content">
+				<span class="footer__logo"></span>
+
+				<ul class="footer__soc socials">
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-youtube" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-twitter" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-inst" />
+							</svg>
+						</a>
+					</li>
+					<li class="socials__item">
+						<a href="#" class="socials__link">
+							<svg class="socials__icn">
+								<use xlink:href="#icn-fb" />
+							</svg>
+						</a>
+					</li>
+				</ul>
+
+				<ul class="footer__menu footer-menu">
+					<li class="footer-menu__item">
+						<a href="" class="footer-menu__link">Terms</a>
+					</li>
+					<li class="footer-menu__item">
+						<a href="" class="footer-menu__link">Privacy</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__copyright">&copy; 2019 Teach Me Please Corporation. All right reserved.</div>
+		</div>
+
+	</div>
+</footer>
+
+
+</body>
+</html>
