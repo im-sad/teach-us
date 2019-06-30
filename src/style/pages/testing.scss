@@ -51,6 +51,11 @@
     align-items: center;
     text-align: right;
     padding-top: 24px;
+    transition: opacity $time-base ease;
+    
+    .is-step2 & {
+      opacity: 1;
+    }
   }
 
   &__next-title {
@@ -58,11 +63,6 @@
     vertical-align: middle;
     margin-right: 24px;
     opacity: 0;
-    transition: opacity $time-base ease;
-
-    .is-step2 & {
-      opacity: 1;
-    }
   }
 }
 

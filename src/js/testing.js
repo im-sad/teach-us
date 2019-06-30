@@ -5,16 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var testingBlock = document.getElementById('js-testing-student');
 
     if (testingBlock) {
-      var testingVariants = testingBlock.getElementsByClassName('js-test-vars'), i = testingVariants.length;
       var stepsBtns = testingBlock.querySelectorAll('[data-step]'), j = stepsBtns.length;
       var stepper = document.getElementById('js-stepper');
-
-      // Init vars
-      if (testingVariants) {
-        while (i--) {
-          initVars(testingVariants[i]);
-        }
-      }
+      var testingChecked;
+      var testingLimit;
 
       // Init steps
       while (j--) {
@@ -23,97 +17,131 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
 
-      function initStep(step) {
-        if (!step) return;
+      initStep(0);
 
-        var stepNextContainer = document.getElementById('step-' + step);
-        var stepCurrentContainer = document.getElementById('step-' + (+step - 1));
+
+      function initStep(step) {
+        var stepContainer = document.getElementById('step-' + (+step - 1));
+        var stepContainerNext;
+
+        if (stepContainer) {
+          stepContainerNext = document.getElementById('step-' + step);
+        } else {
+          stepContainer = document.getElementById('step-' + step);
+        }
+        
+        var testingVariants;
+
 
 
         switch(step) {
           case '1':
-            //todo add focus form
-            console.log('start step 1');
-
-
-            if (testingNums < testingLimit) {
+            if (testingChecked < testingLimit) {
               notyWarn.send({
-                message: 'Choose up to ' + (testingLimit - testingNums) +' more options'
+                message: 'Choose up to ' + (testingLimit - testingChecked) +' more options'
               });
-              return
+
+              return;
             }
 
-            stepCurrentContainer.style.display = 'none';
-            DOMAnimations.fadeIn(stepNextContainer);
+            stepContainer.style.display = 'none';
+            DOMAnimations.fadeIn(stepContainerNext);
+            testingChecked = 0;
+
             break;
 
           case '2':
-            //todo: remove tabindex
-            console.log('start step 2');
-            if (testingNums < testingLimit) {
-              notyWarn.send({
-                message: 'Choose up to ' + (testingLimit - testingNums) +' more options'
-              });
-              return
-            }
-            
-            stepCurrentContainer.style.display = 'none';
-            DOMAnimations.fadeIn(stepNextContainer);
+            stepContainer.style.display = 'none';
+            DOMAnimations.fadeIn(stepContainerNext);
+            testingChecked = 0;
+
+            testingVariants = stepContainerNext.getElementsByClassName('js-test-vars')[0];
+            testingLimit = initVars(testingVariants);
+
             break;
 
           case '3':
-            if (testingNums < testingLimit) {
+            if (testingChecked < testingLimit) {
               notyWarn.send({
-                message: 'Choose up to ' + (testingLimit - testingNums) +' more options'
+                message: 'Choose up to ' + (testingLimit - testingChecked) + ' more options'
               });
-              return
+
+              return;
             }
-            stepCurrentContainer.style.display = 'none';
-            DOMAnimations.fadeIn(stepNextContainer);
+
+            stepContainer.style.display = 'none';
+            DOMAnimations.fadeIn(stepContainerNext);
+
+            testingVariants = stepContainerNext.getElementsByClassName('js-test-vars')[0];
+            testingLimit = initVars(testingVariants);
+
+            testingChecked = 0;
             break;
+
+          case 'finish':
+            if (testingChecked < testingLimit) {
+              notyWarn.send({
+                message: 'Choose up to ' + (testingLimit - testingChecked) + ' more options'
+              });
+
+              return;
+            }
+
+            break;
+
           default:
+            testingVariants = stepContainer.getElementsByClassName('js-test-vars')[0];
+            testingLimit = initVars(testingVariants);
+
             break;
+        }
+
+
+        //FUNC
+        function initVars(scope) {
+          if (!scope) return;
+
+          var varsLimit = scope.dataset.max;
+          var varsItems = scope.querySelectorAll('input[type="checkbox"]');
+
+          for (var i = 0; i < varsItems.length; i++) {
+            varsItems[i].addEventListener('change', function (e) {
+              var validateResult = validateVariants(varsItems, varsLimit);
+
+              if (!validateResult) e.target.checked = false;
+            });
+          }
+
+          return varsLimit;
+        }
+
+        function validateVariants(items, max) {
+          var questionNum = checkedSum(items);
+
+          if (questionNum > max) {
+            notyWarn.send({
+              message: 'Maximum ' + max + ' option'
+            });
+
+            return false;
+          } else return true;
+        }
+
+        function checkedSum(items) {
+          if (!items) return false;
+
+          var checkedItems = 0;
+
+          for (var l = 0; l < items.length; l++) {
+            if (items[l].checked) checkedItems++;
+          }
+
+          testingChecked = checkedItems;
+          return checkedItems;
         }
       }
 
-    function initVars(scope) {
-      if (!scope) return;
 
-      var varsLimit = scope.dataset.max;
-      var varsItems = scope.querySelectorAll('input[type="checkbox"]');
-
-      for (var i = 0; i < varsItems.length; i++) {
-        varsItems[i].addEventListener('change', function(e) {
-          var validateResult = validateVars(varsItems, varsLimit);
-
-          if (!validateResult) e.target.checked = false;
-        });
-      }
-    }
-
-    function validateVars(items, max) {
-      var questionNum = checkedQuestionsNum(items);
-
-      if (questionNum > max) {
-        notyWarn.send({
-          message: 'Maximum ' + max +' option'
-        });
-
-        return false;
-      } else return true;
-    }
-
-    function checkedQuestionsNum(items) {
-      if (!items) return false;
-
-      var checkedQuestionsNum = 0;
-
-      for (var l = 0; l < items.length; l++) {
-        if (items[l].checked) checkedQuestionsNum++;
-      }
-
-      return checkedQuestionsNum;
-    }
 
 
 

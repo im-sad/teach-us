@@ -108,6 +108,8 @@
     height: 34px;
     color: rgba($color-white, 0.5);
     border: 1px solid rgba($color-white, 0.5);
+    margin-right: -1px;
+    transition: border-color $time-base ease, color $time-base ease;
 
     &.is-active {
       font-weight: 700;
@@ -124,12 +126,11 @@
   }
 
   &__item:first-child &__link {
-    border-right-color: transparent;
+    //border-right-color: transparent;
     border-radius: 5px 0 0 5px;
   }
 
   &__item:last-child &__link {
-    border-left-color: transparent;
     border-radius: 0 5px 5px 0;
   }
 }
