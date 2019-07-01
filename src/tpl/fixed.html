@@ -1,3 +1,44 @@
 <!--noindex-->
+<div class="modal modal--center js-modal" id="modal-signin">
+  <div class="modal__inner">
+    <div class="modal-base modal-base--small">
+      <div class="modal-base__head">
+        <b class="modal-base__title title title--h1 title--padd-base">Sign In</b>
 
+        <svg class="modal-base__close modal__close icn">
+          <use xlink:href="#icn-cross-thin" />
+        </svg>
+      </div>
+
+
+      <form action="#" id="js-signin-form" novalidate>
+        <ul class="inputs-list">
+          <li class="inputs-list__item">
+            <div class="field">
+              <input type="email" class="input input--base input--fluid" name="sign_mail" placeholder="E-mail address" value="" required />
+            </div>
+          </li>
+          <li class="inputs-list__item">
+            <div class="field">
+              <input type="password" class="input input--base input--fluid" name="sign_pass" placeholder="Password" value="" required />
+            </div>
+          </li>
+          <li class="inputs-list__item">
+            <div class="field">
+              <label class="checkbox">
+                <input type="checkbox" name="sign_remember" value="true" checked />
+                <span class="checkbox__title">Remember me</span>
+              </label>
+            </div>
+          </li>
+          <li class="inputs-list__item inputs-list__item--footer">
+            <button class="btn btn-accent btn--base btn--min-width">Sign In</button>
+          </li>
+        </ul>
+
+
+      </form>
+    </div>
+  </div>
+</div>
 <!--/noindex-->

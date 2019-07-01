@@ -24,14 +24,14 @@
     transition: color $time-base ease, background $time-base ease, border $time-base ease;
     flex: 0 0 auto;
 
-    &:hover {
-      color: $color-main;
-      border-color: $color-main;
-    }
-
     &.is-active {
       background: $color-main;
       color: $color-white;
+      border-color: $color-main;
+    }
+
+    &.is-active ~ & {
+      color: $color-main;
       border-color: $color-main;
     }
   }
@@ -45,5 +45,9 @@
     background: $color-border;
     margin-top: 4px;
     margin-bottom: 4px;
+  }
+
+  &__step.is-active ~ &__sep {
+    background: $color-main;
   }
 }

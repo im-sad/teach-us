@@ -8,4 +8,6 @@
 @@include('./animations.js')
 @@include('./contacts-filter.js')
 @@include('./user-settings.js')
+@@include('./modal.js')
+@@include('./sign-in.js')
 @@include('./init.js')

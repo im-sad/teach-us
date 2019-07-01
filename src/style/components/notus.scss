@@ -203,12 +203,17 @@
 
 .notus .notus-close {
     position: absolute;
-    height: 20px;
-    width: 20px;
-    padding: 3px 4px;
-    font-size: 2rem;
-    line-height: 15px;
     user-select: none;
+    transition: transform $time-base ease;
+
+    &:hover {
+        transform: scale(1.15);
+    }
+}
+
+.notus-close__icon {
+    width: 12px;
+    height: 12px;
 }
 
 .notus .notus-actions {
@@ -218,7 +223,6 @@
 .notus .notus-close,
 .notus .notus-actions {
     cursor: pointer;
-    font-weight: 600;
 }
 
 .notus .notus-content-body {
@@ -244,8 +248,9 @@
 }
 
 .notus:not(.notus-type-snackbar) .notus-close {
-    top: 0;
-    right: 0;
+    top: 50%;
+    right: 8px;
+    margin-top: -6px;
 }
 
 .notus:not(.notus-type-snackbar) .notus-actions {
@@ -261,7 +266,6 @@
 }
 
 /** Styles for Snackbar **/
-
 .notus-position-bottom .notus.notus-type-snackbar {
     box-shadow: 0 -2px 2px 0 rgba(0,0,0,.14),
                 0 -3px 1px -2px rgba(0,0,0,.2),
@@ -270,10 +274,10 @@
 
 .notus.notus-type-snackbar:after {
     content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 
 .notus.notus-type-snackbar .notus-close {
@@ -313,7 +317,7 @@
 .notus.notus-material-light .notus-close .icon-close,
 .notus.notus-type-snackbar.notus-material-light .notus-action,
 .notus.notus-material-light .notus-content .notus-content-body {
-    color: $color-text;
+    //color: $color-text;
 }
 
 .notus.notus-material-light {
@@ -325,11 +329,6 @@
     border-color: #E0E0E0;
 }
 
-.notus.notus-material-light .notus-close:hover,
-.notus.notus-material-light .notus-actions .action-item:hover {
-    background-color: #E0E0E0;
-}
-
 .notus.notus-material-light.notus-alert-success {
     background-color: #E8F5E9;
     border-color: #C8E6C9;
@@ -339,23 +338,14 @@
     border-color: #C8E6C9;
 }
 
-.notus.notus-material-light.notus-alert-success .notus-close:hover,
-.notus.notus-material-light.notus-alert-success .notus-actions .action-item:hover {
-    background-color: #C8E6C9;
-}
-
 .notus.notus-material-light.notus-alert-failure {
-    background-color: #FFEBEE;
-    border-color: #FFCDD2;
+    background-color: $color-important-dark;
+    border-color: transparent;
+    color: $color-white;
 }
 
 .notus.notus-material-light.notus-alert-failure .notus-actions {
     border-color: #FFCDD2;
-}
-
-.notus.notus-material-light.notus-alert-failure .notus-close:hover,
-.notus.notus-material-light.notus-alert-failure .notus-actions .action-item:hover {
-    background-color: #FFCDD2;
 }
 
 .notus.notus-material-light.notus-alert-warning {
@@ -366,9 +356,4 @@
 
 .notus.notus-material-light.notus-alert-warning .notus-actions {
     border-color: #FFE0B2;
-}
-
-.notus.notus-material-light.notus-alert-warning .notus-close:hover,
-.notus.notus-material-light.notus-alert-warning .notus-actions .action-item:hover {
-    background-color: #FFE0B2;
 }

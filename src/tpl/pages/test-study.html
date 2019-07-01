@@ -228,7 +228,7 @@
                   </div>
 
                   <div class="testing__next">
-                    <span class="btn btn-accent btn--base btn--min-width" style="display: inline-flex" data-step="1" data-ripple>Continue</span>
+                    <span class="btn btn-accent btn--base btn--min-width" style="display: inline-flex" data-to-step="1" data-ripple>Continue</span>
                   </div>
                 </div>
                 <!-- #Step0 -->
@@ -239,19 +239,19 @@
                     <form action="/" class="testing-reg__form">
                       <b class="testing-reg__title">Please enter your e-mail to continue and save your results</b>
                       <div class="field">
-                        <input type="email" autocomplete="on" class="input input--base input--fluid js-fastreg-email" placeholder="E-mail address" required>
+                        <input type="email" name="mail" autocomplete="on" class="input input--base input--fluid js-fastreg-email" placeholder="E-mail address" required>
                       </div>
 
                       <ul class="testing-reg__rules inputs-list">
                         <li class="inputs-list__item">
                           <label class="checkbox">
-                            <input type="checkbox" value="promo" checked />
+                            <input type="checkbox" value="true" name="promo" checked />
                             <span class="checkbox__title">I agree to receive promotional materials</span>
                           </label>
                         </li>
                         <li class="inputs-list__item">
                           <label class="checkbox">
-                            <input type="checkbox" value="policy" checked required />
+                            <input type="checkbox" value="true" name="terms" checked required />
                             <span class="checkbox__title"></span>
                           </label>
                           <span class="inputs-list__content">I agree with <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
@@ -259,14 +259,14 @@
                       </ul>
 
                       <div class="testing-reg__footer">
-                        <button class="btn-accent btn btn--base btn--min-width" data-ripple>Continue</button>
+                        <button type="submit" class="btn-accent btn btn--base btn--min-width" data-ripple>Continue</button>
                       </div>
                     </form>
                   </div>
 
                   <div class="testing__next">
                     <span class="testing__next-title title title--h2">Answer two more questions and see what we are working on:</span>
-                    <span class="testing__next-btn btn btn-accent btn--base btn--min-width" style="display: inline-flex" data-step="2" data-ripple>Continue</span>
+                    <span class="testing__next-btn btn btn-accent btn--base btn--min-width" style="display: inline-flex" data-to-step="2" data-ripple>Continue</span>
                   </div>
                 </div>
                 <!-- #Step1 -->
@@ -280,7 +280,7 @@
                     </div>
 
                     <div class="testing__variants">
-                      <ul class="testing__variants-list js-test-vars" data-max="6">
+                      <ul class="testing__variants-list js-test-vars" data-max="3">
                         <li class="testing__variants-item">
                           <label class="checkbox-btn">
                             <input type="checkbox" value="Attend classes in person" />
@@ -340,7 +340,7 @@
                   </div>
 
                   <div class="testing__next">
-                    <span class="btn btn-accent btn--base btn--min-width" style="display: inline-flex" data-step="3" data-ripple>Continue</span>
+                    <span class="btn btn-accent btn--base btn--min-width" style="display: inline-flex" data-to-step="3" data-ripple>Continue</span>
                   </div>
                 </div>
                 <!-- #Step2 -->
@@ -450,7 +450,7 @@
                   </div>
 
                   <div class="testing__next">
-                    <span class="btn btn-accent btn--base btn--min-width" id="js-test-finish" data-step="finish" data-ripple>Finish</span>
+                    <span class="btn btn-accent btn--base btn--min-width" id="js-test-finish" data-to-step="finish" data-ripple>Finish</span>
                   </div>
                 </div>
                 <!-- #Step3 -->
