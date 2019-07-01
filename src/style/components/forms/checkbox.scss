@@ -106,7 +106,7 @@ $checkbox-size: 24px;
   }
 
   // error
-  &.has-error &__title:before {
+  &.has-error input:not(:checked) ~ &__title:before {
     border-color: $color-important;
   }
 }

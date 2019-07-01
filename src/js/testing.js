@@ -5,20 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var testingBlock = document.getElementById('js-testing-student');
 
     if (testingBlock) {
-      var stepsBtns = testingBlock.querySelectorAll('[data-step]'), j = stepsBtns.length;
-      var stepper = document.getElementById('js-stepper');
-      var testingChecked;
+      var stepsBtns = testingBlock.querySelectorAll('[data-to-step]'), j = stepsBtns.length;
+      var stepperBlock = document.getElementById('js-test-steps');
+      var testingChecked = 0;
       var testingLimit;
+      var testingResult = {};
+      var testingVariants;
 
       // Init steps
       while (j--) {
         stepsBtns[j].addEventListener('click', function() {
-          initStep(this.dataset.step);
+          initStep(this.dataset.toStep);
         });
       }
 
-      initStep(0);
-
+      initStep('0');
 
       function initStep(step) {
         var stepContainer = document.getElementById('step-' + (+step - 1));
@@ -29,45 +30,44 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           stepContainer = document.getElementById('step-' + step);
         }
-        
-        var testingVariants;
-
-
 
         switch(step) {
+          case '0':
+            testingVariants = stepContainer.getElementsByClassName('js-test-vars')[0];
+            testingLimit = initVars(testingVariants);
+            break;
+
           case '1':
             if (testingChecked < testingLimit) {
-              notyWarn.send({
-                message: 'Choose up to ' + (testingLimit - testingChecked) +' more options'
-              });
-
+              showLimitMsg(testingChecked, testingLimit);
               return;
             }
 
+            testingResult['step1'] = getVars(testingVariants);
+
             stepContainer.style.display = 'none';
             DOMAnimations.fadeIn(stepContainerNext);
-            testingChecked = 0;
 
+            testingChecked = 0;
             break;
 
           case '2':
             stepContainer.style.display = 'none';
             DOMAnimations.fadeIn(stepContainerNext);
-            testingChecked = 0;
 
             testingVariants = stepContainerNext.getElementsByClassName('js-test-vars')[0];
             testingLimit = initVars(testingVariants);
-
+            setStep(2);
+            testingChecked = 0;
             break;
 
           case '3':
             if (testingChecked < testingLimit) {
-              notyWarn.send({
-                message: 'Choose up to ' + (testingLimit - testingChecked) + ' more options'
-              });
-
+              showLimitMsg(testingChecked, testingLimit);
               return;
             }
+
+            testingResult['step2'] = getVars(testingVariants);
 
             stepContainer.style.display = 'none';
             DOMAnimations.fadeIn(stepContainerNext);
@@ -76,28 +76,82 @@ document.addEventListener('DOMContentLoaded', function() {
             testingLimit = initVars(testingVariants);
 
             testingChecked = 0;
+            setStep(3);
             break;
 
           case 'finish':
             if (testingChecked < testingLimit) {
-              notyWarn.send({
-                message: 'Choose up to ' + (testingLimit - testingChecked) + ' more options'
-              });
-
+              showLimitMsg(testingChecked, testingLimit);
               return;
             }
 
+            testingResult['step3'] = getVars(testingVariants);
+            sendTesting(testingResult);
             break;
 
           default:
-            testingVariants = stepContainer.getElementsByClassName('js-test-vars')[0];
-            testingLimit = initVars(testingVariants);
-
             break;
         }
 
 
         //FUNC
+        function sendTesting(data) {
+          var finishBtn = document.getElementById('js-test-finish');
+          var xmlhttp = new XMLHttpRequest();
+
+          if (finishBtn) finishBtn.classList.add('has-load');
+
+          xmlhttp.open('POST', url, true);
+          xmlhttp.setRequestHeader('Content-Type', 'application/json');
+          xmlhttp.send(data);
+
+          xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState !== 4) return;
+
+            if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+              window.location = '/profile.html';
+            } else {
+              notyError.send({ message: 'Something went wrong' });
+              if (finishBtn) finishBtn.classList.remove('has-load');
+            }
+          }
+        }
+
+        function showLimitMsg(checked, limit) {
+          if (checked < limit) {
+            notyWarn.send({
+              message: 'Choose up to ' + (limit - checked) + ' more options'
+            });
+
+            return false;
+          }
+        }
+
+        function setStep(step) {
+          if (!step) return;
+
+          var items = stepperBlock.querySelectorAll('[data-step]');
+
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].dataset.step == step) {
+              items[i].classList.add('is-active');
+            } else {
+              items[i].classList.remove('is-active');
+            }
+          }
+        }
+  
+        function getVars(scope) {
+          var varsItems = scope.querySelectorAll('input[type="checkbox"]:checked');
+          var array = [];
+
+          for (var i = 0; i < varsItems.length; i++) {
+            array.push(varsItems[i].value);
+          }
+
+          return array;
+        }
+
         function initVars(scope) {
           if (!scope) return;
 
@@ -142,30 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Main form
     var regForm = document.getElementById('js-fastreg');
 
@@ -181,9 +211,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (isFormValid(regForm)) {
-          testingBlock.classList.add('is-step2');
+          var formData = createInputsObj(regFormInputs);
+          sendFormData(formData, '/users/registrations', this);
         }
       });
+
+
+      function sendFormData(data, url, btn) {
+        var xmlhttp = new XMLHttpRequest();
+
+        btn.classList.add('has-load');
+
+        xmlhttp.open('POST', url, true);
+        xmlhttp.setRequestHeader('Content-Type', 'application/json');
+        xmlhttp.send(data);
+
+        xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState !== 4) return;
+
+          if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+            testingBlock.classList.add('is-step2');
+          } else if (xmlhttp.status === 422) {
+            var response = JSON.parse(xhr.responseText);
+
+            if (response.errors.email_not_unique) {
+              notyWarn.send({
+                message: 'Такая почта уже существует. Залогинтесь на сайте.'
+              });
+            }
+          } else {
+            return false;
+          }
+
+          btn.classList.remove('has-load');
+        }
+      }
+
+      function createInputsObj(collection) {
+        var obj = {};
+
+        for (var i = 0; i < collection.length; i++) {
+          if (collection[i].type === 'checkbox' && !collection[i].checked) {
+            //
+          } else {
+            obj[collection[i].name] = collection[i].value;
+          }
+        }
+
+        return obj;
+      }
+
 
       function isFormValid(form) {
         if (form.getElementsByClassName('has-error').length < 1) return true;
@@ -200,8 +277,8 @@ document.addEventListener('DOMContentLoaded', function() {
               fieldAddError(input);
             } else if (!isEmailValid(input)) {
               fieldAddError(input);
-              notyWarn.send({
-                message: 'Wrong format'
+              notyError.send({
+                message: 'Wrong email format'
               });
             } else {
               fieldRemoveError(input);
@@ -211,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
           case 'checkbox':
             if (!input.checked && isFieldRequired(input)) {
               fieldAddError(input);
-              notyWarn.send({
+              notyError.send({
                 message: 'To continue you must agree with terms of Service and Privacy Policy'
               });
             } else {

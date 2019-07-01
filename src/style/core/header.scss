@@ -78,6 +78,7 @@
 
   &__link {
     color: $color-white;
+    cursor: pointer;
 
     &:hover {
       color: $color-accent;

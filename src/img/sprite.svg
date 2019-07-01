@@ -28,6 +28,10 @@
   <polygon fill="currentColor" fill-rule="evenodd" points="295.75 12 297 13.25 293.25 17 297 20.75 295.75 22 292 18.25 288.25 22 287 20.75 290.75 17 287 13.25 288.25 12 292 15.75" transform="translate(-287 -12)"/>
 </symbol>
 
+<symbol id="icn-cross-thin" viewBox="0 0 16 16" width="16" height="16">
+  <polygon fill="currentColor" fill-rule="evenodd" points="0 1.31 1.31 0 8 6.69 14.69 0 16 1.31 9.31 8 16 14.69 14.69 16 8 9.345 1.31 16 0 14.69 6.655 8"/>
+</symbol>
+
 <symbol id="icn-arrow-left" viewBox="0 0 8 12" width="8" height="12">
   <polygon fill="currentColor" fill-rule="evenodd" points="45.6 8.5 47 9.824 41 15.5 35 9.824 36.4 8.5 41 12.851" transform="rotate(90 25.5 -9.5)"/>
 </symbol>

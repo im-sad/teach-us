@@ -418,7 +418,7 @@
         {
             closeElTpl = [
                 '<div class="notus-body-item notus-close">',
-                    '<span class="icon-close">&times;</span>',
+                    '<svg class="notus-close__icon"><use xlink:href="#icn-cross" />></svg>',
                 '</div>'
             ].join('');
         }
