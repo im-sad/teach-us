@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (xmlhttp.status === 200 || xmlhttp.status === 201) {
               window.location = '/profile.html';
             } else {
-              notyError.send({ message: 'Something went wrong' });
+              showError('Something went wrong');
               if (finishBtn) finishBtn.classList.remove('has-load');
             }
           }
@@ -119,10 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function showLimitMsg(checked, limit) {
           if (checked < limit) {
-            notyWarn.send({
-              message: 'Choose up to ' + (limit - checked) + ' more options'
-            });
-
+            showWarning('Choose up to ' + (limit - checked) + ' more options');
             return false;
           }
         }
@@ -173,10 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
           var questionNum = checkedSum(items);
 
           if (questionNum > max) {
-            notyWarn.send({
-              message: 'Maximum ' + max + ' option'
-            });
-
+            showWarning('Maximum ' + max + ' option');
             return false;
           } else return true;
         }
@@ -235,9 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var response = JSON.parse(xhr.responseText);
 
             if (response.errors.email_not_unique) {
-              notyWarn.send({
-                message: 'Такая почта уже существует. Залогинтесь на сайте.'
-              });
+              showWarning('Такая почта уже существует. Залогинтесь на сайте.');
             }
           } else {
             return false;
@@ -277,9 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
               fieldAddError(input);
             } else if (!isEmailValid(input)) {
               fieldAddError(input);
-              notyError.send({
-                message: 'Wrong email format'
-              });
+              showError('Wrong email format');
             } else {
               fieldRemoveError(input);
             }
@@ -288,9 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
           case 'checkbox':
             if (!input.checked && isFieldRequired(input)) {
               fieldAddError(input);
-              notyError.send({
-                message: 'To continue you must agree with terms of Service and Privacy Policy'
-              });
+              showError('To continue you must agree with terms of Service and Privacy Policy');
             } else {
               fieldRemoveError(input);
             }

@@ -1,6 +1,5 @@
 @@include('./common.js')
 @@include('./ripple-effect.js')
-@@include('./notus.js')
 @@include('./testing.js')
 @@include('./pass-eye.js')
 @@include('./tabs.js')
@@ -10,4 +9,5 @@
 @@include('./user-settings.js')
 @@include('./modal.js')
 @@include('./sign-in.js')
+@@include('./iziToast.js')
 @@include('./init.js')

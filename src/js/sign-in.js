@@ -66,21 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
               fieldAddError(input);
             } else if (!isEmailValid(input)) {
               fieldAddError(input);
-              notyError.send({
-                message: 'Wrong email format'
-              });
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-
-          case 'checkbox':
-            if (!input.checked && isFieldRequired(input)) {
-              fieldAddError(input);
-              notyError.send({
-                message: 'To continue you must agree with terms of Service and Privacy Policy'
-              });
+              showError('Wrong email format');
             } else {
               fieldRemoveError(input);
             }
