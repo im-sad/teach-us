@@ -42,23 +42,35 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 });
 
+function showError(msg) {
+  if (!msg) return;
 
-var notyWarn = notus({
-  title: '',
-  closable: false,
-  autoCloseDuration: 1500,
-  notusType: 'toast',
-  notusPosition: 'top',
-  alertType: 'warning',
-  htmlString: true
-});
+  return iziToast.show({
+    message: msg,
+    class: 'error',
+    color: 'red',
+    position: 'topCenter',
+    timeout: false,
+    progressBar: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp'
+  });
+}
 
-var notyError = notus({
-  title: '',
-  closable: true,
-  autoClose: false,
-  notusType: 'toast',
-  notusPosition: 'top',
-  alertType: 'failure',
-  htmlString: true
-});
+function showWarning(msg) {
+  if (!msg) return;
+
+  return iziToast.show({
+    message: msg,
+    class: 'warning',
+    color: 'yellow',
+    position: 'topCenter',
+    timeout: 1800,
+    progressBar: false,
+    close: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp'
+  });
+}
