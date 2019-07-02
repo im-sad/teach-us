@@ -47,14 +47,15 @@ function showError(msg) {
 
   return iziToast.show({
     message: msg,
-    class: 'error',
     color: 'red',
+    theme: 'dark',
     position: 'topCenter',
     timeout: false,
     progressBar: false,
     animateInside: false,
     transitionIn: 'fadeInDown',
-    transitionOut: 'fadeOutUp'
+    transitionOut: 'fadeOutUp',
+    displayMode: 'replace'
   });
 }
 
@@ -63,7 +64,6 @@ function showWarning(msg) {
 
   return iziToast.show({
     message: msg,
-    class: 'warning',
     color: 'yellow',
     position: 'topCenter',
     timeout: 1800,
