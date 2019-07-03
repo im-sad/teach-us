@@ -11,27 +11,49 @@
 
 // Timeline
 .goal-timeline {
-  overflow: auto;
-  max-width: 100%;
-  padding-bottom: 100px;
+  margin-bottom: 30px;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 12px;
+  padding-right: 12px;
 
-  &__track {
-    width: 1000px;
-    height: 6px;
-    background: $color-fill-grey;
-    margin-left: 100px;
-    margin-right: 100px;
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 2px;
+    cursor: move;
+    cursor: grabbing;
+    //-webkit-overflow-scrolling: touch;
+    // -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    //&::-webkit-scrollbar {
+    //  display: none;
+    //}
   }
 
-  &__point {
-    display: inline-block;
-    vertical-align: middle;
+  &__line {
+    will-change: transform;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: none;
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    display: block;
     width: 120px;
     text-align: center;
-    margin-bottom: -20px;
+    margin-left: 32px;
+    margin-right: 32px;
+    user-select: none;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
-  &__point-stage {
+  &__stage {
     display: block;
     text-transform: uppercase;
     margin-bottom: 4px;
@@ -41,19 +63,74 @@
     letter-spacing: 0.1em;
   }
 
-  &__point-title {
+  &__title {
     display: block;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  &__item.is-active &__title {
     font-weight: 700;
   }
 
-  &__point-dot {
-    display: inline-block;
-    vertical-align: middle;
+  &__point {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
     width: 32px;
     height: 32px;
-    background: $color-accent;
+
+    &:after {
+      content: '';
+      background: $color-fill-grey;
+      height: 6px;
+      width: 120px + 32px + 32px; // item width + margins
+      position: absolute;
+      left: 16px;
+      transform: translateX(-100%);
+    }
+  }
+
+  &__item--done &__point {
+    &:after {
+      background-color: $color-accent;
+    }
+  }
+
+  &__item:first-child &__point {
+    &:after {
+      content: none;
+    }
+  }
+
+  &__point-dot {
+    width: 16px;
+    height: 16px;
+    background: $color-fill-grey;
     border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    z-index: 1;
     box-shadow: 0 0 0 2px $color-white;
+  }
+
+  &__item--strong &__point-dot {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item--done &__point-dot {
+    background: $color-accent;
+  }
+
+  &__result {
+    display: block;
+    font-size: 12px;
+    line-height: 1;
+    margin-top: 4px;
   }
 }
 

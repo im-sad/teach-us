@@ -10,4 +10,6 @@
 @@include('./modal.js')
 @@include('./sign-in.js')
 @@include('./iziToast.js')
+@@include('./scrollbooster.js')
+@@include('./goals-timeline.js')
 @@include('./init.js')
