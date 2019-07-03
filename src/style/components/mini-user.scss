@@ -1,0 +1,30 @@
+.mini-user {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: default;
+
+  &__foto {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: $color-fill-smoke;
+  }
+
+  &__foto-img {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__name {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

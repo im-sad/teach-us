@@ -1,6 +1,5 @@
 .page-profile {
-  padding-top: 32px;
-  padding-bottom: 64px; 
+  //
 }
 
 .profile-user {
@@ -55,37 +54,6 @@
     font-size: 14px;
     line-height: 1;
     margin-bottom: 12px;
-  }
-}
-
-.user-info {
-  position: relative;
-  display: table;
-
-  &__item {
-    display: table-row;
-  }
-
-  &__label {
-    color: $color-muted;
-    width: 130px;
-    white-space: nowrap;
-    padding-right: 24px;
-    display: table-cell;
-  }
-
-  &__val {
-    font-weight: 500;
-    display: table-cell;
-
-    &--empty {
-      color: $color-muted;
-    }
-  }
-
-  &__item:not(:last-child) &__label,
-  &__item:not(:last-child) &__val {
-    padding-bottom: 8px;
   }
 }
 

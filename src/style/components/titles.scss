@@ -7,7 +7,7 @@
 	clear:both;
 
 	&--h0 {
-		font-size: 48px;
+		font-size: $h0;
 		font-weight: 500;
 		@include line-height(48px, 56px);
 	}

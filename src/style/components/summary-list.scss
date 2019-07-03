@@ -1,0 +1,43 @@
+.summary-list {
+  position: relative;
+  display: table;
+
+  &__item {
+    display: table-row;
+  }
+
+  &__label {
+    color: $color-muted;
+    width: 130px;
+    white-space: nowrap;
+    padding-right: 24px;
+    display: table-cell;
+    cursor: default;
+  }
+
+  &__val {
+    display: table-cell;
+  }
+
+  &__val-name {
+    font-weight: 500;
+    cursor: default;
+
+    &--empty {
+      color: $color-muted;
+    }
+  }
+
+  &__val-link {
+
+  }
+
+  &__val-name + &__val-link {
+    margin-left: 0.5em;
+  }
+
+  &__item:not(:last-child) &__label,
+  &__item:not(:last-child) &__val {
+    padding-bottom: 8px;
+  }
+}

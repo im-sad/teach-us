@@ -28,6 +28,8 @@
 @import "components/pagination";
 @import "components/modal";
 @import "components/iziToast";
+@import "components/mini-user";
+@import "components/summary-list";
 
 @import "components/table-grids";
 @import "components/demo";
@@ -54,6 +56,7 @@
 @import "pages/profile-requests";
 @import "pages/profile-goals";
 @import "pages/profile-contacts";
+@import "pages/educator";
 
 // Helpres
 @import "components/assists"; //в конце, для большего приоритета
