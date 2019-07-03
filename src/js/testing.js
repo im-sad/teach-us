@@ -103,7 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
           xmlhttp.open('POST', url, true);
           xmlhttp.setRequestHeader('Content-Type', 'application/json');
-          xmlhttp.send(data);
+          xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+          xmlhttp.send(JSON.stringify(data));
 
           xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState !== 4) return;
@@ -218,7 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         xmlhttp.open('POST', url, true);
         xmlhttp.setRequestHeader('Content-Type', 'application/json');
-        xmlhttp.send(data);
+        xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+        xmlhttp.send(JSON.stringify(data));
 
         xmlhttp.onreadystatechange = function() {
           if (xmlhttp.readyState !== 4) return;

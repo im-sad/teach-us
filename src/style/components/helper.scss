@@ -1,0 +1,55 @@
+.helper {
+  display: inline-block;
+  vertical-align: top;
+  background: $color-mark;
+  border-radius: 5px;
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 0;
+      height: 0;
+      border: 12px solid transparent;
+    }
+  }
+
+  &__icn {
+    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: top;
+    background: $color-accent;
+    text-align: center;
+    color: $color-white;
+    width: 24px;
+    height: 24px;
+    font-weight: 500;
+    border-radius: 50%;
+    margin-right: 12px;
+    font-size: 16px;
+    line-height: 23px;
+    text-indent: 0.1em;
+    user-select: none;
+  }
+
+  &__text {
+    display: block;
+    font-size: 14px;
+    cursor: default;
+  }
+
+
+  // Mods
+  &--top-left &__content:before {
+    left: 18px;
+    top: -24px;
+    border-bottom-color: $color-mark;
+  }
+}

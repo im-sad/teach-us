@@ -6,6 +6,14 @@
 	cursor:default;
 	clear:both;
 
+	&__sub {
+		font-size: 16px;
+		color: $color-muted;
+		font-weight: 400;
+		padding-left: 0.5em;
+	}
+
+	// mods
 	&--h0 {
 		font-size: $h0;
 		font-weight: 500;

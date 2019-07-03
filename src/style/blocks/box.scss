@@ -13,29 +13,3 @@
     }
   }
 }
-
-
-// Grid inside box (only box)
-// TODO: change to bootstrap
-.box-grid {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  margin-left: -12px;
-  margin-right: -12px;
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-
-  &__col {
-    flex: 0 1 auto;
-    padding-left: 12px;
-    padding-right: 12px;
-    max-width: 100%;
-  }
-
-  &--3cols &__col {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
-}
