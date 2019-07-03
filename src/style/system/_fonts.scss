@@ -1,14 +1,59 @@
-@import "../system/_mix", "../system/_vars";
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-regular.woff2') format('woff2'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-regular.woff') format('woff'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-regular.ttf') format('truetype');
+}
 
 @font-face {
-	font-family: 'Font';
-	src: url('#{$fonts}/font.eot');
-	src: local('PT Sans'), local('PTSans-Regular'),
-			url('#{$fonts}/font.eot?#iefix') format('embedded-opentype'),
-			url('#{$fonts}/font.woff2') format('woff2'),
-			url('#{$fonts}/font.woff') format('woff'),
-			url('#{$fonts}/font.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-italic.woff2') format('woff2'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-italic.woff') format('woff'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-500.woff2') format('woff2'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-500.woff') format('woff'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-500.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-500italic.woff2') format('woff2'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-500italic.woff') format('woff'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-500italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-700.woff2') format('woff2'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-700.woff') format('woff'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-700.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-700italic.woff2') format('woff2'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-700italic.woff') format('woff'),
+       url('#{$fonts}/Roboto/roboto-v19-cyrillic_latin-700italic.ttf') format('truetype');
 }
