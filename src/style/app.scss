@@ -31,8 +31,6 @@
 @import "components/mini-user";
 @import "components/summary-list";
 @import "components/helper";
-
-@import "components/table-grids";
 @import "components/demo";
 
 // Forms
@@ -40,6 +38,8 @@
 @import "components/forms/forms";
 @import "components/forms/input-text";
 @import "components/forms/checkbox";
+@import "components/forms/select";
+@import "components/forms/input-ava";
 
 // Sections
 
@@ -58,6 +58,7 @@
 @import "pages/profile-goals";
 @import "pages/profile-contacts";
 @import "pages/educator";
+@import "pages/config";
 
 // Helpres
 @import "components/assists"; //в конце, для большего приоритета

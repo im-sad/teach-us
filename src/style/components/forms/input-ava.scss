@@ -1,0 +1,53 @@
+.input-ava {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $color-fill-grey;
+  color: $color-main;
+  font-size: 14px;
+  transition: color $time-base ease;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+
+  input {
+    display: none;
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 110%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 1;
+    transition: opacity $time-base ease;
+
+    @supports (object-fit: cover) {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &:hover img {
+    opacity: 0;
+  }
+
+  &__add {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

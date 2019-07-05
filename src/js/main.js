@@ -1,4 +1,5 @@
 @@include('./common.js')
+@@include('./validate.js')
 @@include('./ripple-effect.js')
 @@include('./testing.js')
 @@include('./pass-eye.js')
@@ -12,4 +13,6 @@
 @@include('./iziToast.js')
 @@include('./scrollbooster.js')
 @@include('./goals-timeline.js')
+@@include('./ava-uploader.js')
+@@include('./config.js')
 @@include('./init.js')

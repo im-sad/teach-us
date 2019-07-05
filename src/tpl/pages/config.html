@@ -1,0 +1,189 @@
+<div class="page page--base page-config">
+  <div class="w">
+
+    <div class="page-public__row grid justify-content-center">
+      <div class="grid__col-10">
+        <!-- step1 -->
+        <div class="page-config__step js-config-step" id="step-1">
+          <h1 class="title title--h1 title--padd-base">Set password</h1>
+          <div class="box box--padd-base">
+
+            <div class="config-pass row">
+              <div class="col-6">
+                <form action="/" id="js-config-form1" class="inline-form inline-form--align-bottom">
+                  <div class="field field--inline">
+                    <div class="field__label">New password</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base input--pass js-pass-complexity" name="password" type="password" />
+                      <span class="show-pass js-pass-eye"></span>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn-accent btn btn--base" data-step="1" data-ripple>Save</button>
+                </form>
+              </div>
+
+              <div class="config-pass__helper col-7">
+                <div class="helper helper--top-left">
+                  <div class="helper__content">
+                    <span class="helper__icn">i</span>
+
+                    <div class="helper__text">Use 8 or more characters with a mix of letters, both upper- and lowercase, numbers & symbols (dashes, spaces, underscores, @#$%& etc.)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- # step1 -->
+        <!-- step2 -->
+        <div class="page-config__step js-config-step" id="step-2">
+          <h1 class="title title--h1 title--padd-base">Add your phone number</h1>
+          <div class="box box--padd-base">
+
+            <div class="config-phone row">
+              <div class="col-4">
+                <div class="inline-form inline-form--align-bottom">
+                  <div class="field field--inline">
+                    <div class="field__label">Phone number</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="tel" />
+                    </div>
+                  </div>
+
+                  <a href="#" class="btn-accent btn btn--base" data-ripple>Save</a>
+                </div>
+              </div>
+
+              <div class="config-phone__helper col-8">
+                <div class="helper helper--left-center">
+                  <div class="helper__content helper__content--small helper__content--align-start ">
+                    <span class="helper__icn">i</span>
+
+                    <div class="helper__text">
+                      <p>Add a phone number to your account as an extra layer of security.</p>
+                      <p>You will be able to use that phone number to restore access to your account if you forget or lose your password. Our tech support and customer service will also be able to contact you.</p>
+                      <p>Your phone number will not be visible in your public profile.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#skip2" class="page-config__skip">Skip this step</a>
+          </div>
+        </div>
+        <!-- # step2 -->
+        <!-- step3 -->
+        <div class="page-config__step js-config-step" id="step-3">
+          <h1 class="title title--h1 title--padd-base">Enter your profile info</h1>
+          <div class="box box--padd-base">
+
+            <div class="config-all">
+              <div class="config-all__row row">
+                <div class="col-12">
+                  <label class="input-ava">
+                    <input type="file" type="file" class="js-ava-uploader" accept="image/*" />
+                    <span class="input-ava__add">+ Add photo</span>
+                  </label>
+                </div>
+              </div>
+              <div class="config-all__row row">
+                <div class="col-6">
+                  <div class="field">
+                    <div class="field__label field__label--req">First name</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="text" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="field">
+                    <div class="field__label field__label--req">Last name</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="text" required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="config-all__row row">
+                <div class="col-2">
+                  <div class="field">
+                    <div class="field__label">Age</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="text" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="field">
+                    <div class="field__label">Gender (optional)</div>
+                    <div class="field__content">
+                      <select name="" id="" class="select select--base select--fluid">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="config-all__row row">
+                <div class="col-5">
+                  <div class="field">
+                    <div class="field__label field__label--req">State</div>
+                    <div class="field__content">
+                      <select name="" id="" class="select select--base select--fluid" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="field">
+                    <div class="field__label field__label--req">City</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="text" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="field">
+                    <div class="field__label">ZIP code</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="text" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="config-all__row row">
+                <div class="col-12">
+                  <div class="field">
+                    <div class="field__label">Street address (this will not be visible to the public)</div>
+                    <div class="field__content">
+                      <input class="input input--fluid input--base" type="text" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="config-all__footer">
+                <a class="config-all__send btn-accent btn btn--base btn--min-width" href="javascript:void(0)" data-ripple>Save changes</a>
+                <span class="config-all__req">
+                  <span class="color-important">*</span>
+                  required field
+                </span>
+              </div>
+            </div>
+
+            <a href="/profile.html" class="page-config__skip">Skip this step</a>
+          </div>
+        </div>
+        <!-- # step3 -->
+      </div>
+    </div>
+
+
+  </div>
+</div>

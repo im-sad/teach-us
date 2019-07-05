@@ -1,0 +1,58 @@
+.page-config {
+  &__step {
+    display: none;
+  }
+
+  &__skip {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    color: $color-muted;
+    font-size: 14px;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+}
+
+.config-pass {
+  &__helper {
+    margin-top: 24px;
+  }
+}
+
+
+.config-phone {
+  padding-bottom: 48px;
+
+  &__helper {
+    padding-left: 24px;
+  }
+}
+
+.config-all {
+  max-width:765px;
+
+  &__row {
+    margin-top: 24px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__footer {
+    margin-top: 32px;
+  }
+
+  &__send {
+    margin-right: 24px;
+  }
+
+  &__req {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+}

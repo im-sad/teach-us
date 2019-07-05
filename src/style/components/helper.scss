@@ -3,6 +3,8 @@
   vertical-align: top;
   background: $color-mark;
   border-radius: 5px;
+  position: relative;
+  z-index: 1;
 
   &__content {
     position: relative;
@@ -18,6 +20,10 @@
       width: 0;
       height: 0;
       border: 12px solid transparent;
+    }
+
+    &--align-start {
+      align-items: flex-start;
     }
   }
 
@@ -35,13 +41,14 @@
     margin-right: 12px;
     font-size: 16px;
     line-height: 23px;
-    text-indent: 0.1em;
+    text-indent: 0.05em;
     user-select: none;
   }
 
   &__text {
     display: block;
     font-size: 14px;
+    @include line-height(14px, 18px);
     cursor: default;
   }
 
@@ -51,5 +58,12 @@
     left: 18px;
     top: -24px;
     border-bottom-color: $color-mark;
+  }
+
+  &--left-center &__content:before {
+    left: -24px;
+    top: 50%;
+    border-right-color: $color-mark;
+    transform: translateY(-50%);
   }
 }

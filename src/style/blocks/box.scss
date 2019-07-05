@@ -1,4 +1,5 @@
 .box {
+  position: relative;
   background: $color-white;
   box-shadow: 0 9px 46px 3px rgba($color-black, 0.06);
   border-radius: 5px;
@@ -6,10 +7,12 @@
   &--padd-base {
     padding: 24px;
   }
+}
 
-  &--marg-base {
-    & + & {
-      margin-top: 24px;
-    }
+
+// Any block on flow. Usually its 'box'
+.flow-block {
+  & + & {
+    margin-top: 24px;
   }
 }

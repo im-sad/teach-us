@@ -27,9 +27,9 @@
     padding-bottom: 0;
   }
 
-  &__row:not(&__row--head):hover &__cell {
-    background: $color-mark;
-  }
+  //&__row:not(&__row--head):hover &__cell {
+  //  background: $color-mark;
+  //}
 
   &__row:not(&__row--head) &__cell {
     border-bottom: 1px solid $color-fill-grey;

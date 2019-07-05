@@ -41,6 +41,8 @@
   }
 
   &__close {
+    display: inline-block;
+    vertical-align: top;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -94,5 +96,41 @@
   // mods
   &--small {
     max-width: 440px;
+  }
+
+  &--base {
+    max-width: 816px;
+  }
+}
+
+// Default modal look
+.modal-grades {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: $color-white;
+  border-radius: 8px;
+  padding: 24px 24px 12px;
+  box-shadow: 0 10px 30px rgba($color-black, 0.5);
+  max-width: 816px;
+
+  &__title {
+    padding-right: 30px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    transform: scale(1);
+    color: $color-muted;
+    transition: transform $time-base ease, color $time-base ease;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $color-important;
+    }
   }
 }

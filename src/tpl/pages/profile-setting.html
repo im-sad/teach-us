@@ -9,7 +9,7 @@
 
       <main class="page-layout__content">
 
-        <div class="box box--padd-base box--marg-base">
+        <div class="box box--padd-base flow-block">
           <h2 class="title title--h1 title--padd-base">Account settings</h2>
 
           <div class="user-control">
@@ -94,42 +94,40 @@
         </div>
 
         <!-- Pass -->
-        <div class="box box--padd-base box--marg-base">
+        <div class="box box--padd-base flow-block">
           <h2 class="title title--h1 title--padd-base">Change password</h2>
 
-          <div class="box__content">
-            <div class="user-setpass">
-              <form id="js-form-pass" class="user-setpass__form" action="/">
-                <div class="user-setpass__row row">
-                  <div class="user-setpass__col col-3">
-                    <div class="field">
-                      <label for="old_pass" class="field__label">Old password</label>
-                      <div class="field__content">
-                        <input type="password" class="input input--base input--fluid input--pass" id="old_pass" required />
-                        <span class="show-pass js-pass-eye"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="user-setpass__col col-3">
-                    <div class="field">
-                      <label for="new_pass" class="field__label">New password</label>
-                      <div class="field__content">
-                        <input type="password" class="input input--base input--fluid input--pass" id="new_pass" required />
-                        <span class="show-pass js-pass-eye"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="user-setpass__col col-3">
-                    <div class="field">
-                      <span class="field__label">&nbsp;</span>
-                      <div class="field__content">
-                        <button class="btn-accent btn btn--base" data-ripple>Save</button>
-                      </div>
+          <div class="user-setpass">
+            <form id="js-form-pass" class="user-setpass__form" action="/">
+              <div class="user-setpass__row row">
+                <div class="user-setpass__col col-3">
+                  <div class="field">
+                    <label for="old_pass" class="field__label">Old password</label>
+                    <div class="field__content">
+                      <input type="password" class="input input--base input--fluid input--pass" id="old_pass" required />
+                      <span class="show-pass js-pass-eye"></span>
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
+                <div class="user-setpass__col col-3">
+                  <div class="field">
+                    <label for="new_pass" class="field__label">New password</label>
+                    <div class="field__content">
+                      <input type="password" class="input input--base input--fluid input--pass" id="new_pass" required />
+                      <span class="show-pass js-pass-eye"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="user-setpass__col col-3">
+                  <div class="field">
+                    <span class="field__label">&nbsp;</span>
+                    <div class="field__content">
+                      <button class="btn-accent btn btn--base" data-ripple>Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
 

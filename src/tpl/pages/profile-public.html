@@ -5,22 +5,33 @@
       <div class="page-public__row grid justify-content-center">
         <div class="grid__col-8">
           <!--  -->
-          <div class="box box--padd-base box--marg-base">
-            <div class="user-card user-card--public">
-              <div class="user-card__main">
-                <figure class="user-card__ava">
-                  <img class="user-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
-                </figure>
+          <div class="box box--padd-base flow-block">
+            <div class="user-public-card user-card">
+              <figure class="user-public-card__ava user-card__ava">
+                <img class="user-card__ava-foto" src="/tmp/john.jpg" srcset="/tmp/john@2x.jpg 2x" alt="Its u">
+              </figure>
 
-                <div class="user-card__base">
-                  <b class="user-card__name title title--h2">Johnathan Carlisle</b>
-                  <span class="user-card__date">Since 05.09.2018</span>
-                  <a href="/profile-public.html" class="btn btn-hollow-green btn--base" data-ripple>Show public profile</a>
-                </div>
+              <!-- row1 -->
+              <div class="user-public-card__cell user-public-card__cell--name">
+                <b class="user-card__name title title--h2">Johnathan Carlisle</b>
+                <span class="user-card__date">Since 05.09.2018</span>
               </div>
-
-              <div class="user-card__full custom-table__col">
-                <ul class="user-card__info summary-list">
+              <div class="user-public-card__cell user-public-card__cell--cv">
+                <a href="#" class="user-public-card__btn  btn-accent btn btn--base">Download public CV</a>
+              </div>
+              <!-- #row1 -->
+              <!-- row2 -->
+              <div class="user-public-card__cell user-public-card__cell--score">
+                <span class="user-card__inline-value">Skill score</span>
+                <span class="marked-value">38,600</span>
+              </div>
+              <div class="user-public-card__cell user-public-card__cell--skills-title">
+                <b class="title title--h3">Top skills</b>
+              </div>
+              <!-- #row2 -->
+              <!-- row3 -->
+              <div class="user-public-card__cell user-public-card__cell--info">
+                <ul class="user-public-card__info summary-list">
                   <li class="summary-list__item">
                     <span class="summary-list__label">Age:</span>
                     <div class="summary-list__val">
@@ -41,53 +52,99 @@
                   </li>
                 </ul>
               </div>
-            </div>
+              <div class="user-public-card__cell user-public-card__cell--skills">
+                <ul class="skills-list">
+                  <li class="skills-list__row">
+                    <div class="skills-list__cell--label skills-list__cell">Math</div>
+                    <div class="skills-list__cell--content skills-list__cell">
+                      <div class="skills-list__progress progress progress--accent">
+                        <div class="progress__bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%"></div>
+                      </div>
+                    </div>
+                    <div class="skills-list__cell--val skills-list__cell">76</div>
+                  </li>
+                  <li class="skills-list__row">
+                    <div class="skills-list__cell--label skills-list__cell">Physics</div>
+                    <div class="skills-list__cell--content skills-list__cell">
+                      <div class="skills-list__progress progress progress--accent">
+                        <div class="progress__bar" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%"></div>
+                      </div>
+                    </div>
+                    <div class="skills-list__cell--val skills-list__cell">71</div>
+                  </li>
+                  <li class="skills-list__row">
+                    <div class="skills-list__cell--label skills-list__cell">Communication</div>
+                    <div class="skills-list__cell--content skills-list__cell">
+                      <div class="skills-list__progress progress progress--accent">
+                        <div class="progress__bar" role="progressbar" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100" style="width: 69%"></div>
+                      </div>
+                    </div>
+                    <div class="skills-list__cell--val skills-list__cell">69</div>
+                  </li>
+                  <li class="skills-list__row">
+                    <div class="skills-list__cell--label skills-list__cell">French</div>
+                    <div class="skills-list__cell--content skills-list__cell">
+                      <div class="skills-list__progress progress progress--accent">
+                        <div class="progress__bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
+                      </div>
+                    </div>
+                    <div class="skills-list__cell--val skills-list__cell">65</div>
+                  </li>
+                  <li class="skills-list__row">
+                    <div class="skills-list__cell--label skills-list__cell">English Literature</div>
+                    <div class="skills-list__cell--content skills-list__cell">
+                      <div class="skills-list__progress progress progress--accent">
+                        <div class="progress__bar" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" style="width: 64%"></div>
+                      </div>
+                    </div>
+                    <div class="skills-list__cell--val skills-list__cell">64</div>
+                  </li>
+                </ul>
+              </div>
+              <!-- #row3 -->
+            </div> 
           </div>
           <!-- # -->
 
 
           <!--  -->
-          <div class="box box--padd-base box--marg-base">
+          <div class="box box--padd-base flow-block">
             <h2 class="title title--h1 title--padd-base">Education</h2>
 
-            <div class="demo">
-              <span class="demo__alert">
-                <span class="demo__alert-msg">All your education history in one place</span>
-              </span>
 
-              <div class="educations-grid row">
-                <div class="educations-grid__col col-4">
-                  <div class="education-card">
-                    <b class="education-card__title">Innsmouth High School</b>
-                    <ul class="education-card__grades">
-                      <li class="education-card__grades-item">
-                        <span class="education-card__grades-label">Grades added</span>
-                        <span class="education-card__grades-val">4</span>
-                      </li>
-                      <li class="education-card__grades-item">
-                        <span class="education-card__grades-label">Grades verified</span>
-                        <span class="education-card__grades-val">3</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="educations-grid__col col-4">
-                  <div class="education-card">
-                    <b class="education-card__title">Innsmouth College</b>
-                    <ul class="education-card__grades">
-                      <li class="education-card__grades-item">
-                        <span class="education-card__grades-label">Grades added</span>
-                        <span class="education-card__grades-val">1</span>
-                      </li>
-                      <li class="education-card__grades-item">
-                        <span class="education-card__grades-label">Grades verified</span>
-                        <span class="education-card__grades-val">0</span>
-                      </li>
-                    </ul>
-                  </div>
+            <div class="educations-grid row">
+              <div class="educations-grid__col col-4">
+                <div class="education-card">
+                  <b class="education-card__title">Innsmouth High School</b>
+                  <ul class="education-card__grades">
+                    <li class="education-card__grades-item">
+                      <span class="education-card__grades-label">Grades added</span>
+                      <span class="education-card__grades-val">4</span>
+                    </li>
+                    <li class="education-card__grades-item">
+                      <span class="education-card__grades-label">Grades verified</span>
+                      <span class="education-card__grades-val">3</span>
+                    </li>
+                  </ul>
+                  <span class="education-card__show" href="#" data-modal="modal-grades">Show grades</span>
                 </div>
               </div>
-
+              <div class="educations-grid__col col-4">
+                <div class="education-card">
+                  <b class="education-card__title">Innsmouth College</b>
+                  <ul class="education-card__grades">
+                    <li class="education-card__grades-item">
+                      <span class="education-card__grades-label">Grades added</span>
+                      <span class="education-card__grades-val">1</span>
+                    </li>
+                    <li class="education-card__grades-item">
+                      <span class="education-card__grades-label">Grades verified</span>
+                      <span class="education-card__grades-val">0</span>
+                    </li>
+                  </ul>
+                  <span class="education-card__show" href="#" data-modal="modal-grades">Show grades</span>
+                </div>
+              </div>
             </div>
           </div>
           <!--  -->
@@ -98,44 +155,38 @@
 
 
           <!--  -->
-          <div class="box box--padd-base box--marg-base">
+          <div class="box box--padd-base flow-block">
             <h2 class="title title--h1 title--padd-base">
               Test scores
             </h2>
 
-            <div class="demo">
-              <span class="demo__alert">
-                <span class="demo__alert-msg">Standardized tests results (SAT, AP, etc.)</span>
-              </span>
+            <div class="scores-grid row">
+              <div class="scores-grid__col col-4">
+                <div class="score-card">
+                  <div class="score-card__head">
+                    <b class="score-card__title">PSAT</b>
+                    <span class="score-card__date">October 2018</span>
+                  </div>
 
-              <div class="scores-grid row">
-                <div class="scores-grid__col col-4">
-                  <div class="score-card">
-                    <div class="score-card__head">
-                      <b class="score-card__title">PSAT</b>
-                      <span class="score-card__date">October 2018</span>
+                  <ul class="score-card__results">
+                    <li class="score-card__results-item">
+                      <span class="score-card__results-label">Writing & Language</span>
+                      <span class="score-card__results-val">735</span>
+                    </li>
+                    <li class="score-card__results-item">
+                      <span class="score-card__results-label">Math</span>
+                      <span class="score-card__results-val">750</span>
+                    </li>
+                  </ul>
+
+                  <div class="score-card__sum">
+                    <div class="score-card__sum-status">
+                      <svg class="score-card__sum-icn icn"><use xlink:href="#icn-check" /></svg>
+                      Verified
                     </div>
-
-                    <ul class="score-card__results">
-                      <li class="score-card__results-item">
-                        <span class="score-card__results-label">Writing & Language</span>
-                        <span class="score-card__results-val">735</span>
-                      </li>
-                      <li class="score-card__results-item">
-                        <span class="score-card__results-label">Math</span>
-                        <span class="score-card__results-val">750</span>
-                      </li>
-                    </ul>
-
-                    <div class="score-card__sum">
-                      <div class="score-card__sum-status">
-                        <svg class="score-card__sum-icn icn"><use xlink:href="#icn-check" /></svg>
-                        Verified
-                      </div>
-                      <div class="score-card__sum-val">
-                        <span class="score-card__sum-you">1485</span>
-                        <span class="score-card__sum-all">/ 1520</span>
-                      </div>
+                    <div class="score-card__sum-val">
+                      <span class="score-card__sum-you">1485</span>
+                      <span class="score-card__sum-all">/ 1520</span>
                     </div>
                   </div>
                 </div>
@@ -147,7 +198,7 @@
 
 
           <!--  -->
-          <div class="box box--padd-base box--marg-base">
+          <div class="box box--padd-base flow-block">
             <h2 class="title title--h1 title--padd-base">
               Additional education
               <span class="title__sub">No records yet</span>
@@ -169,7 +220,7 @@
 
 
           <!--  -->
-          <div class="box box--padd-base box--marg-base">
+          <div class="box box--padd-base flow-block">
             <h2 class="title title--h1 title--padd-base">
               Work experience
               <span class="title__sub">No records yet</span>

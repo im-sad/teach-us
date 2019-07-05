@@ -10,10 +10,20 @@
     max-width: 100%;
     text-overflow: ellipsis;
     margin-bottom: 8px;
+
+    &--req:after {
+      content: '*';
+      vertical-align: top;
+      padding-left: 0.5em;
+      color: $color-important;
+    }
   }
 
   &__content {
     position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
   
   .show-pass {
@@ -26,5 +36,11 @@
   // states
   &.has-error {
 
+  }
+
+  // mods
+  &--inline {
+    display: inline-block;
+    vertical-align: middle;
   }
 }

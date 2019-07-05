@@ -1,0 +1,47 @@
+// Standart select
+.select {
+  border: 1px solid $color-border;
+  background: $color-white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpolygon fill='%23009D98' fill-rule='evenodd' points='294.5 13.9 295.824 12.5 301.5 18.5 295.824 24.5 294.5 23.1 298.851 18.5' transform='rotate(90 159.5 -135)'/%3E%3C/svg%3E%0A") no-repeat right 12px center;
+  border-radius: 3px;
+  transition: border $time-base ease;
+  appearance: none;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+
+  &::placeholder {
+    opacity: 1;
+    color: $color-border;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: darken($color-border, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-main;
+  }
+
+  // sizes
+  &--fluid {
+    width: 100%;
+  }
+
+  &--base {
+    font-size: 16px;
+    height: $btn-base;
+    padding-left: 12px;
+    padding-right: 34px;
+  }
+
+  // mods
+  &.has-error {
+    border-color: $color-important;
+  }
+}

@@ -13,22 +13,13 @@
 
 // User
 .user-card {
-  //display: flex;
-  //justify-content: flex-start;
-  //align-items: flex-start;
-
-  &__main {
-    //width: 45%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  &__full {
-    //width: 55%;
-    position: relative;
-    align-self: flex-end;
-    padding-right: 100px;
+  //
+  &__inline-value {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 0.5em;
   }
 
   &__ava {
@@ -41,7 +32,6 @@
     width: 100px;
     height: 100px;
     flex: 0 0 auto;
-    margin-right: 16px;
     user-select: none;
     border-radius: 50%;
     font-size: 14px;
@@ -79,8 +69,96 @@
   }
 }
 
+.user-self-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &__main {
+    width: 45%;
+    padding-right: 48px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__info {
+    position: relative;
+    align-self: flex-end;
+    width: 55%;
+  }
+
+  &__ava {
+    margin-right: 16px;
+  }
+}
+
+.user-public-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 100px;
+
+  &__cell {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+    margin-top: 16px;
+
+    &:first-child,
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+
+    &--name,
+    &--score,
+    &--info {
+      padding-left: 100px + 16px; // ava width + margin
+    }
+
+    &--cv {
+      text-align: right;
+    }
+  }
+
+
+  &__ava {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &__btn {
+    //font-size: 18px;
+  }
+}
+
 
 // Skill scores
+.skills-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  &__col-side {
+    width: 45%;
+    padding-right: 48px;
+  }
+
+  &__col-main {
+    width: 55%;
+  }
+
+  &--titles {
+    align-items: flex-end;
+  }
+}
+
+
 .skill-scores {
   display: inline-block;
   vertical-align: middle;
@@ -199,6 +277,7 @@
 
 // Education block
 .education-card {
+  height: 100%;
   background: $color-fill-smoke;
   padding: 16px;
   border-radius: 5px;
@@ -237,13 +316,29 @@
     font-weight: 700;
     line-height: 1;
   }
+
+  &__show {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 12px;
+    color: $color-link;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
 }
 
 
 // Grades
-.grades-table {
-  margin-bottom: 28px - 12px; // minus cell padd
+.profile-grades {
+  &__table {
+    margin-bottom: 28px - 12px; // minus cell padd
+  }
+}
 
+.grades-table {
   &__cell {
     &--grade,
     &--status {
@@ -386,3 +481,8 @@
   height: 190px;
   border-radius: 5px;
 }
+
+
+
+
+
