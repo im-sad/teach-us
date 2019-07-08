@@ -88,18 +88,20 @@ document.addEventListener('DOMContentLoaded', function () {
       function sendData(data, btn) {
         var xmlhttp = new XMLHttpRequest();
 
-        xmlhttp.open('POST', url, true);
+        xmlhttp.open('POST', '/users/sign_in.json', true);
         xmlhttp.setRequestHeader('Content-Type', 'application/json');
         xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-        xmlhttp.send(JSON.stringify(data));
+        xmlhttp.send(JSON.stringify({user: data}));
 
         xmlhttp.onreadystatechange = function() {
           if (xmlhttp.readyState !== 4) return;
 
           if (xmlhttp.status === 200 || xmlhttp.status === 201) {
             // good
+            window.location = '/profile.html';
           } else {
             // not good
+            showError(JSON.parse(xmlhttp.response).error);
           }
 
           btn.classList.remove('has-load');

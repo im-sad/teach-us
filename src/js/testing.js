@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (finishBtn) finishBtn.classList.add('has-load');
 
-          xmlhttp.open('POST', url, true);
+          xmlhttp.open('POST', '/survey_answers', true);
           xmlhttp.setRequestHeader('Content-Type', 'application/json');
           xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
           xmlhttp.send(JSON.stringify(data));
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (xmlhttp.status === 200 || xmlhttp.status === 201) {
             testingBlock.classList.add('is-step2');
           } else if (xmlhttp.status === 422) {
-            var response = JSON.parse(xhr.responseText);
+            var response = JSON.parse(xmlhttp.responseText);
 
             if (response.errors.email_not_unique) {
               showWarning('An account with this email already exists. Please log in');
