@@ -26,6 +26,15 @@
     align-items: flex-start;
   }
   
+  &__error {
+    font-size: 12px;
+    position: absolute;
+    bottom: -2em;
+    left: 0;
+    color: $color-important;
+  }
+  
+  
   .show-pass {
     position: absolute;
     right: 12px;

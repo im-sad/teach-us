@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
       function sendFormData(data, url, btn) {
         var xmlhttp = new XMLHttpRequest();
 
-        btn.classList.add('has-load');
+        btnStartLoad(btn);
 
         xmlhttp.open('POST', url, true);
         xmlhttp.setRequestHeader('Content-Type', 'application/json');
@@ -231,13 +231,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var response = JSON.parse(xhr.responseText);
 
             if (response.errors.email_not_unique) {
-              showWarning('Такая почта уже существует. Залогинтесь на сайте.');
+              showWarning('An account with this email already exists. Please log in');
             }
           } else {
             return false;
           }
 
-          btn.classList.remove('has-load');
+          btnEndLoad(btn);
         }
       }
 

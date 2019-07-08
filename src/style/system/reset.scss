@@ -65,7 +65,7 @@ svg:not(:root) {overflow:hidden;}
 audio, video {display:inline-block;}
 audio:not([controls]) {display:none;height:0;}
 
-[hidden] {display:none;}
+[hidden] {display:none !important;}
 [tabindex="-1"]:focus {outline: none !important}
 
 //inputs

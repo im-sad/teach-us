@@ -1,4 +1,5 @@
 @@include('./common.js')
+@@include('./polyfills.js')
 @@include('./validate.js')
 @@include('./ripple-effect.js')
 @@include('./testing.js')
