@@ -65,20 +65,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //submit
         if (!formErrors) {
-          var formSend = formSubmit(that, '/test/', formFields);
+          formSubmit(that, '/test/', formFields, function(status) {
+            if (!status) return false;
 
-          if (!formSend) return false;
-
-          switch (thatStep) {
-            case 2:
-              debugger;
-              window.location.href = "/profile.html";
-              break;
-            default:
-              debugger;
-              stepsContainers[thatStep].style.display = 'none';
-              DOMAnimations.fadeIn(stepsContainers[thatStepNext], 300);
-          }
+            switch (thatStep) {
+              case 2:
+                window.location.href = "/profile.html";
+                break;
+              default:
+                stepsContainers[thatStep].style.display = 'none';
+                DOMAnimations.fadeIn(stepsContainers[thatStepNext], 300);
+            }
+          });
         }
       });
     }
@@ -167,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
       messages.appendChild(block);
     }
 
-    function formSubmit(form, url, inputs) {
+    function formSubmit(form, url, inputs, callback) {
       if (!form) return;
 
       var sendBtn = form.getElementsByClassName('btn')[0];
@@ -184,14 +182,15 @@ document.addEventListener('DOMContentLoaded', function() {
       xmlhttp.send(JSON.stringify(data));
 
       xmlhttp.onreadystatechange = function() {
-        btnEndLoad(sendBtn);
         if (xmlhttp.readyState !== 4) return;
 
         if (xmlhttp.status === 200 || xmlhttp.status === 201) {
-          return true;
+          callback(true);
         } else {
-          return false;
+          callback(false);
         }
+
+        btnEndLoad(sendBtn);
       }
     }
 
