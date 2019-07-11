@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var that = this;
         var thatStep = +this.dataset.step - 1;
         var thatStepNext = +this.dataset.step;
+        var stepUrl;
 
         //validate
         var formErrors = validate(that, constraints[thatStep]);
@@ -65,7 +66,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //submit
         if (!formErrors) {
-          formSubmit(that, '/test/', formFields, function(status) {
+          switch (thatStep) {
+            case 0:
+              stepUrl = '/users/registrations/set_password';
+              break;
+            case 1:
+              stepUrl = '/users/registrations/set_phone';
+              break;
+            default:
+              stepUrl = '/users/registrations';
+          }
+
+          formSubmit(that, stepUrl, formFields, function(status) {
             if (!status) return false;
 
             switch (thatStep) {
@@ -178,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btnStartLoad(sendBtn);
       }
 
-      xmlhttp.open('POST', url, true);
+      xmlhttp.open('PATCH', url, true);
       xmlhttp.setRequestHeader('Content-Type', 'application/json');
       xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
       xmlhttp.send(JSON.stringify(data));
@@ -210,8 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
           obj[el.name] = el.value;
         }
       }
-  
-      console.dir(obj);
+
       return obj;
     }
 

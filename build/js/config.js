@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var that = this;
         var thatStep = +this.dataset.step - 1;
         var thatStepNext = +this.dataset.step;
+        var url;
 
         //validate
         var formErrors = validate(that, constraints[thatStep]);
@@ -65,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //submit
         if (!formErrors) {
+
+          
           formSubmit(that, '/test/', formFields, function(status) {
             if (!status) return false;
 
@@ -178,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btnStartLoad(sendBtn);
       }
 
-      xmlhttp.open('POST', url, true);
+      xmlhttp.open('PATCH', url, true);
       xmlhttp.setRequestHeader('Content-Type', 'application/json');
       xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
       xmlhttp.send(JSON.stringify(data));
