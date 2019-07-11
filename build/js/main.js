@@ -4433,13 +4433,30 @@ document.addEventListener('DOMContentLoaded', function () {
     function showLoadedImg(input) {
       var parentNode = input.parentNode;
       var imagesInside = parentNode.getElementsByTagName('img'), l = imagesInside.length;
+      var fileSize = input.files[0].size / 1000;
+      var fileSizeLimit = input.size / 1000;
+
+      if (fileSize > fileSizeLimit) {
+        showError('Maximum image size is <b>'+ fileSizeLimit + 'kb</b>');
+        return false;
+      }
 
       while (l--) {
         imagesInside[l].remove();
       }
 
       var newImage = document.createElement('img');
-      newImage.setAttribute('src', window.URL.createObjectURL(input.files[0]));
+      var fileLink = input.files[0];
+
+      if (!fileLink) return;
+
+      var reader = new FileReader();
+
+      reader.onload = function(file) {
+        newImage.setAttribute('src', file.target.result);
+      };
+
+      reader.readAsDataURL(fileLink);
 
       parentNode.insertBefore(newImage, input.nextSibling);
     }
@@ -4567,6 +4584,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function showErrorsForInput(input, errors) {
       var formField = closestParent(input.parentNode, 'field');
 
+      if (!formField) return;
+  
       var messages = document.createElement('div');
       messages.classList.add('field__error');
       formField.appendChild(messages);
@@ -4646,11 +4665,22 @@ document.addEventListener('DOMContentLoaded', function() {
       var obj = {};
 
       for (var i = 0; i < collection.length; i++) {
-        obj[collection[i].name] = collection[i].value;
-      }
+        var el = collection[i];
+        
+        if (el.type === 'file') {
+          var image = el.parentElement.getElementsByTagName('img')[0];
 
+          if (image && image.src) obj[el.name] = image.src;
+        } else {
+          obj[el.name] = el.value;
+        }
+      }
+  
+      console.dir(obj);
       return obj;
     }
+
+
 
 
   })();

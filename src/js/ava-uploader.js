@@ -13,13 +13,30 @@ document.addEventListener('DOMContentLoaded', function () {
     function showLoadedImg(input) {
       var parentNode = input.parentNode;
       var imagesInside = parentNode.getElementsByTagName('img'), l = imagesInside.length;
+      var fileSize = input.files[0].size / 1000;
+      var fileSizeLimit = input.size / 1000;
+
+      if (fileSize > fileSizeLimit) {
+        showError('Maximum image size is <b>'+ fileSizeLimit + 'kb</b>');
+        return false;
+      }
 
       while (l--) {
         imagesInside[l].remove();
       }
 
       var newImage = document.createElement('img');
-      newImage.setAttribute('src', window.URL.createObjectURL(input.files[0]));
+      var fileLink = input.files[0];
+
+      if (!fileLink) return;
+
+      var reader = new FileReader();
+
+      reader.onload = function(file) {
+        newImage.setAttribute('src', file.target.result);
+      };
+
+      reader.readAsDataURL(fileLink);
 
       parentNode.insertBefore(newImage, input.nextSibling);
     }

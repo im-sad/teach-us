@@ -119,6 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function showErrorsForInput(input, errors) {
       var formField = closestParent(input.parentNode, 'field');
 
+      if (!formField) return;
+  
       var messages = document.createElement('div');
       messages.classList.add('field__error');
       formField.appendChild(messages);
@@ -198,11 +200,22 @@ document.addEventListener('DOMContentLoaded', function() {
       var obj = {};
 
       for (var i = 0; i < collection.length; i++) {
-        obj[collection[i].name] = collection[i].value;
-      }
+        var el = collection[i];
+        
+        if (el.type === 'file') {
+          var image = el.parentElement.getElementsByTagName('img')[0];
 
+          if (image && image.src) obj[el.name] = image.src;
+        } else {
+          obj[el.name] = el.value;
+        }
+      }
+  
+      console.dir(obj);
       return obj;
     }
+
+
 
 
   })();
