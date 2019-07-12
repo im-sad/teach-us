@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       password: {
         presence: true,
         equality: {
-          attribute: "password",
+          attribute: "current_password",
           message: "^The passwords does not match"
         }
       }
