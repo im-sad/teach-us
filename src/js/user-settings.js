@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var editOption = document.getElementById('js-editval');
     var formChangePass = document.getElementById('js-form-pass');
     var constraintsPass = {
-      password: {
+      current_password: {
         presence: true,
         length: {
           minimum: 8
         }
       },
-      new_password: {
+      password: {
         presence: true,
         equality: {
           attribute: "password",
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
           maximum: 20
         },
         format: {
-          pattern: "[0-9]+",
-          message: "can only contain numbers"
+          pattern: /^[+]*[\s0-9]{0,4}[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.0-9]*$/,
+          message: "is not a phone number"
         }
       }
     };
@@ -56,13 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
           btnStartLoad(formChangePassBtn);
 
-          saveSettings('/users/registrations/set_password', passData, function(status) {
+          saveSettings('/users/registrations/set_password', passData, function(status, errors) {
             btnEndLoad(formChangePassBtn);
 
             if (status) {
               showWarning('Password changed');
             } else {
-              showError('Something went wrong');
+              var errorText = 'Something went wrong'
+
+              if (errors.current_password.filter((obj) => obj.predicate == 'is_wrong').length > 0) {
+                errorText = 'Current password is wrong'
+              }
+
+              showError(errorText);
             }
           });
         }
@@ -117,23 +123,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function saveSettings(url, data, callback) {
-      console.log(data);
-      callback(true);
-      //var xhr = new XMLHttpRequest();
-      //xhr.open('PATCH', url, true);
-      //xhr.setRequestHeader('Content-Type', 'application/json');
-      //xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-      //xhr.send(JSON.stringify(data));
+      var xhr = new XMLHttpRequest();
+      xhr.open('PATCH', url, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+      xhr.send(JSON.stringify(data));
 
-      //xhr.onreadystatechange = function() {
-      //  if (xhr.readyState !== 4) return;
-//
-      //  if (xhr.status === 200 || xhr.status === 201) {
-      //    callback(true);
-      //  } else {
-      //    callback(false);
-      //  }
-      //}
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status === 200 || xhr.status === 201) {
+          callback(true);
+        } else {
+          var response = JSON.parse(xhr.responseText);
+
+          callback(false, response.errors);
+        }
+      }
     }
 
     function createDataObj(collection) {

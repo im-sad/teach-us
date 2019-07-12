@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } else if (xmlhttp.status === 422) {
             var response = JSON.parse(xmlhttp.responseText);
 
-            if (response.errors.email_not_unique) {
+            if (response.errors.email.filter((obj) => obj.predicate == 'not_unique').length > 0) {
               showWarning('An account with this email already exists. Please log in');
             }
           } else {
