@@ -5777,6 +5777,7 @@ input:checked ~ .checkbox__title:after {
 	   -moz-user-select: none;
 	    -ms-user-select: none;
 	        user-select: none;
+	will-change: transform;
 }
 .user-setting__edit-icn:hover {
 	-ms-transform: scale(1.05);
@@ -5786,17 +5787,6 @@ input:checked ~ .checkbox__title:after {
 	display: none;
 }
 
-.user-setting__edit-field {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-}
-.user-setting__edit-field .input {
-	margin-right: 12px;
-}
 .user-setting__edit-field.is-hidden {
 	display: none;
 }
@@ -5817,6 +5807,11 @@ input:checked ~ .checkbox__title:after {
 	   -moz-user-select: none;
 	    -ms-user-select: none;
 	        user-select: none;
+	transition: transform .3s ease-out;
+}
+.social-card:not(.social-card--empty):hover {
+	-ms-transform: translateY(-3px);
+	    transform: translateY(-3px);
 }
 .social-card--empty {
 	-ms-flex-pack: center;

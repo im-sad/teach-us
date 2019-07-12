@@ -48,6 +48,7 @@
     background: url('#{$img}/edit.svg') no-repeat center center;
     transition: transform $time-base ease;
     user-select: none;
+    will-change: transform;
 
     &:hover {
       transform: scale(1.05);
@@ -59,13 +60,13 @@
   }
 
   &__edit-field {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    .input {
-      margin-right: 12px;
-    }
+    //display: flex;
+    //justify-content: flex-start;
+    //align-items: flex-start;
+//
+    //.input {
+    //  margin-right: 12px;
+    //}
 
     &.is-hidden {
       display: none;
@@ -83,6 +84,11 @@
   border-radius: 5px;
   background: $color-fill-smoke;
   user-select: none;
+  transition: transform $time-base ease-out;
+
+  &:not(&--empty):hover {
+    transform: translateY(-3px);
+  }
 
   &--empty {
     justify-content: center;

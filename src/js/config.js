@@ -18,8 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         phone: {
           presence: true,
+          length: {
+            minimum: 6,
+            maximum: 20
+          },
           format: {
-            pattern: "\\d{6}"
+            pattern: "[0-9]+",
+            message: "can only contain numbers"
           }
         }
       },
@@ -44,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     ];
 
-    if (!stepsContainers) return;
+    if (stepsContainers.length < 1) return;
 
     updateActiveContainer();
 
@@ -52,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i = 0; i < cfgForms.length; i++) {
       cfgForms[i].addEventListener('submit', function(e) {
         e.preventDefault();
+
         var that = this;
         var thatStep = +this.dataset.step - 1;
         var thatStepNext = +this.dataset.step;
@@ -122,63 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    function showErrors(errors, fields) {
-      for (var i = 0; i < fields.length; i++) {
-        showErrorsForInput(fields[i], errors && errors[fields[i].name]);
-      }
-    }
-
-    function showErrorsForInput(input, errors) {
-      var formField = closestParent(input.parentNode, 'field');
-
-      if (!formField) return;
-  
-      var messages = document.createElement('div');
-      messages.classList.add('field__error');
-      formField.appendChild(messages);
-
-      resetformField(formField);
-
-      if (errors) {
-        input.classList.add('has-error');
-    
-        //errors.forEach(function(error){
-        //  addError(messages, error);
-        //});
-      } else {
-        input.classList.remove('has-error');
-      }
-    }
-
-    function closestParent(child, className) {
-      if (!child || child == document) {
-        return null;
-      }
-      if (child.classList.contains(className)) {
-        return child;
-      } else {
-        return closestParent(child.parentNode, className);
-      }
-    }
-
-    function resetformField(formField) {
-      // Remove the success and error classes
-      formField.classList.remove('has-error');
-      formField.classList.remove('has-success');
-
-      ///_.each(formField.querySelectorAll(".help-block.error"), function(el) {
-      ///  el.parentNode.removeChild(el);
-      ///});
-    }
-
-    function addError(messages, error) {
-      var block = document.createElement('p');
-      block.classList.add('help-block');
-      block.classList.add('error');
-      block.innerText = error;
-      messages.appendChild(block);
-    }
-
     function formSubmit(form, url, inputs, callback) {
       if (!form) return;
 
@@ -225,9 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       return obj;
     }
-
-
-
 
   })();
 

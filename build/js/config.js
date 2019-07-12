@@ -18,8 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         phone: {
           presence: true,
+          length: {
+            minimum: 6,
+            maximum: 20
+          },
           format: {
-            pattern: "\\d{6}"
+            pattern: "[0-9]+",
+            message: "can only contain numbers"
           }
         }
       },
@@ -44,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     ];
 
-    if (!stepsContainers) return;
+    if (stepsContainers.length < 1) return;
 
     updateActiveContainer();
 
@@ -52,10 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i = 0; i < cfgForms.length; i++) {
       cfgForms[i].addEventListener('submit', function(e) {
         e.preventDefault();
+
         var that = this;
         var thatStep = +this.dataset.step - 1;
         var thatStepNext = +this.dataset.step;
-        var url;
+        var stepUrl;
 
         //validate
         var formErrors = validate(that, constraints[thatStep]);
@@ -66,9 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //submit
         if (!formErrors) {
+          switch (thatStep) {
+            case 0:
+              stepUrl = '/users/registrations/set_password';
+              break;
+            case 1:
+              stepUrl = '/users/registrations/set_phone';
+              break;
+            default:
+              stepUrl = '/users/registrations';
+          }
 
-          
-          formSubmit(that, '/test/', formFields, function(status) {
+          formSubmit(that, stepUrl, formFields, function(status) {
             if (!status) return false;
 
             switch (thatStep) {
@@ -111,63 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (pageHash === 'step3') {
         DOMAnimations.fadeIn(stepsContainers[2], 300);
       }
-    }
-
-    function showErrors(errors, fields) {
-      for (var i = 0; i < fields.length; i++) {
-        showErrorsForInput(fields[i], errors && errors[fields[i].name]);
-      }
-    }
-
-    function showErrorsForInput(input, errors) {
-      var formField = closestParent(input.parentNode, 'field');
-
-      if (!formField) return;
-  
-      var messages = document.createElement('div');
-      messages.classList.add('field__error');
-      formField.appendChild(messages);
-
-      resetformField(formField);
-
-      if (errors) {
-        input.classList.add('has-error');
-    
-        //errors.forEach(function(error){
-        //  addError(messages, error);
-        //});
-      } else {
-        input.classList.remove('has-error');
-      }
-    }
-
-    function closestParent(child, className) {
-      if (!child || child == document) {
-        return null;
-      }
-      if (child.classList.contains(className)) {
-        return child;
-      } else {
-        return closestParent(child.parentNode, className);
-      }
-    }
-
-    function resetformField(formField) {
-      // Remove the success and error classes
-      formField.classList.remove('has-error');
-      formField.classList.remove('has-success');
-
-      ///_.each(formField.querySelectorAll(".help-block.error"), function(el) {
-      ///  el.parentNode.removeChild(el);
-      ///});
-    }
-
-    function addError(messages, error) {
-      var block = document.createElement('p');
-      block.classList.add('help-block');
-      block.classList.add('error');
-      block.innerText = error;
-      messages.appendChild(block);
     }
 
     function formSubmit(form, url, inputs, callback) {
@@ -213,13 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
           obj[el.name] = el.value;
         }
       }
-  
-      console.dir(obj);
+
       return obj;
     }
-
-
-
 
   })();
 

@@ -74,3 +74,7 @@ function showWarning(msg) {
     transitionOut: 'fadeOutUp'
   });
 }
+
+function clearAllMsgs() {
+  iziToast.destroy();
+}

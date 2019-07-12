@@ -22,16 +22,20 @@
               </li>
               <li class="user-setting__item">
                 <div class="user-setting__label">Phone</div>
-                <div class="user-setting__content" id="js-editval">
+                <form action="/" class="user-setting__content" id="js-editval">
                   <span class="user-setting__val" data-val>+ 7 931 534 07 07</span>
                   <div class="user-setting__edit">
                     <span class="user-setting__edit-icn js-editval-change" title="Edit">edit</span>
-                    <div class="user-setting__edit-field is-hidden js-editval-field">
-                      <input type="text" class="input input--base">
-                      <button class="btn-accent btn btn--base" data-ripple>Save</button>
+                    <div class="user-setting__edit-field inline-form inline-form--align-bottom is-hidden js-editval-field">
+                      <div class="field field--inline">
+                        <div class="field__content">
+                          <input name="phone" type="text" class="input input--base input--fluid" />
+                        </div>
+                      </div>
+                      <button type="submit" class="btn-accent btn btn--base" data-ripple>Save</button>
                     </div>
                   </div>
-                </div>
+                </form>
               </li>
             </ul>
 
@@ -98,13 +102,13 @@
           <h2 class="title title--h1 title--padd-base">Change password</h2>
 
           <div class="user-setpass">
-            <form id="js-form-pass" class="user-setpass__form" action="/">
+            <form id="js-form-pass" class="user-setpass__form" action="/" novalidate>
               <div class="user-setpass__row row">
                 <div class="user-setpass__col col-3">
                   <div class="field">
                     <label for="old_pass" class="field__label">Old password</label>
                     <div class="field__content">
-                      <input type="password" class="input input--base input--fluid input--pass" id="old_pass" required />
+                      <input type="password" class="input input--base input--fluid input--pass" id="old_pass" name="password" required />
                       <span class="show-pass js-pass-eye"></span>
                     </div>
                   </div>
@@ -113,7 +117,7 @@
                   <div class="field">
                     <label for="new_pass" class="field__label">New password</label>
                     <div class="field__content">
-                      <input type="password" class="input input--base input--fluid input--pass" id="new_pass" required />
+                      <input type="password" class="input input--base input--fluid input--pass" id="new_pass" name="new_password" required />
                       <span class="show-pass js-pass-eye"></span>
                     </div>
                   </div>
