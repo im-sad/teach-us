@@ -2298,6 +2298,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       scope.addEventListener('submit', function(e) {
         e.preventDefault();
+        clearAllMsgs();
 
         var phoneErrors = validate(this, constraintsPhone);
         showErrors(phoneErrors || {}, this);

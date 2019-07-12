@@ -2900,6 +2900,10 @@ svg.icn {
 	will-change: opacity, transform;
 }
 
+[data-ripple='green'] .ripple span {
+	background-color: #a4efe1;
+}
+
 @keyframes ripple {
 	to {
 		opacity: 0;
