@@ -76,5 +76,12 @@ function showWarning(msg) {
 }
 
 function clearAllMsgs() {
-  iziToast.destroy();
+  //iziToast.destroy();
+  var toasts = document.getElementsByClassName('iziToast-opened');
+
+  for (var i = 0; i < toasts.length; i++) {
+    iziToast.hide({
+      transitionOut: 'fadeOutUp'
+    }, toasts[i]);
+  }
 }

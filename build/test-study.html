@@ -305,7 +305,7 @@ ajax.onload = function(e) {
                 <!-- Step1 -->
                 <div id="step-1" style="display: none">
                   <div class="testing-reg" id="js-fastreg">
-                    <form action="/" class="testing-reg__form">
+                    <form action="/" class="testing-reg__form" novalidate>
                       <b class="testing-reg__title">Please enter your e-mail to continue and save your results</b>
                       <div class="field">
                         <input type="email" name="mail" autocomplete="on" class="input input--base input--fluid js-fastreg-email" placeholder="E-mail address" required>
@@ -612,7 +612,7 @@ ajax.onload = function(e) {
       </div>
 
 
-      <form action="#" id="js-signin-form" novalidate>
+      <form action="/" id="js-signin-form" novalidate>
         <ul class="inputs-list">
           <li class="inputs-list__item">
             <div class="field">

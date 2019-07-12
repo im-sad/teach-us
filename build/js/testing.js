@@ -93,8 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
         }
 
-
-        //FUNC
         function sendTesting(data) {
           var finishBtn = document.getElementById('js-test-finish');
           var xmlhttp = new XMLHttpRequest();
@@ -192,22 +190,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Main form
-    var regForm = document.getElementById('js-fastreg');
+    var regBlock = document.getElementById('js-fastreg');
 
-    if (regForm) {
-      var regFormInputs = regForm.getElementsByTagName('input');
-      var regFormBtn = regForm.getElementsByClassName('btn')[0];
-
-      regFormBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        for (var k = 0; k < regFormInputs.length; k++) {
-          validateInput(regFormInputs[k]);
+    if (regBlock) {
+      var regBlockForm = regBlock.getElementsByTagName('form')[0];
+      var regBlockInputs = regBlock.querySelectorAll('input[name]');
+      var regBlockBtn = regBlock.getElementsByClassName('btn')[0];
+      var constraints = {
+        mail: {
+          presence: { message: "Email can't be blank" },
+          email: { message: "Wrong email format" }
+        },
+        terms: {
+          presence: { message: "To continue you must agree with terms of Service and Privacy Policy" }
         }
-        
-        if (isFormValid(regForm)) {
-          var formData = createInputsObj(regFormInputs);
-          sendFormData(formData, '/users/registrations', this);
+      };
+
+      regBlockForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var that = this;
+
+        var regErrors = validate(that, constraints, {fullMessages: false});
+        showErrors(regErrors || {}, that);
+
+        if (!regErrors) {
+          var formData = createInputsObj(regBlockInputs);
+          sendFormData(formData, '/users/registrations', regBlockBtn);
         }
       });
 
@@ -246,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         for (var i = 0; i < collection.length; i++) {
           if (collection[i].type === 'checkbox' && !collection[i].checked) {
-            //
+            continue;
           } else {
             obj[collection[i].name] = collection[i].value;
           }
@@ -254,44 +262,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         return obj;
       }
-
-
-      function isFormValid(form) {
-        if (form.getElementsByClassName('has-error').length < 1) return true;
-      }
-
-      function validateInput(input) {
-        if (!input) return;
-
-        var inputType = input.getAttribute('type');
-
-        switch (inputType) {
-          case 'email':
-            if (isFieldEmpty(input) && isFieldRequired(input)) {
-              fieldAddError(input);
-            } else if (!isEmailValid(input)) {
-              fieldAddError(input);
-              showError('Wrong email format');
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-          case 'checkbox':
-            if (!input.checked && isFieldRequired(input)) {
-              fieldAddError(input);
-              showError('To continue you must agree with terms of Service and Privacy Policy');
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-          default:
-            break;
-        }
-      }
-
-
     }
   }
 

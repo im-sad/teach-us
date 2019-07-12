@@ -7,35 +7,6 @@ function btnEndLoad(btn) {
   btn.classList.remove('has-load');
 }
 
-
-// TODO: replace this functions to validate.js
-function fieldAddError(field) {
-  field.classList.add('has-error');
-  field.parentNode.classList.add('has-error');
-}
-
-function fieldRemoveError(field) {
-  field.classList.remove('has-error');
-  field.parentNode.classList.remove('has-error');
-}
-
-function isEmailValid(input) {
-  var mailRegex = /^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/i;
-
-  return mailRegex.test(input.value);
-}
-
-function isFieldRequired(field) {
-  if (field.attributes['required']) return true;
-  else return false;
-}
-
-function isFieldEmpty(field) {
-  if (field.value === '') return true;
-  else return false;
-}
-
-
 // Show form errors (validate.js)
 function showErrors(errors, fields) {
   for (var i = 0; i < fields.length; i++) {
@@ -44,7 +15,9 @@ function showErrors(errors, fields) {
 }
 
 function showErrorsForInput(input, errors) {
-  var formField = closestParent(input.parentNode, 'field');
+  var formField = closestParent(input.parentNode, 'field')
+                  || closestParent(input.parentNode, 'checkbox')
+                  || closestParent(input.parentNode, 'radio');
 
   if (!formField) return;
 
@@ -55,13 +28,15 @@ function showErrorsForInput(input, errors) {
   resetformField(formField);
 
   if (errors) {
+    formField.classList.add('has-error');
     input.classList.add('has-error');
 
-    errors.forEach(function(error){
+    errors.forEach(function(error) {
       showError(error);
       //addError(messages, error);
     });
   } else {
+    formField.classList.remove('has-error');
     input.classList.remove('has-error');
     clearAllMsgs();
   }
@@ -1505,8 +1480,6 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
         }
 
-
-        //FUNC
         function sendTesting(data) {
           var finishBtn = document.getElementById('js-test-finish');
           var xmlhttp = new XMLHttpRequest();
@@ -1604,22 +1577,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Main form
-    var regForm = document.getElementById('js-fastreg');
+    var regBlock = document.getElementById('js-fastreg');
 
-    if (regForm) {
-      var regFormInputs = regForm.getElementsByTagName('input');
-      var regFormBtn = regForm.getElementsByClassName('btn')[0];
-
-      regFormBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        for (var k = 0; k < regFormInputs.length; k++) {
-          validateInput(regFormInputs[k]);
+    if (regBlock) {
+      var regBlockForm = regBlock.getElementsByTagName('form')[0];
+      var regBlockInputs = regBlock.querySelectorAll('input[name]');
+      var regBlockBtn = regBlock.getElementsByClassName('btn')[0];
+      var constraints = {
+        mail: {
+          presence: { message: "Email can't be blank" },
+          email: { message: "Wrong email format" }
+        },
+        terms: {
+          presence: { message: "To continue you must agree with terms of Service and Privacy Policy" }
         }
-        
-        if (isFormValid(regForm)) {
-          var formData = createInputsObj(regFormInputs);
-          sendFormData(formData, '/users/registrations', this);
+      };
+
+      regBlockForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var that = this;
+
+        var regErrors = validate(that, constraints, {fullMessages: false});
+        showErrors(regErrors || {}, that);
+
+        if (!regErrors) {
+          var formData = createInputsObj(regBlockInputs);
+          sendFormData(formData, '/users/registrations', regBlockBtn);
         }
       });
 
@@ -1658,7 +1641,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         for (var i = 0; i < collection.length; i++) {
           if (collection[i].type === 'checkbox' && !collection[i].checked) {
-            //
+            continue;
           } else {
             obj[collection[i].name] = collection[i].value;
           }
@@ -1666,44 +1649,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         return obj;
       }
-
-
-      function isFormValid(form) {
-        if (form.getElementsByClassName('has-error').length < 1) return true;
-      }
-
-      function validateInput(input) {
-        if (!input) return;
-
-        var inputType = input.getAttribute('type');
-
-        switch (inputType) {
-          case 'email':
-            if (isFieldEmpty(input) && isFieldRequired(input)) {
-              fieldAddError(input);
-            } else if (!isEmailValid(input)) {
-              fieldAddError(input);
-              showError('Wrong email format');
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-          case 'checkbox':
-            if (!input.checked && isFieldRequired(input)) {
-              fieldAddError(input);
-              showError('To continue you must agree with terms of Service and Privacy Policy');
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-          default:
-            break;
-        }
-      }
-
-
     }
   }
 
@@ -2520,22 +2465,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (function () {
     var signForm = document.getElementById('js-signin-form');
+    var signConstraints = {
+      sign_mail: {
+        presence: { message: "Email can't be blank" },
+        email: { message: "Wrong email format" }
+      },
+      sign_pass: {
+        presence: { message: "Password can't be blank" },
+        length: {
+          minimum: 8,
+          message: "Password is too short. Minimum 8 symbols"
+        }
+      }
+    };
+
 
     if (signForm) {
       signForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        this.disableValidation = true;
+        clearAllMsgs();
 
-        var inputsList = signForm.getElementsByTagName('input');
+        var that = this;
+        that.disableValidation = true;
 
-        formValidate(inputsList);
+        var signErrors = validate(that, signConstraints, {fullMessages: false});
+        showErrors(signErrors || {}, that);
 
-        if (isFormValid(this)) {
-          var submitBtn = this.getElementsByTagName('button')[0];
-
-          submitBtn.classList.add('has-load');
-
+        if (!signErrors) {
+          var inputsList = signForm.getElementsByTagName('input');
+          var submitBtn = that.getElementsByTagName('button')[0];
           var formData = getFormData(inputsList);
+
           sendData(formData , submitBtn);
         }
       });
@@ -2559,51 +2519,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return data;
       }
 
-      function isFormValid(form) {
-        if (form.getElementsByClassName('has-error').length < 1) return true;
-      }
-
-      function formValidate(items) {
-        if (!items) return;
-
-        for (var i = 0; i < items.length; i++) {
-          validateInput(items[i]);
-        }
-      }
-
-
-      function validateInput(input) {
-        if (!input) return;
-
-        var inputType = input.getAttribute('type');
-
-        switch (inputType) {
-          case 'email':
-            if (isFieldEmpty(input) && isFieldRequired(input)) {
-              fieldAddError(input);
-            } else if (!isEmailValid(input)) {
-              fieldAddError(input);
-              showError('Wrong email format');
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-
-          default:
-            if (isFieldEmpty(input) && isFieldRequired(input)) {
-              fieldAddError(input);
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-        }
-      }
-
-
       function sendData(data, btn) {
         var xmlhttp = new XMLHttpRequest();
+
+        btnStartLoad(btn);
 
         xmlhttp.open('POST', '/users/sign_in.json', true);
         xmlhttp.setRequestHeader('Content-Type', 'application/json');
@@ -2621,7 +2540,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(JSON.parse(xmlhttp.response).error);
           }
 
-          btn.classList.remove('has-load');
+          btnEndLoad(btn);
         }
       }
     }
@@ -4880,5 +4799,12 @@ function showWarning(msg) {
 }
 
 function clearAllMsgs() {
-  iziToast.destroy();
+  //iziToast.destroy();
+  var toasts = document.getElementsByClassName('iziToast-opened');
+
+  for (var i = 0; i < toasts.length; i++) {
+    iziToast.hide({
+      transitionOut: 'fadeOutUp'
+    }, toasts[i]);
+  }
 }

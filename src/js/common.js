@@ -7,35 +7,6 @@ function btnEndLoad(btn) {
   btn.classList.remove('has-load');
 }
 
-
-// TODO: replace this functions to validate.js
-function fieldAddError(field) {
-  field.classList.add('has-error');
-  field.parentNode.classList.add('has-error');
-}
-
-function fieldRemoveError(field) {
-  field.classList.remove('has-error');
-  field.parentNode.classList.remove('has-error');
-}
-
-function isEmailValid(input) {
-  var mailRegex = /^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/i;
-
-  return mailRegex.test(input.value);
-}
-
-function isFieldRequired(field) {
-  if (field.attributes['required']) return true;
-  else return false;
-}
-
-function isFieldEmpty(field) {
-  if (field.value === '') return true;
-  else return false;
-}
-
-
 // Show form errors (validate.js)
 function showErrors(errors, fields) {
   for (var i = 0; i < fields.length; i++) {
@@ -44,7 +15,9 @@ function showErrors(errors, fields) {
 }
 
 function showErrorsForInput(input, errors) {
-  var formField = closestParent(input.parentNode, 'field');
+  var formField = closestParent(input.parentNode, 'field')
+                  || closestParent(input.parentNode, 'checkbox')
+                  || closestParent(input.parentNode, 'radio');
 
   if (!formField) return;
 
@@ -55,13 +28,15 @@ function showErrorsForInput(input, errors) {
   resetformField(formField);
 
   if (errors) {
+    formField.classList.add('has-error');
     input.classList.add('has-error');
 
-    errors.forEach(function(error){
+    errors.forEach(function(error) {
       showError(error);
       //addError(messages, error);
     });
   } else {
+    formField.classList.remove('has-error');
     input.classList.remove('has-error');
     clearAllMsgs();
   }

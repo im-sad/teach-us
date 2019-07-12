@@ -3,22 +3,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (function () {
     var signForm = document.getElementById('js-signin-form');
+    var signConstraints = {
+      sign_mail: {
+        presence: { message: "Email can't be blank" },
+        email: { message: "Wrong email format" }
+      },
+      sign_pass: {
+        presence: { message: "Password can't be blank" },
+        length: {
+          minimum: 8,
+          message: "Password is too short. Minimum 8 symbols"
+        }
+      }
+    };
+
 
     if (signForm) {
       signForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        this.disableValidation = true;
+        clearAllMsgs();
 
-        var inputsList = signForm.getElementsByTagName('input');
+        var that = this;
+        that.disableValidation = true;
 
-        formValidate(inputsList);
+        var signErrors = validate(that, signConstraints, {fullMessages: false});
+        showErrors(signErrors || {}, that);
 
-        if (isFormValid(this)) {
-          var submitBtn = this.getElementsByTagName('button')[0];
-
-          submitBtn.classList.add('has-load');
-
+        if (!signErrors) {
+          var inputsList = signForm.getElementsByTagName('input');
+          var submitBtn = that.getElementsByTagName('button')[0];
           var formData = getFormData(inputsList);
+
           sendData(formData , submitBtn);
         }
       });
@@ -42,51 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return data;
       }
 
-      function isFormValid(form) {
-        if (form.getElementsByClassName('has-error').length < 1) return true;
-      }
-
-      function formValidate(items) {
-        if (!items) return;
-
-        for (var i = 0; i < items.length; i++) {
-          validateInput(items[i]);
-        }
-      }
-
-
-      function validateInput(input) {
-        if (!input) return;
-
-        var inputType = input.getAttribute('type');
-
-        switch (inputType) {
-          case 'email':
-            if (isFieldEmpty(input) && isFieldRequired(input)) {
-              fieldAddError(input);
-            } else if (!isEmailValid(input)) {
-              fieldAddError(input);
-              showError('Wrong email format');
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-
-          default:
-            if (isFieldEmpty(input) && isFieldRequired(input)) {
-              fieldAddError(input);
-            } else {
-              fieldRemoveError(input);
-            }
-
-            break;
-        }
-      }
-
-
       function sendData(data, btn) {
         var xmlhttp = new XMLHttpRequest();
+
+        btnStartLoad(btn);
 
         xmlhttp.open('POST', '/users/sign_in.json', true);
         xmlhttp.setRequestHeader('Content-Type', 'application/json');
@@ -104,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(JSON.parse(xmlhttp.response).error);
           }
 
-          btn.classList.remove('has-load');
+          btnEndLoad(btn);
         }
       }
     }
