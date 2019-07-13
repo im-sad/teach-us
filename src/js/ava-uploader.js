@@ -27,15 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var newImage = document.createElement('img');
       var fileLink = input.files[0];
+      var reader;
 
       if (!fileLink) return;
 
-      var reader = new FileReader();
-
+      reader = new FileReader();
       reader.onload = function(file) {
         newImage.setAttribute('src', file.target.result);
       };
-
       reader.readAsDataURL(fileLink);
 
       parentNode.insertBefore(newImage, input.nextSibling);
