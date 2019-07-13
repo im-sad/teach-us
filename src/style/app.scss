@@ -6,8 +6,6 @@
 
 // Core
 @import "core/core";
-@import "core/header";
-@import "core/footer";
 @import "core/site-grid";
 @import "core/bootstrap-grid";
 
@@ -44,6 +42,8 @@
 // Sections
 
 // Blocks
+@import "blocks/header";
+@import "blocks/footer";
 @import "blocks/box";
 @import "blocks/socials";
 @import "blocks/side-nav";
