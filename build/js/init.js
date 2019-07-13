@@ -75,6 +75,22 @@ function showWarning(msg) {
   });
 }
 
+function showSuccsess(msg) {
+  if (!msg) return;
+
+  return iziToast.show({
+    message: msg,
+    color: 'green',
+    position: 'topCenter',
+    timeout: 1800,
+    progressBar: false,
+    close: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp'
+  });
+}
+
 function clearAllMsgs() {
   //iziToast.destroy();
   var toasts = document.getElementsByClassName('iziToast-opened');

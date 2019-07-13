@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var signForm = document.getElementById('js-signin-form');
     var signConstraints = {
       sign_mail: {
@@ -17,21 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
-
     if (signForm) {
       signForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        clearAllMsgs();
 
         var that = this;
-        that.disableValidation = true;
 
         var signErrors = validate(that, signConstraints, {fullMessages: false});
-        showErrors(signErrors || {}, that);
+        showValidateErrors(signErrors || {}, that);
 
         if (!signErrors) {
           var inputsList = signForm.getElementsByTagName('input');
-          var submitBtn = that.getElementsByTagName('button')[0];
+          var submitBtn = that.getElementsByClassName('btn')[0];
           var formData = getFormData(inputsList);
 
           sendData(formData , submitBtn);
@@ -42,10 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
       // Functions
       function getFormData(items) {
         var data = {};
-        
+        var name;
+        var type;
+
         for (var k = 0; k < items.length; k++) {
-          var name = items[k].name;
-          var type = items[k].type;
+          name = items[k].name;
+          type = items[k].type;
 
           if (type === 'checkbox' && !items[k].checked) {
             continue;
@@ -58,24 +57,22 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       function sendData(data, btn) {
-        var xmlhttp = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
 
         btnStartLoad(btn);
 
-        xmlhttp.open('POST', '/users/sign_in.json', true);
-        xmlhttp.setRequestHeader('Content-Type', 'application/json');
-        xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-        xmlhttp.send(JSON.stringify({user: data}));
+        xhr.open('POST', '/users/sign_in.json', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+        xhr.send(JSON.stringify({user: data}));
 
-        xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState !== 4) return;
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState !== 4) return;
 
-          if (xmlhttp.status === 200 || xmlhttp.status === 201) {
-            // good
+          if (xhr.status === 200 || xhr.status === 201) {
             window.location = '/profile.html';
           } else {
-            // not good
-            showError(JSON.parse(xmlhttp.response).error);
+            showError(JSON.parse(xhr.response).error);
           }
 
           btnEndLoad(btn);

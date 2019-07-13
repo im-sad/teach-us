@@ -457,11 +457,19 @@
   background: $color-important;
   color: $color-white;
   border-color: transparent;
+  text-shadow: 1px 1px 0 rgba($color-black, 0.05);
 }
 .iziToast.iziToast-color-yellow {
   background: $color-accent;
   color: $color-text;
   border-color: transparent;
+  text-shadow: 1px 1px 0 rgba($color-black, 0.05);
+}
+.iziToast.iziToast-color-green {
+  background: $color-main;
+  color: $color-white;
+  border-color: transparent;
+  text-shadow: 1px 1px 0 rgba($color-black, 0.05);
 }
 
 .iziToast.iziToast-layout2 .iziToast-body .iziToast-texts,

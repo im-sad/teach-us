@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         format: {
           pattern: /^[+]*[\s0-9]{0,4}[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.0-9]*$/,
-          message: "is not a phone number"
+          message: "is not a valid phone number"
         }
       }
     };
@@ -46,13 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         var that = this;
-        var formErrors = validate(that, constraintsPass);
-        var formFields = that.querySelectorAll('input[name]');
+        var passErrors = validate(that, constraintsPass);
+        var passFields = that.querySelectorAll('input[name]');
 
-        showErrors(formErrors || {}, formFields);
+        showValidateErrors(passErrors || {}, passFields);
 
-        if (!formErrors && formChangePassBtn) {
-          var passData = createDataObj(formFields);
+        if (!passErrors) {
+          var passData = createDataObj(passFields);
 
           btnStartLoad(formChangePassBtn);
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             btnEndLoad(formChangePassBtn);
 
             if (status) {
-              showWarning('Password changed');
+              showSuccsess('Password changed');
             } else {
               var errorText = 'Something went wrong'
 
@@ -93,10 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       scope.addEventListener('submit', function(e) {
         e.preventDefault();
-        clearAllMsgs();
 
         var phoneErrors = validate(this, constraintsPhone);
-        showErrors(phoneErrors || {}, this);
+        showValidateErrors(phoneErrors || {}, this);
 
         if (!phoneErrors) {
           var phoneData = createDataObj(inputs);
@@ -110,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             field.classList.add('is-hidden');
 
             if (status) {
-              showWarning('Phone changed');
+              showSuccsess('Phone changed');
               currentVal.textContent = inputs[0].value;
             } else {
               showError('Something went wrong');
@@ -119,9 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-
-
-
 
     function saveSettings(url, data, callback) {
       var xhr = new XMLHttpRequest();
@@ -144,12 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createDataObj(collection) {
-      console.log(collection);
       var obj = {};
+      var el;
 
       for (var i = 0; i < collection.length; i++) {
-        var el = collection[i];
-
+        el = collection[i];
         obj[el.name] = el.value;
       }
 

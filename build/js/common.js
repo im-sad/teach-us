@@ -1,15 +1,23 @@
 // Form helpers
 function btnStartLoad(btn) {
+  if (!btn) return;
+
   btn.classList.add('has-load');
 }
 
 function btnEndLoad(btn) {
+  if (!btn) return;
+
   btn.classList.remove('has-load');
 }
 
 // Show form errors (validate.js)
-function showErrors(errors, fields) {
-  for (var i = 0; i < fields.length; i++) {
+function showValidateErrors(errors, fields) {
+  var fieldsLength = fields.length;
+
+  if (fieldsLength > 0) clearAllMsgs();
+
+  for (var i = 0; i < fieldsLength; i++) {
     showErrorsForInput(fields[i], errors && errors[fields[i].name]);
   }
 }
@@ -21,10 +29,6 @@ function showErrorsForInput(input, errors) {
 
   if (!formField) return;
 
-  //var messages = document.createElement('div');
-  //messages.classList.add('field__error');
-  //formField.appendChild(messages);
-
   resetformField(formField);
 
   if (errors) {
@@ -33,7 +37,6 @@ function showErrorsForInput(input, errors) {
 
     errors.forEach(function(error) {
       showError(error);
-      //addError(messages, error);
     });
   } else {
     formField.classList.remove('has-error');
@@ -56,13 +59,4 @@ function closestParent(child, className) {
 
 function resetformField(formField) {
   formField.classList.remove('has-error');
-  //TODO: remove prev message
-}
-
-function addError(messages, error) {
-  var block = document.createElement('p');
-  block.classList.add('help-block');
-  block.classList.add('error');
-  block.innerText = error;
-  messages.appendChild(block);
 }

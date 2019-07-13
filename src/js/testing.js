@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var that = this;
 
         var regErrors = validate(that, constraints, {fullMessages: false});
-        showErrors(regErrors || {}, that);
+        showValidateErrors(regErrors || {}, that);
 
         if (!regErrors) {
           var formData = createInputsObj(regBlockInputs);

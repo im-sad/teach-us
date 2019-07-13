@@ -1,15 +1,23 @@
 // Form helpers
 function btnStartLoad(btn) {
+  if (!btn) return;
+
   btn.classList.add('has-load');
 }
 
 function btnEndLoad(btn) {
+  if (!btn) return;
+
   btn.classList.remove('has-load');
 }
 
 // Show form errors (validate.js)
-function showErrors(errors, fields) {
-  for (var i = 0; i < fields.length; i++) {
+function showValidateErrors(errors, fields) {
+  var fieldsLength = fields.length;
+
+  if (fieldsLength > 0) clearAllMsgs();
+
+  for (var i = 0; i < fieldsLength; i++) {
     showErrorsForInput(fields[i], errors && errors[fields[i].name]);
   }
 }
@@ -21,10 +29,6 @@ function showErrorsForInput(input, errors) {
 
   if (!formField) return;
 
-  //var messages = document.createElement('div');
-  //messages.classList.add('field__error');
-  //formField.appendChild(messages);
-
   resetformField(formField);
 
   if (errors) {
@@ -33,7 +37,6 @@ function showErrorsForInput(input, errors) {
 
     errors.forEach(function(error) {
       showError(error);
-      //addError(messages, error);
     });
   } else {
     formField.classList.remove('has-error');
@@ -56,15 +59,6 @@ function closestParent(child, className) {
 
 function resetformField(formField) {
   formField.classList.remove('has-error');
-  //TODO: remove prev message
-}
-
-function addError(messages, error) {
-  var block = document.createElement('p');
-  block.classList.add('help-block');
-  block.classList.add('error');
-  block.innerText = error;
-  messages.appendChild(block);
 }
 /*
  * forEach Polyfill
@@ -1598,7 +1592,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var that = this;
 
         var regErrors = validate(that, constraints, {fullMessages: false});
-        showErrors(regErrors || {}, that);
+        showValidateErrors(regErrors || {}, that);
 
         if (!regErrors) {
           var formData = createInputsObj(regBlockInputs);
@@ -2178,7 +2172,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         format: {
           pattern: /^[+]*[\s0-9]{0,4}[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.0-9]*$/,
-          message: "is not a phone number"
+          message: "is not a valid phone number"
         }
       }
     };
@@ -2196,13 +2190,13 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         var that = this;
-        var formErrors = validate(that, constraintsPass);
-        var formFields = that.querySelectorAll('input[name]');
+        var passErrors = validate(that, constraintsPass);
+        var passFields = that.querySelectorAll('input[name]');
 
-        showErrors(formErrors || {}, formFields);
+        showValidateErrors(passErrors || {}, passFields);
 
-        if (!formErrors && formChangePassBtn) {
-          var passData = createDataObj(formFields);
+        if (!passErrors) {
+          var passData = createDataObj(passFields);
 
           btnStartLoad(formChangePassBtn);
 
@@ -2210,7 +2204,7 @@ document.addEventListener('DOMContentLoaded', function() {
             btnEndLoad(formChangePassBtn);
 
             if (status) {
-              showWarning('Password changed');
+              showSuccsess('Password changed');
             } else {
               var errorText = 'Something went wrong'
 
@@ -2243,10 +2237,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       scope.addEventListener('submit', function(e) {
         e.preventDefault();
-        clearAllMsgs();
 
         var phoneErrors = validate(this, constraintsPhone);
-        showErrors(phoneErrors || {}, this);
+        showValidateErrors(phoneErrors || {}, this);
 
         if (!phoneErrors) {
           var phoneData = createDataObj(inputs);
@@ -2260,7 +2253,7 @@ document.addEventListener('DOMContentLoaded', function() {
             field.classList.add('is-hidden');
 
             if (status) {
-              showWarning('Phone changed');
+              showSuccsess('Phone changed');
               currentVal.textContent = inputs[0].value;
             } else {
               showError('Something went wrong');
@@ -2269,9 +2262,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-
-
-
 
     function saveSettings(url, data, callback) {
       var xhr = new XMLHttpRequest();
@@ -2294,12 +2284,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createDataObj(collection) {
-      console.log(collection);
       var obj = {};
+      var el;
 
       for (var i = 0; i < collection.length; i++) {
-        var el = collection[i];
-
+        el = collection[i];
         obj[el.name] = el.value;
       }
 
@@ -2460,10 +2449,10 @@ function Modal(scope, modalOptions) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var signForm = document.getElementById('js-signin-form');
     var signConstraints = {
       sign_mail: {
@@ -2479,21 +2468,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
-
     if (signForm) {
       signForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        clearAllMsgs();
 
         var that = this;
-        that.disableValidation = true;
 
         var signErrors = validate(that, signConstraints, {fullMessages: false});
-        showErrors(signErrors || {}, that);
+        showValidateErrors(signErrors || {}, that);
 
         if (!signErrors) {
           var inputsList = signForm.getElementsByTagName('input');
-          var submitBtn = that.getElementsByTagName('button')[0];
+          var submitBtn = that.getElementsByClassName('btn')[0];
           var formData = getFormData(inputsList);
 
           sendData(formData , submitBtn);
@@ -2504,10 +2490,12 @@ document.addEventListener('DOMContentLoaded', function () {
       // Functions
       function getFormData(items) {
         var data = {};
-        
+        var name;
+        var type;
+
         for (var k = 0; k < items.length; k++) {
-          var name = items[k].name;
-          var type = items[k].type;
+          name = items[k].name;
+          type = items[k].type;
 
           if (type === 'checkbox' && !items[k].checked) {
             continue;
@@ -2520,24 +2508,22 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       function sendData(data, btn) {
-        var xmlhttp = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
 
         btnStartLoad(btn);
 
-        xmlhttp.open('POST', '/users/sign_in.json', true);
-        xmlhttp.setRequestHeader('Content-Type', 'application/json');
-        xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-        xmlhttp.send(JSON.stringify({user: data}));
+        xhr.open('POST', '/users/sign_in.json', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+        xhr.send(JSON.stringify({user: data}));
 
-        xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState !== 4) return;
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState !== 4) return;
 
-          if (xmlhttp.status === 200 || xmlhttp.status === 201) {
-            // good
+          if (xhr.status === 200 || xhr.status === 201) {
             window.location = '/profile.html';
           } else {
-            // not good
-            showError(JSON.parse(xmlhttp.response).error);
+            showError(JSON.parse(xhr.response).error);
           }
 
           btnEndLoad(btn);
@@ -4525,15 +4511,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var newImage = document.createElement('img');
       var fileLink = input.files[0];
+      var reader;
 
       if (!fileLink) return;
 
-      var reader = new FileReader();
-
+      reader = new FileReader();
       reader.onload = function(file) {
         newImage.setAttribute('src', file.target.result);
       };
-
       reader.readAsDataURL(fileLink);
 
       parentNode.insertBefore(newImage, input.nextSibling);
@@ -4611,7 +4596,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //var error = validate(this, constraints, {fullMessages: false});
         var formFields = that.querySelectorAll('input[name], select[name]');
 
-        showErrors(formErrors || {}, formFields);
+        showValidateErrors(formErrors || {}, formFields);
 
         //submit
         if (!formErrors) {
@@ -4788,6 +4773,22 @@ function showWarning(msg) {
   return iziToast.show({
     message: msg,
     color: 'yellow',
+    position: 'topCenter',
+    timeout: 1800,
+    progressBar: false,
+    close: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp'
+  });
+}
+
+function showSuccsess(msg) {
+  if (!msg) return;
+
+  return iziToast.show({
+    message: msg,
+    color: 'green',
     position: 'topCenter',
     timeout: 1800,
     progressBar: false,

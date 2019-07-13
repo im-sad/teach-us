@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //var error = validate(this, constraints, {fullMessages: false});
         var formFields = that.querySelectorAll('input[name], select[name]');
 
-        showErrors(formErrors || {}, formFields);
+        showValidateErrors(formErrors || {}, formFields);
 
         //submit
         if (!formErrors) {
