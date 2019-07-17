@@ -40,6 +40,7 @@ var path = {
 			img: 'build/img/',
 			tmp: 'build/tmp/',
 			fonts: 'build/fonts/',
+			files: 'build/files/',
 	},
 	src: { // Исходники
 			bower: 'src/*.html',
@@ -48,7 +49,8 @@ var path = {
 			style: 'src/style/*.scss',
 			img: 'src/img/**/*.*',
 			tmp: 'src/tmp/**/*.*',
-			fonts: 'src/fonts/**/*.*'
+			fonts: 'src/fonts/**/*.*',
+			files: 'src/files/**/*.*',
 	},
 	watch: { // Изменяющиеся
 			html: 'src/**/*.html',
@@ -56,7 +58,7 @@ var path = {
 			style: 'src/style/**/*.scss',
 			img: 'src/img/**/*.*',
 			tmp: 'src/tmp/**/*.*',
-			fonts: 'src/fonts/**/*.*'
+			fonts: 'src/fonts/**/*.*',
 	},
 	clean: 'build'
 };
@@ -233,6 +235,13 @@ gulp.task('fonts', function() {
 });
 
 
+//Копируем файлы
+gulp.task('files', function() {
+	gulp.src(path.src.files)
+		.pipe(gulp.dest(path.build.files))
+
+	reload({stream: true});
+});
 
 
 
@@ -243,7 +252,8 @@ gulp.task('build', [
 	'css',
 	'js:build',
 	'img',
-	'fonts'
+	'fonts',
+	'files',
 ]);
 
 
