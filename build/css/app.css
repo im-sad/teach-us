@@ -575,6 +575,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .body__core {
 	-ms-flex: 0 0 auto;
 	    flex: 0 0 auto;
+	min-width: 1240px;
 }
 
 .grid {
@@ -4766,6 +4767,9 @@ input:checked ~ .checkbox__title:after {
 	width: 100%;
 	display: block;
 }
+.header__switch {
+	margin-right: 24px;
+}
 .header__profile {
 	right: 32px;
 	margin-left: auto;
@@ -4866,6 +4870,7 @@ input:checked ~ .checkbox__title:after {
 	padding-top: 32px;
 	padding-bottom: 32px;
 	color: #fff;
+	min-width: 1240px;
 }
 .footer__core {
 	display: -ms-flexbox;
@@ -5004,6 +5009,11 @@ input:checked ~ .checkbox__title:after {
 .side-nav__item:first-child {
 	margin-top: 0;
 }
+.side-nav__item--disabled a:hover {
+	color: #000;
+	font-weight: 400;
+	cursor: default;
+}
 .side-nav__link {
 	position: relative;
 	display: block;
@@ -5089,7 +5099,7 @@ input:checked ~ .checkbox__title:after {
 	    flex: 0 0 auto;
 	height: 670px;
 	background: #033131 url('../img/index/jumbo.jpg') no-repeat center center;
-	background-size: contain;
+	background-size: auto 100%;
 	color: #fff;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -5121,8 +5131,8 @@ input:checked ~ .checkbox__title:after {
 .index-cats__list {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
+	-ms-flex-pack: center;
+	justify-content: center;
 	-ms-flex-align: stretch;
 	align-items: stretch;
 	margin-left: -16px;

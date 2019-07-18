@@ -16,7 +16,8 @@
     align-items: center;
   }
 
-  &__logo, &__profile {
+  &__logo,
+  &__profile {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -42,6 +43,10 @@
     display: block;
   }
 
+  &__switch {
+    margin-right: 24px;
+  }
+
   &__profile {
     right: 32px;
     margin-left: auto;
@@ -57,6 +62,10 @@
       transform: none;
     }
   }
+
+  // @media screen and (max-width: $w-phablet) {
+  //
+  // }
 }
 
 
