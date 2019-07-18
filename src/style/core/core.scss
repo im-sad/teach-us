@@ -1,4 +1,5 @@
-.w, .w-fluid {
+.w,
+.w-fluid {
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 32px;
@@ -20,5 +21,6 @@
 
 	&__core {
 		flex: 0 0 auto;
+		min-width: 1240px;
 	}
 }
