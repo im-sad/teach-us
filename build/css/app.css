@@ -5448,6 +5448,10 @@ input:checked ~ .checkbox__title:after {
 	left: 0;
 	top: 0;
 }
+.user-public-card__btn.disabled:hover {
+	background-color: #feca00;
+	cursor: default;
+}
 
 .skills-card {
 	display: -ms-flexbox;

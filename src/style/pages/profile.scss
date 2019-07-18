@@ -131,8 +131,11 @@
     top: 0;
   }
 
-  &__btn {
-    //font-size: 18px;
+  &__btn.disabled {
+    &:hover {
+      background-color: #feca00;
+      cursor: default;
+    }
   }
 }
 
@@ -253,7 +256,7 @@
     display: block;
     font-size: 18px;
     @include line-height(18px, 22px);
-    font-weight: 500; 
+    font-weight: 500;
     margin-bottom: 8px;
   }
 
@@ -394,7 +397,7 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 8px;
-    
+
     &:first-child {
       margin-top: 0;
     }
@@ -481,8 +484,3 @@
   height: 190px;
   border-radius: 5px;
 }
-
-
-
-
-
