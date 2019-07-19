@@ -1,12 +1,13 @@
 {
-  "name": "base_gulp",
+  "name": "TeachUs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "prod": "gulp prod"
   },
-  "description": "html+sass",
+  "description": "TmpUS Static",
   "dependencies": {
     "browser-sync": "^2.11.1",
     "del": "^2.2.0",

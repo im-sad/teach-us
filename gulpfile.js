@@ -21,9 +21,9 @@ var gulp         = require('gulp'),
 		wiredep      = require('wiredep').stream,
 		imagemin     = require('gulp-imagemin'),
 		pngquant     = require('imagemin-pngquant'),
-		svgSprite = require('gulp-svg-sprites'),
-		svgmin = require('gulp-svgmin'),
-		cheerio = require('gulp-cheerio'),
+		svgSprite    = require('gulp-svg-sprites'),
+		svgmin       = require('gulp-svgmin'),
+		cheerio      = require('gulp-cheerio'),
 		browserSync  = require('browser-sync'),
 		reload       = browserSync.reload;
 
@@ -40,17 +40,14 @@ var path = {
 			img: 'build/img/',
 			tmp: 'build/tmp/',
 			fonts: 'build/fonts/',
-			files: 'build/files/',
 	},
 	src: { // Исходники
-			bower: 'src/*.html',
 			html: 'src/*.html',
 			js: 'src/js/*.js',
 			style: 'src/style/*.scss',
 			img: 'src/img/**/*.*',
 			tmp: 'src/tmp/**/*.*',
 			fonts: 'src/fonts/**/*.*',
-			files: 'src/files/**/*.*',
 	},
 	watch: { // Изменяющиеся
 			html: 'src/**/*.html',
@@ -122,10 +119,6 @@ gulp.task('svgSpriteBuild', function () {
 });
 
 
-
-
-
-
 // ###Собираем HTML###
 gulp.task('html:build', function () {
 	gulp.src(path.src.html)
@@ -148,8 +141,6 @@ gulp.task('css:build', function () {
 		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(sourcemaps.init())
 		.pipe(sass())
-		.pipe(prefixer({ browsers: ['last 5 versions', '> 2%', 'ie 8'] }))
-		.pipe(csscomb())
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
@@ -158,19 +149,17 @@ gulp.task('css:build', function () {
 gulp.task('css:min', function () {
 	return gulp.src(path.build.style)
 		.pipe(plumber())
+		.pipe(prefixer({ browsers: ['last 5 versions', '> 2%', 'ie 8'] }))
+		.pipe(csscomb())
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
 });
-
 // Всё вместе
 gulp.task('css', function(cb) {
 	runSequence('css:build', 'css:min', cb);
 });
-
-
-
 
 
 // ###Собираем JS###
@@ -189,12 +178,10 @@ gulp.task('js:min', function () {
 		.pipe(gulp.dest(path.build.js))
 		.pipe(reload({stream: true}));
 });
-
-
+// Всё вместе
 gulp.task('js', function(cb) {
 	runSequence('js:build', 'js:min', cb);
 });
-
 
 
 // ###Собираем изображения###
@@ -223,22 +210,10 @@ gulp.task('img', function(cb) {
 });
 
 
-
-
-
 // ###Копируем шрифты###
 gulp.task('fonts', function() {
 	gulp.src(path.src.fonts)
 		.pipe(gulp.dest(path.build.fonts));
-
-	reload({stream: true});
-});
-
-
-//Копируем файлы
-gulp.task('files', function() {
-	gulp.src(path.src.files)
-		.pipe(gulp.dest(path.build.files))
 
 	reload({stream: true});
 });
@@ -249,11 +224,19 @@ gulp.task('files', function() {
 gulp.task('build', [
 	'clean',
 	'html:build',
+	'css:build',
+	'js:build',
+	'img',
+	'fonts'
+]);
+
+gulp.task('prod', [
+	'clean',
+	'html:build',
 	'css',
 	'js:build',
 	'img',
-	'fonts',
-	'files',
+	'fonts'
 ]);
 
 
@@ -263,7 +246,7 @@ gulp.task('watch', function(){
 			gulp.start('html:build');
 	});
 	watch([path.watch.style], function(event, cb) {
-			gulp.start('css');
+			gulp.start('css:build');
 	});
 	watch([path.watch.js], function(event, cb) {
 			gulp.start('js:build');
