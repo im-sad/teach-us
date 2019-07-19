@@ -571,6 +571,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 	justify-content: flex-start;
 	-ms-flex-direction: column;
 	    flex-direction: column;
+	min-height: 100vh;
 }
 .body__core {
 	-ms-flex: 0 0 auto;
