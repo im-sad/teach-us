@@ -14,13 +14,20 @@
 
 ### SCSS Structure
 `app.scss` - include all styles
+
 `style/system` - base styles, mixins, options & resets
+
 `style/core` - grids & core page styles
+
 `style/blocks` - isolated entitys
+
 `style/pages` - styles for specific site page
-`style/components` - 
+
+`style/components` - impartible elements
 
 ### JS Structure
 `main.js` - include all js files
-`init.js` - inicialization plugins
+
+`init.js` - initialization plugins
+
 `common.js` - helper functions
