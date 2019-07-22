@@ -1,0 +1,29 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "no-undef": 0,
+    "quotes": [2, "single", {"avoidEscape": true}],
+    "no-unused-vars": "warn",
+    "no-useless-escape": "warn",
+
+    "no-debugger": 1,
+    "no-empty": 1,
+    "array-bracket-spacing": [1,"never",{}],
+    "brace-style": [1,"1tbs",{"allowSingleLine":true}],
+    "comma-spacing": [1,{"after":true}],
+    "newline-after-var": [1,"always"],
+    "no-lonely-if": 2,
+    "no-mixed-spaces-and-tabs": [1,"smart-tabs"],
+    "no-multiple-empty-lines": [1,{"max":2}],
+    "space-after-keywords": [1,"always"],
+    "space-before-blocks": [1,"always"],
+    "space-before-function-paren": [1,{"anonymous":"never","named":"never","asyncArrow":"never"}],
+    "no-spaced-func": 1,
+    "yoda": [1,"never",{"exceptRange":true,"onlyEquality":true}],
+    "eqeqeq": [1,"smart"],
+    "no-unexpected-multiline": 1
+  }
+}
