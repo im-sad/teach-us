@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var filter = document.getElementsByClassName('js-filter')[0];
 
     if (filter) {
@@ -27,13 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
       }
+    }
 
-      function checkFilter(collection) {
-        for (var j = 0; j < collection.length; j++) {
-          collection[j].classList.remove('is-active');
-        }
+    function checkFilter(collection) {
+      for (var j = 0; j < collection.length; j++) {
+        collection[j].classList.remove('is-active');
       }
-
     }
   })();
 });

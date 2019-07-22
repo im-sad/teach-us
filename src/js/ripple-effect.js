@@ -4,21 +4,23 @@ document.addEventListener('DOMContentLoaded', function() {
   (function () {
     var cleanUp, debounce, i, len, ripple, rippleContainer, ripples, showRipple;
 
-    debounce = function (func, delay) {
+    debounce = function(func, delay) {
       var inDebounce;
+
       inDebounce = undefined;
-      return function () {
+      return function() {
         var args, context;
+
         context = this;
         args = arguments;
         clearTimeout(inDebounce);
-        return inDebounce = setTimeout(function () {
+        return inDebounce = setTimeout(function() {
           return func.apply(context, args);
         }, delay);
       };
     };
 
-    showRipple = function (e) {
+    showRipple = function(e) {
       var pos, ripple, rippler, size, style, x, y;
 
       ripple = this;
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return rippler.setAttribute('style', style);
     };
 
-    cleanUp = function () {
+    cleanUp = function() {
       while (this.rippleContainer.firstChild) {
         this.rippleContainer.removeChild(this.rippleContainer.firstChild);
       }

@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var passEyeBtns = document.getElementsByClassName('js-pass-eye');
 
     for (var i = 0; i < passEyeBtns.length; i++) {
