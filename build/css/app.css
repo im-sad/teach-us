@@ -2260,8 +2260,7 @@ svg.icn {
   .btn:active, .btn--active {
     outline: none; }
   .btn:disabled, .btn--disabled {
-    cursor: default;
-    opacity: .7; }
+    pointer-events: none; }
   .btn:focus {
     outline: none; }
   .btn.has-load {
@@ -2310,6 +2309,9 @@ svg.icn {
   .btn-accent:hover, .btn-accent:active {
     color: #000;
     background-color: #ffd532; }
+  .btn-accent:disabled, .btn-accent--disabled {
+    pointer-events: none;
+    opacity: 0.5; }
   .btn-accent.has-load::before {
     width: 20px;
     height: 20px;
@@ -4808,12 +4810,29 @@ input:checked ~ .checkbox__title:after {
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 24px; }
+  margin-right: 24px;
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s ease; }
+
+a.header-profile__ava:hover {
+  transform: scale(1.05); }
 
 .header-profile__ava-img {
   display: block;
-  width: 100%;
-  height: 100%; }
+  max-width: 110%;
+  max-height: 110%;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+  @supports (object-fit: cover) {
+    .header-profile__ava-img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%; } }
 
 .header-profile__link {
   color: #fff;
@@ -4962,10 +4981,10 @@ input:checked ~ .checkbox__title:after {
     white-space: nowrap; }
     .side-nav__item:first-child {
       margin-top: 0; }
-  .side-nav__item--disabled a:hover {
-    color: #000;
-    font-weight: 400;
-    cursor: default; }
+    .side-nav__item--disabled {
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.2; }
   .side-nav__link {
     position: relative;
     display: block;
@@ -5288,9 +5307,6 @@ input:checked ~ .checkbox__title:after {
     position: absolute;
     left: 0;
     top: 0; }
-  .user-public-card__btn.disabled:hover {
-    background-color: #feca00;
-    cursor: default; }
 
 .skills-card {
   display: flex;

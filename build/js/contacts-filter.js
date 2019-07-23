@@ -1,10 +1,7 @@
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var contactsSearch = document.getElementById('js-contacts-search');
     var contactsList = document.getElementById('js-contacts-list');
 

@@ -95,23 +95,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function sendTesting(data) {
           var finishBtn = document.getElementById('js-test-finish');
-          var xmlhttp = new XMLHttpRequest();
+          var xhr = new XMLHttpRequest();
 
-          if (finishBtn) finishBtn.classList.add('has-load');
+          btnStartLoad(finishBtn);
 
-          xmlhttp.open('POST', '/survey_answers', true);
-          xmlhttp.setRequestHeader('Content-Type', 'application/json');
-          xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-          xmlhttp.send(JSON.stringify(data));
+          xhr.open('POST', '/survey_answers', true);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+          xhr.send(JSON.stringify(data));
 
-          xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState !== 4) return;
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4) return;
 
-            if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+            if (xhr.status === 200 || xhr.status === 201) {
               window.location = '/profile.html';
             } else {
               showError('Something went wrong');
-              if (finishBtn) finishBtn.classList.remove('has-load');
+              btnEndLoad(finishBtn);
             }
           }
         }
@@ -221,22 +221,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
       function sendFormData(data, url, btn) {
-        var xmlhttp = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
 
         btnStartLoad(btn);
 
-        xmlhttp.open('POST', url, true);
-        xmlhttp.setRequestHeader('Content-Type', 'application/json');
-        xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-        xmlhttp.send(JSON.stringify(data));
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+        xhr.send(JSON.stringify(data));
 
-        xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState !== 4) return;
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState !== 4) return;
 
-          if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+          if (xhr.status === 200 || xhr.status === 201) {
             testingBlock.classList.add('is-step2');
-          } else if (xmlhttp.status === 422) {
-            var response = JSON.parse(xmlhttp.responseText);
+          } else if (xhr.status === 422) {
+            var response = JSON.parse(xhr.responseText);
 
             if (response.errors.email.filter((obj) => obj.predicate == 'not_unique').length > 0) {
               showWarning('An account with this email already exists. Please log in');

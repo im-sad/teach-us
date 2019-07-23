@@ -132,22 +132,20 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!form) return;
 
       var sendBtn = form.getElementsByClassName('btn')[0];
-      var xmlhttp = new XMLHttpRequest();
+      var xhr = new XMLHttpRequest();
       var data = createDataObj(inputs);
 
-      if (sendBtn) {
-        btnStartLoad(sendBtn);
-      }
+      btnStartLoad(sendBtn);
 
-      xmlhttp.open('PATCH', url, true);
-      xmlhttp.setRequestHeader('Content-Type', 'application/json');
-      xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-      xmlhttp.send(JSON.stringify(data));
+      xhr.open('PATCH', url, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+      xhr.send(JSON.stringify(data));
 
-      xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState !== 4) return;
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
 
-        if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+        if (xhr.status === 200 || xhr.status === 201) {
           callback(true);
         } else {
           callback(false);

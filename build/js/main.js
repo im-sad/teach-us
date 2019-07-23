@@ -1331,21 +1331,23 @@ document.addEventListener('DOMContentLoaded', function() {
   (function () {
     var cleanUp, debounce, i, len, ripple, rippleContainer, ripples, showRipple;
 
-    debounce = function (func, delay) {
+    debounce = function(func, delay) {
       var inDebounce;
+
       inDebounce = undefined;
-      return function () {
+      return function() {
         var args, context;
+
         context = this;
         args = arguments;
         clearTimeout(inDebounce);
-        return inDebounce = setTimeout(function () {
+        return inDebounce = setTimeout(function() {
           return func.apply(context, args);
         }, delay);
       };
     };
 
-    showRipple = function (e) {
+    showRipple = function(e) {
       var pos, ripple, rippler, size, style, x, y;
 
       ripple = this;
@@ -1360,7 +1362,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return rippler.setAttribute('style', style);
     };
 
-    cleanUp = function () {
+    cleanUp = function() {
       while (this.rippleContainer.firstChild) {
         this.rippleContainer.removeChild(this.rippleContainer.firstChild);
       }
@@ -1476,23 +1478,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function sendTesting(data) {
           var finishBtn = document.getElementById('js-test-finish');
-          var xmlhttp = new XMLHttpRequest();
+          var xhr = new XMLHttpRequest();
 
-          if (finishBtn) finishBtn.classList.add('has-load');
+          btnStartLoad(finishBtn);
 
-          xmlhttp.open('POST', '/survey_answers', true);
-          xmlhttp.setRequestHeader('Content-Type', 'application/json');
-          xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-          xmlhttp.send(JSON.stringify(data));
+          xhr.open('POST', '/survey_answers', true);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+          xhr.send(JSON.stringify(data));
 
-          xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState !== 4) return;
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4) return;
 
-            if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+            if (xhr.status === 200 || xhr.status === 201) {
               window.location = '/profile.html';
             } else {
               showError('Something went wrong');
-              if (finishBtn) finishBtn.classList.remove('has-load');
+              btnEndLoad(finishBtn);
             }
           }
         }
@@ -1602,22 +1604,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
       function sendFormData(data, url, btn) {
-        var xmlhttp = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
 
         btnStartLoad(btn);
 
-        xmlhttp.open('POST', url, true);
-        xmlhttp.setRequestHeader('Content-Type', 'application/json');
-        xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-        xmlhttp.send(JSON.stringify(data));
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+        xhr.send(JSON.stringify(data));
 
-        xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState !== 4) return;
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState !== 4) return;
 
-          if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+          if (xhr.status === 200 || xhr.status === 201) {
             testingBlock.classList.add('is-step2');
-          } else if (xmlhttp.status === 422) {
-            var response = JSON.parse(xmlhttp.responseText);
+          } else if (xhr.status === 422) {
+            var response = JSON.parse(xhr.responseText);
 
             if (response.errors.email.filter((obj) => obj.predicate == 'not_unique').length > 0) {
               showWarning('An account with this email already exists. Please log in');
@@ -1648,10 +1650,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }());
 });
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var passEyeBtns = document.getElementsByClassName('js-pass-eye');
 
     for (var i = 0; i < passEyeBtns.length; i++) {
@@ -1963,10 +1965,10 @@ function Tabs(scope, optionsTab) {
   this.length = tabsSwitchItems.length;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var filter = document.getElementsByClassName('js-filter')[0];
 
     if (filter) {
@@ -1992,13 +1994,12 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
       }
+    }
 
-      function checkFilter(collection) {
-        for (var j = 0; j < collection.length; j++) {
-          collection[j].classList.remove('is-active');
-        }
+    function checkFilter(collection) {
+      for (var j = 0; j < collection.length; j++) {
+        collection[j].classList.remove('is-active');
       }
-
     }
   })();
 });
@@ -2102,13 +2103,10 @@ var DOMAnimations = {
     }
   }
 };
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var contactsSearch = document.getElementById('js-contacts-search');
     var contactsList = document.getElementById('js-contacts-list');
 
@@ -4482,7 +4480,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
   (function() {
@@ -4660,22 +4658,20 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!form) return;
 
       var sendBtn = form.getElementsByClassName('btn')[0];
-      var xmlhttp = new XMLHttpRequest();
+      var xhr = new XMLHttpRequest();
       var data = createDataObj(inputs);
 
-      if (sendBtn) {
-        btnStartLoad(sendBtn);
-      }
+      btnStartLoad(sendBtn);
 
-      xmlhttp.open('PATCH', url, true);
-      xmlhttp.setRequestHeader('Content-Type', 'application/json');
-      xmlhttp.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-      xmlhttp.send(JSON.stringify(data));
+      xhr.open('PATCH', url, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+      xhr.send(JSON.stringify(data));
 
-      xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState !== 4) return;
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
 
-        if (xmlhttp.status === 200 || xmlhttp.status === 201) {
+        if (xhr.status === 200 || xhr.status === 201) {
           callback(true);
         } else {
           callback(false);
