@@ -26,7 +26,9 @@
 	&:active, &--active {
 		outline: none;
 	}
-	&:disabled, &--disabled {cursor:default;opacity:.7;}
+  &:disabled, &--disabled {
+    pointer-events: none;
+  }
 
 	&:focus {
 		outline: none;
@@ -98,7 +100,13 @@
 	&:active {
 		color: $color-text;
 		background-color: lighten($color-accent, 10%);
-	}
+  }
+
+  &:disabled,
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
 	&.has-load::before {
     width: 20px;

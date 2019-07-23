@@ -130,13 +130,6 @@
     left: 0;
     top: 0;
   }
-
-  &__btn.disabled {
-    &:hover {
-      background-color: #feca00;
-      cursor: default;
-    }
-  }
 }
 
 
