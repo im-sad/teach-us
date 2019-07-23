@@ -1,5 +1,3 @@
-@import "../system/_mix", "../system/_vars";
-
 .index-jumbo {
   position: relative;
   overflow: hidden;
@@ -24,7 +22,7 @@
   }
 
   &__title {
-
+    //
   }
 
   &__title-span {
@@ -121,15 +119,5 @@
     left: 24px;
     bottom: 24px;
     width: 192px;
-  }
-}
-
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }

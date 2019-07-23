@@ -53,7 +53,7 @@
   display: flex;
   justify-content: start;
 
-  & > * { // any child element 
+  & > * { // any child element
     margin-left: 12px;
 
     &:first-child {

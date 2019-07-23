@@ -1,38 +1,42 @@
-@import "../system/_mix", "../system/_vars";
-
-/* BTNS */
 .btn {
-	display: inline-flex;
-	text-decoration: none;
-	vertical-align: middle;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-	line-height: $btn-line-heigh;
-	text-align: center;
-	transition: background .3s;
-	position: relative;
-	bottom: 0;
-	box-sizing: border-box;
-	border: 1px solid transparent; //1px border для равной с .field высоты
-	max-width:100%;
-	opacity:1;
-	text-overflow: ellipsis;
-	user-select: none;
-	transition: color $time-base ease, background-color $time-base ease, border $time-base ease;
+  display: inline-flex;
+  text-decoration: none;
+  vertical-align: middle;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  line-height: $btn-line-heigh;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  box-sizing: border-box;
+  border: 1px solid transparent; //1px border для равной с .field высоты
+  max-width: 100%;
+  opacity: 1;
+  text-overflow: ellipsis;
+  user-select: none;
+  transition: color $time-base ease, background-color $time-base ease, border $time-base ease;
 
-	//state
-	&:hover:not(.no-hover), &--hover {text-decoration:none;cursor:pointer;}
-	&:active, &--active {
-		outline: none;
-	}
-  &:disabled, &--disabled {
+  //state
+  &:hover:not(.no-hover),
+  &--hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &:active,
+  &--active {
+    outline: none;
+  }
+
+  &:disabled,
+  &--disabled {
     pointer-events: none;
   }
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 
   &.has-load {
     color: transparent !important;
@@ -53,53 +57,58 @@
     }
   }
 
-	//mod
-	&--fluid {
-		width: 100%;
-		clear: both;
-	}
+  //mod
+  &--fluid {
+    width: 100%;
+    clear: both;
+  }
 
-	&--min-width {
-		min-width: 192px;
-	}
+  &--min-width {
+    min-width: 192px;
+  }
 
-	//sizes
-	&--base {
-		height: $btn-base;
-		padding-left: 24px;
-		padding-right: 24px;
-	}
+  //sizes
+  &--base {
+    height: $btn-base;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 
-	// icns
-	&--plus:before {
-		content: '\2b ';
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 0.3em;
-		margin-top: -0.15em;
-	}
+  // icns
+  &--plus:before {
+    content: '\2b ';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.3em;
+    margin-top: -0.15em;
+  }
 }
 
 
 // Main button
 .btn-main {
-	background: $color-main;
-	color: $color-text;
+  background: $color-main;
+  color: $color-text;
 
-	&:hover {color:#fff;}
-	&:active {color:#fff;}
+  &:hover {
+    color: $color-white;
+  }
+
+  &:active {
+    color: $color-white;
+  }
 }
 
 // Accent button
 .btn-accent {
-	background: $color-accent;
-	color: $color-text;
-	border-radius: 3px;
+  background: $color-accent;
+  color: $color-text;
+  border-radius: 3px;
 
-	&:hover,
-	&:active {
-		color: $color-text;
-		background-color: lighten($color-accent, 10%);
+  &:hover,
+  &:active {
+    color: $color-text;
+    background-color: lighten($color-accent, 10%);
   }
 
   &:disabled,
@@ -108,26 +117,27 @@
     opacity: 0.5;
   }
 
-	&.has-load::before {
+  &.has-load::before {
     width: 20px;
     height: 20px;
     margin-left: -10px;
     margin-top: -10px;
     background-size: 20px 20px;
+
     @extend %spinner-black;
   }
 }
 
 // Hollow green
 .btn-hollow-green {
-	border-color: $color-main;
-	color: $color-main;
-	border-radius: 5px;
+  border-color: $color-main;
+  color: $color-main;
+  border-radius: 5px;
 
-	&:hover {
-		border-color: lighten($color-main, 10%);
-		color: lighten($color-main, 10%);
-	}
+  &:hover {
+    border-color: lighten($color-main, 10%);
+    color: lighten($color-main, 10%);
+  }
 }
 
 
@@ -152,11 +162,11 @@
   position: absolute;
   opacity: 0.75;
   background-color: $color-white;
-  animation: ripple 1000ms;
-	will-change: opacity, transform;
+  animation: ripple 1s;
+  will-change: opacity, transform;
 }
 
-[data-ripple="green"] .ripple span {
+[data-ripple='green'] .ripple span {
   background-color: $color-main-lightes;
 }
 

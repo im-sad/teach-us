@@ -1,6 +1,10 @@
-@import "../system/_mix", "../system/_vars";
 /* HELPERS */
-.clr:after {content:'';display:table;clear:both;width:100%;}
+.clr:after {
+	content:'';
+	display:table;
+	clear:both;
+	width:100%;
+}
 
 
 // Colors
