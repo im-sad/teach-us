@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         var that = this;
-
         var signErrors = validate(that, signConstraints, {fullMessages: false});
+
         showValidateErrors(signErrors || {}, that);
 
         if (!signErrors) {
@@ -31,53 +31,52 @@ document.addEventListener('DOMContentLoaded', function() {
           var submitBtn = that.getElementsByClassName('btn')[0];
           var formData = getFormData(inputsList);
 
-          sendData(formData , submitBtn);
+          sendData(formData, submitBtn);
         }
       });
+    }
 
+    function getFormData(items) {
+      var data = {};
+      var name;
+      var type;
 
-      // Functions
-      function getFormData(items) {
-        var data = {};
-        var name;
-        var type;
+      for (var k = 0; k < items.length; k++) {
+        name = items[k].name;
+        type = items[k].type;
 
-        for (var k = 0; k < items.length; k++) {
-          name = items[k].name;
-          type = items[k].type;
-
-          if (type === 'checkbox' && !items[k].checked) {
-            continue;
-          } else {
-            data[name] = items[k].value;
-          }
+        if (type === 'checkbox' && !items[k].checked) {
+          continue;
+        } else {
+          data[name] = items[k].value;
         }
-
-        return data;
       }
 
-      function sendData(data, btn) {
-        var xhr = new XMLHttpRequest();
+      return data;
+    }
 
-        btnStartLoad(btn);
+    function sendData(data, btn) {
+      var xhr = new XMLHttpRequest();
 
-        xhr.open('POST', '/users/sign_in.json', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-        xhr.send(JSON.stringify({user: data}));
+      btnStartLoad(btn);
 
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState !== 4) return;
+      xhr.open('POST', '/users/sign_in.json', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+      xhr.send(JSON.stringify({ user: data }));
 
-          if (xhr.status === 200 || xhr.status === 201) {
-            window.location = '/profile.html';
-          } else {
-            showError(JSON.parse(xhr.response).error);
-          }
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
 
-          btnEndLoad(btn);
+        if (xhr.status === 200 || xhr.status === 201) {
+          window.location = '/profile.html';
+        } else {
+          showError(JSON.parse(xhr.response).error);
         }
+
+        btnEndLoad(btn);
       }
     }
+
   })();
 });

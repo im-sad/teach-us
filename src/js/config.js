@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
           presence: true,
           length: {
             minimum: 8,
-            message: "must be at least 6 characters"
+            message: 'must be at least 6 characters'
           }
         }
       },
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           format: {
             pattern: /^[+]*[\s0-9]{0,4}[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.0-9]*$/,
-            message: "is not a phone number"
+            message: 'is not a phone number'
           }
         }
       },
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         zip: {
           format: {
-            pattern: "\\d{5}"
+            pattern: '\\d{5}'
           }
         },
       }
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             switch (thatStep) {
               case 2:
-                window.location.href = "/profile.html";
+                window.location.href = '/profile.html';
                 break;
               default:
                 stepsContainers[thatStep].style.display = 'none';

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
   // Tabs
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initBaseModals();
 
     function initBaseModals() {
-      
       var modals = document.getElementsByClassName('js-modal');
+
       for (var i = 0; i < modals.length; i++) {
         initModal(modals[i]);
       }

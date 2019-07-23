@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  (function () {
+  (function() {
     var cleanUp, debounce, i, len, ripple, rippleContainer, ripples, showRipple;
 
     debounce = function(func, delay) {

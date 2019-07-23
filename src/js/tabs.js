@@ -52,7 +52,7 @@ function Tabs(scope, optionsTab) {
 
     initLocationTab();
 
-    window.onpopstate = function (e) {
+    window.onpopstate = function(e) {
       if (e.state) {
         initLocationTab(e.state);
       }
@@ -67,12 +67,12 @@ function Tabs(scope, optionsTab) {
       isAccordion = (currentWindowWidth <= options.accordionResponsive) ? true : false;
 
       for (var j = 0; j < tabsSwitchItems.length; j++) {
-        accordeonItems[j].addEventListener('click', function (e) {
+        accordeonItems[j].addEventListener('click', function(e) {
           toTab(getChildIndex(e.target, options.classTabContentWrapper) / 2);
         })
       }
 
-      window.addEventListener('resize', throttle(function () {
+      window.addEventListener('resize', throttle(function() {
         currentWindowWidth = window.innerWidth;
 
         if ((currentWindowWidth > options.accordionResponsive) && (isAccordion)) {
@@ -96,7 +96,7 @@ function Tabs(scope, optionsTab) {
 
     for (var i = 0; i < tabsSwitchItems.length; i++) {
       if (tabsContentItems[i]) {
-        tabsSwitchItems[i].addEventListener('click', function (e) {
+        tabsSwitchItems[i].addEventListener('click', function(e) {
           var newTabItem = getChildIndex(e.target.closest('.' + options.classTabSwitchItem), options.classTabSwitchWrapper);
 
           toTab(newTabItem);
@@ -212,7 +212,7 @@ function Tabs(scope, optionsTab) {
 
   function parseHashLocation() {
     var hash = window.location.hash.slice(1);
-    var result = hash.split('&').reduce(function (result, item) {
+    var result = hash.split('&').reduce(function(result, item) {
       var parts = item.split('=');
 
       result[parts[0]] = parts[1];
@@ -272,7 +272,7 @@ function Tabs(scope, optionsTab) {
     return current;
   }
 
-  this.toTab = function (number) {
+  this.toTab = function(number) {
     toTab(number);
   }
 
