@@ -4,6 +4,7 @@
   background: $color-white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpolygon fill='%23009D98' fill-rule='evenodd' points='294.5 13.9 295.824 12.5 301.5 18.5 295.824 24.5 294.5 23.1 298.851 18.5' transform='rotate(90 159.5 -135)'/%3E%3C/svg%3E%0A") no-repeat right 12px center;
   border-radius: 3px;
   transition: border $time-base ease;
+  -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
   text-overflow: ellipsis;

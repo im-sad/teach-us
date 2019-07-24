@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var avaInputs = document.getElementsByClassName('js-ava-uploader');
 
     for (var i = 0; i < avaInputs.length; i++) {
-      avaInputs[i].addEventListener('input', function() {
+      avaInputs[i].addEventListener('change', function() {
         showLoadedImg(this);
       });
     }
