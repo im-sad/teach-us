@@ -60,3 +60,63 @@ function closestParent(child, className) {
 function resetformField(formField) {
   formField.classList.remove('has-error');
 }
+
+function showError(msg) {
+  if (!msg) return;
+
+  return iziToast.show({
+    message: msg,
+    color: 'red',
+    theme: 'dark',
+    position: 'topCenter',
+    timeout: false,
+    progressBar: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp',
+    displayMode: 'replace'
+  });
+}
+
+function showWarning(msg) {
+  if (!msg) return;
+
+  return iziToast.show({
+    message: msg,
+    color: 'yellow',
+    position: 'topCenter',
+    timeout: 1800,
+    progressBar: false,
+    close: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp'
+  });
+}
+
+function showSuccsess(msg) {
+  if (!msg) return;
+
+  return iziToast.show({
+    message: msg,
+    color: 'green',
+    position: 'topCenter',
+    timeout: 1800,
+    progressBar: false,
+    close: false,
+    animateInside: false,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutUp'
+  });
+}
+
+function clearAllMsgs() {
+  //iziToast.destroy();
+  var toasts = document.getElementsByClassName('iziToast-opened');
+
+  for (var i = 0; i < toasts.length; i++) {
+    iziToast.hide({
+      transitionOut: 'fadeOutUp'
+    }, toasts[i]);
+  }
+}
