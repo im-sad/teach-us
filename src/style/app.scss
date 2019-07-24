@@ -1,64 +1,65 @@
 //Base
 //@import "system/fonts";
-@import "system/normalize";
-@import "system/reset";
-@import "system/animations";
+@import "app/system/normalize";
+@import "app/system/reset";
+@import "app/system/animations";
 
 // Core
-@import "core/core";
-@import "core/site-grid";
-@import "core/bootstrap-grid";
+@import "app/core/core";
+@import "app/core/site-grid";
+@import "app/core/bootstrap-grid";
 
 
 // Components
-@import "components/titles";
-@import "components/icns";
-@import "components/btns";
-@import "components/tabs";
-@import "components/checkbox-btn";
-@import "components/stepper";
-@import "components/progress";
-@import "components/links";
-@import "components/marked-value";
-@import "components/rating-stars";
-@import "components/tables";
-@import "components/tags-list";
-@import "components/pagination";
-@import "components/modal";
-@import "components/iziToast";
-@import "components/mini-user";
-@import "components/summary-list";
-@import "components/helper";
-@import "components/demo";
+@import "app/components/titles";
+@import "app/components/icns";
+@import "app/components/btns";
+@import "app/components/tabs";
+@import "app/components/checkbox-btn";
+@import "app/components/stepper";
+@import "app/components/progress";
+@import "app/components/links";
+@import "app/components/marked-value";
+@import "app/components/rating-stars";
+@import "app/components/tables";
+@import "app/components/tags-list";
+@import "app/components/pagination";
+@import "app/components/modal";
+@import "app/components/iziToast";
+@import "app/components/mini-user";
+@import "app/components/summary-list";
+@import "app/components/helper";
+@import "app/components/demo";
 
 // Forms
-@import "components/forms/field";
-@import "components/forms/forms";
-@import "components/forms/input-text";
-@import "components/forms/checkbox";
-@import "components/forms/select";
-@import "components/forms/input-ava";
+@import "app/components/forms/field";
+@import "app/components/forms/forms";
+@import "app/components/forms/input-text";
+@import "app/components/forms/checkbox";
+@import "app/components/forms/select";
+@import "app/components/forms/input-ava";
 
 // Sections
 
+
 // Blocks
-@import "blocks/header";
-@import "blocks/footer";
-@import "blocks/box";
-@import "blocks/socials";
-@import "blocks/side-nav";
+@import "app/blocks/header";
+@import "app/blocks/footer";
+@import "app/blocks/box";
+@import "app/blocks/socials";
+@import "app/blocks/side-nav";
 
 // Pages
-@import "pages/pages";
-@import "pages/index";
-@import "pages/testing";
-@import "pages/profile";
-@import "pages/profile-setting";
-@import "pages/profile-requests";
-@import "pages/profile-goals";
-@import "pages/profile-contacts";
-@import "pages/educator";
-@import "pages/config";
+@import "app/pages/pages";
+@import "app/pages/index";
+@import "app/pages/testing";
+@import "app/pages/profile";
+@import "app/pages/profile-setting";
+@import "app/pages/profile-requests";
+@import "app/pages/profile-goals";
+@import "app/pages/profile-contacts";
+@import "app/pages/educator";
+@import "app/pages/config";
 
 // Helpres
-@import "components/assists"; //в конце, для большего приоритета
+@import "app/components/assists"; //в конце, для большего приоритета
