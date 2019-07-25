@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
   (function() {
     var signForm = document.getElementById('js-signin-form');
     var signConstraints = {
-      sign_mail: {
+      email: {
         presence: { message: "Email can't be blank" },
         email: { message: "Wrong email format" }
       },
-      sign_pass: {
+      password: {
         presence: { message: "Password can't be blank" },
         length: {
           minimum: 8,

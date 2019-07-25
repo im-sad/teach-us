@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
 
           case '1':
-            if (testingChecked < testingLimit) {
+            if (testingChecked < 1) {
               showLimitMsg(testingChecked, testingLimit);
               return;
             }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
 
           case '3':
-            if (testingChecked < testingLimit) {
+            if (testingChecked < 1) {
               showLimitMsg(testingChecked, testingLimit);
               return;
             }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
 
           case 'finish':
-            if (testingChecked < testingLimit) {
+            if (testingChecked < 1) {
               showLimitMsg(testingChecked, testingLimit);
               return;
             }
@@ -117,8 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function showLimitMsg(checked, limit) {
-          if (checked < limit) {
-            showWarning('Choose up to ' + (limit - checked) + ' more options');
+          if (limit == 1) {
+            showWarning('Choose an option');
+            return false;
+          } else if (limit == 3) {
+            showWarning('Choose up to 3 options');
             return false;
           }
         }
@@ -197,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var regBlockInputs = regBlock.querySelectorAll('input[name]');
       var regBlockBtn = regBlock.getElementsByClassName('btn')[0];
       var constraints = {
-        mail: {
+        email: {
           presence: { message: "Email can't be blank" },
           email: { message: "Wrong email format" }
         },
