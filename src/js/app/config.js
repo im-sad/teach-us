@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
           presence: true,
           length: {
             minimum: 8,
-            message: 'must be at least 6 characters'
+            message: 'must be at least 8 characters'
           }
         }
       },

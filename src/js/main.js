@@ -16,4 +16,5 @@
 @@include('./app/goals-timeline.js')
 @@include('./app/ava-uploader.js')
 @@include('./app/config.js')
+@@include('./app/lostpass.js')
 @@include('./app/init.js')
