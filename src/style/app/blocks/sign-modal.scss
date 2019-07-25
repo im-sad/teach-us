@@ -1,0 +1,39 @@
+.sign-modal {
+  &__lost-pass {
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  &__back {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 16px;
+    user-select: none;
+  }
+
+  &__back-icn {
+    width: 8px;
+    height: 12px;
+    margin-bottom: -0.05em;
+    margin-right: 4px;
+  }
+
+  &__reset-text {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 8px;
+    cursor: default;
+  }
+
+  &__done-text {
+    display: none;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+
+#sendpass-me {
+  display: none;
+}

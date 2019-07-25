@@ -1,43 +1,82 @@
 <!--noindex-->
-<div class="modal modal--center js-modal" id="modal-signin">
+<div class="sign-modal modal modal--center js-modal" id="modal-signin">
   <div class="modal__inner">
     <div class="modal-base modal-base--small">
-      <div class="modal-base__head">
-        <b class="modal-base__title title title--h1 title--padd-base">Sign In</b>
 
-        <svg class="modal-base__close modal__close">
-          <use xlink:href="#icn-cross-thin" />
-        </svg>
+      <div id="sign-me">
+        <div class="modal-base__head">
+          <b class="modal-base__title title title--h2 title--padd-base">Sign In</b>
+
+          <svg class="modal-base__close modal__close">
+            <use xlink:href="#icn-cross-thin" />
+          </svg>
+        </div>
+
+        <form action="/" id="js-signin-form" novalidate>
+          <ul class="inputs-list">
+            <li class="inputs-list__item">
+              <div class="field">
+                <input type="email" class="input input--base input--fluid" name="email" placeholder="E-mail address" value="" required />
+              </div>
+            </li>
+            <li class="inputs-list__item">
+              <div class="field">
+                <input type="password" class="input input--base input--fluid" name="password" placeholder="Password" value="" required />
+              </div>
+            </li>
+            <li class="inputs-list__item">
+              <div class="field">
+                <label class="checkbox">
+                  <input type="checkbox" name="sign_remember" value="true" checked />
+                  <span class="checkbox__title">Remember me</span>
+                </label>
+              </div>
+
+              <a class="sign-modal__lost-pass" id="js-lost-pass" href="#lost-pass">Forgot password?</a>
+            </li>
+            <li class="inputs-list__item inputs-list__item--footer">
+              <button class="btn btn-accent btn--base btn--min-width" data-ripple>Sign In</button>
+            </li>
+          </ul>
+        </form>
       </div>
 
 
-      <form action="/" id="js-signin-form" novalidate>
-        <ul class="inputs-list">
-          <li class="inputs-list__item">
-            <div class="field">
-              <input type="email" class="input input--base input--fluid" name="email" placeholder="E-mail address" value="" required />
-            </div>
-          </li>
-          <li class="inputs-list__item">
-            <div class="field">
-              <input type="password" class="input input--base input--fluid" name="password" placeholder="Password" value="" required />
-            </div>
-          </li>
-          <li class="inputs-list__item">
-            <div class="field">
-              <label class="checkbox">
-                <input type="checkbox" name="sign_remember" value="true" checked />
-                <span class="checkbox__title">Remember me</span>
-              </label>
-            </div>
-          </li>
-          <li class="inputs-list__item inputs-list__item--footer">
-            <button class="btn btn-accent btn--base btn--min-width" data-ripple>Sign In</button>
-          </li>
-        </ul>
+      <div id="sendpass-me">
+        <div class="modal-base__head">
+          <b class="modal-base__title title title--h2 title--padd-smaller">Reset your password</b>
 
+          <svg class="modal-base__close modal__close">
+            <use xlink:href="#icn-cross-thin" />
+          </svg>
+        </div>
 
-      </form>
+        <a href="#back-sign" id="js-back-sign" class="sign-modal__back">
+          <svg class="sign-modal__back-icn icn">
+            <use xlink:href="#icn-arrow-left" />
+          </svg>
+          Back to Sign In
+        </a>
+
+        <form action="/" id="js-lostpass-form" novalidate>
+          <p class="sign-modal__reset-text">Enter your email address and we will send you a link to reset your password.</p>
+          <ul class="inputs-list">
+            <li class="inputs-list__item">
+              <div class="field">
+                <input type="email" class="input input--base input--fluid" name="lostpass" placeholder="E-mail address" value="" required />
+              </div>
+            </li>
+            <li class="inputs-list__item inputs-list__item--footer">
+              <button class="btn btn-accent btn--base btn--min-width" data-ripple>Send password reset e-mail</button>
+            </li>
+          </ul>
+        </form>
+
+        <div class="sign-modal__done-text">
+          <p>Check your email for a link to reset your password.</p>
+          <p>If it doesn’t appear within a few minutes, check your spam folder.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

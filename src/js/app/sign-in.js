@@ -2,18 +2,27 @@ document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
   (function() {
+    var stepSing = document.getElementById('sign-me');
+    var stepLost = document.getElementById('sendpass-me');
     var signForm = document.getElementById('js-signin-form');
+    var lostpassForm = document.getElementById('js-lostpass-form');
     var signConstraints = {
       email: {
         presence: { message: "Email can't be blank" },
-        email: { message: "Wrong email format" }
+        email: { message: 'Wrong email format' }
       },
       password: {
         presence: { message: "Password can't be blank" },
         length: {
           minimum: 8,
-          message: "Password is too short. Minimum 8 symbols"
+          message: 'Password is too short. Minimum 8 symbols'
         }
+      }
+    };
+    var lostConstraints = {
+      lostpass: {
+        presence: { message: "Email can't be blank" },
+        email: { message: 'Wrong email format' }
       }
     };
 
@@ -31,9 +40,59 @@ document.addEventListener('DOMContentLoaded', function() {
           var submitBtn = that.getElementsByClassName('btn')[0];
           var formData = getFormData(inputsList);
 
-          sendData(formData, submitBtn);
+          sendData(formData, '/users/sign_in.json', submitBtn, function(result) {
+            if (result) window.location = '/profile.html';
+          });
         }
       });
+    }
+
+    if (lostpassForm) {
+      lostpassForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var that = this;
+        var lostpassErrors = validate(that, lostConstraints, {fullMessages: false});
+
+        showValidateErrors(lostpassErrors || {}, that);
+
+        if (!lostpassErrors) {
+          var inputsList = signForm.getElementsByTagName('input');
+          var submitBtn = that.getElementsByClassName('btn')[0];
+          var formData = getFormData(inputsList);
+
+          sendData(formData, '/users/sign_in.json', submitBtn, function(result) {
+            if (result) {
+              var doneMsg = lostpassForm.nextElementSibling;
+        
+              if (doneMsg) {
+                lostpassForm.style.display = 'none';
+                DOMAnimations.fadeIn(doneMsg);
+              }
+            }
+          });
+        }
+      });
+    }
+
+    // If pass lost
+    if (stepSing && stepLost) {
+      var lostPassLink = document.getElementById('js-lost-pass');
+      var backSignLink = document.getElementById('js-back-sign');
+
+      if (lostPassLink) {
+        lostPassLink.addEventListener('click', function() {
+          stepSing.style.display = 'none';
+          DOMAnimations.fadeIn(stepLost);
+        });
+      }
+
+      if (backSignLink) {
+        backSignLink.addEventListener('click', function() {
+          stepLost.style.display = 'none';
+          DOMAnimations.fadeIn(stepSing);
+        });
+      }
     }
 
     function getFormData(items) {
@@ -55,12 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return data;
     }
 
-    function sendData(data, btn) {
+    function sendData(data, url, btn, callback) {
       var xhr = new XMLHttpRequest();
 
       btnStartLoad(btn);
 
-      xhr.open('POST', '/users/sign_in.json', true);
+      xhr.open('POST', url, true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
       xhr.send(JSON.stringify({ user: data }));
@@ -69,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (xhr.readyState !== 4) return;
 
         if (xhr.status === 200 || xhr.status === 201) {
-          window.location = '/profile.html';
+          callback(true);
         } else {
           showError(JSON.parse(xhr.response).error);
         }
