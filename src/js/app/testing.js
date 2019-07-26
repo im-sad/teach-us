@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (xhr.readyState !== 4) return;
 
             if (xhr.status === 200 || xhr.status === 201) {
-              window.location = '/profile.html';
+              window.location = '/profile';
             } else {
               showError('Something went wrong');
               btnEndLoad(finishBtn);

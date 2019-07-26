@@ -22,17 +22,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
       //validate
       var formErrors = validate(that, constraints);
-      //var error = validate(this, constraints, {fullMessages: false});
       var formFields = that.querySelectorAll('input[name]');
 
       showValidateErrors(formErrors || {}, formFields);
 
       //submit
       if (!formErrors) {
-        formSubmit(that, '/users/registrations/set_password', formFields, function(status) {
-          if (!status) return false;
-
-          window.location.href = '/profile.html';
+        formSubmit(that, '/users/password', formFields, function(status, response) {
+          if (!status) {
+            var errorText = 'Something went wrong'
+            if (JSON.parse(response).errors.reset_password_token.filter((obj) => obj == 'is invalid').length > 0) {
+              errorText = 'Your reset password link is not valid. Please request another one.'
+            }
+            showError(errorText)
+          } else {
+            window.location.href = '/profile';
+          }
         });
       }
     });
@@ -50,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       xhr.open('PATCH', url, true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
-      xhr.send(JSON.stringify(data));
+      xhr.send(JSON.stringify({ user: data }));
 
       xhr.onreadystatechange = function() {
         if (xhr.readyState !== 4) return;
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (xhr.status === 200 || xhr.status === 201) {
           callback(true);
         } else {
-          callback(false);
+          callback(false, xhr.response);
         }
 
         btnEndLoad(sendBtn);

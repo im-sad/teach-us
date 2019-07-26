@@ -25,7 +25,7 @@ function Modal(scope, modalOptions) {
   var _body = document.body;
   var modalEl = scope;
   var modalInner = modalEl.firstElementChild;
-  var closeBtn = modalEl.getElementsByClassName(options.closeButtonClass)[0];
+  var closeBtns = modalEl.getElementsByClassName(options.closeButtonClass);
   var overlayShowClass = 'modal__overlay--is-show';
 
   if (options.overlay) {
@@ -39,10 +39,12 @@ function Modal(scope, modalOptions) {
   init();
 
   function init() {
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
-        closeModal();
-      });
+    if (closeBtns.length) {
+      for (var i = 0; i < closeBtns.length; i++) {
+        closeBtns[i].addEventListener('click', function() {
+          closeModal();
+        });
+      }
     }
 
     if (options.closeOnEsc) {

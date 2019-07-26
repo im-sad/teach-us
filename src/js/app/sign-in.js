@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
     var lostConstraints = {
-      lostpass: {
+      email: {
         presence: { message: "Email can't be blank" },
         email: { message: 'Wrong email format' }
       }
@@ -40,8 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
           var submitBtn = that.getElementsByClassName('btn')[0];
           var formData = getFormData(inputsList);
 
-          sendData(formData, '/users/sign_in.json', submitBtn, function(result) {
-            if (result) window.location = '/profile.html';
+          sendData(formData, '/users/sign_in.json', submitBtn, function(result, response) {
+            if (result) {
+              window.location = '/profile';
+            } else {
+              showError(JSON.parse(response).error)
+            }
           });
         }
       });
@@ -57,17 +61,23 @@ document.addEventListener('DOMContentLoaded', function() {
         showValidateErrors(lostpassErrors || {}, that);
 
         if (!lostpassErrors) {
-          var inputsList = signForm.getElementsByTagName('input');
+          var inputsList = lostpassForm.getElementsByTagName('input');
           var submitBtn = that.getElementsByClassName('btn')[0];
           var formData = getFormData(inputsList);
 
-          sendData(formData, '/users/sign_in.json', submitBtn, function(result) {
+          sendData(formData, '/users/password', submitBtn, function(result) {
             if (result) {
               var doneMsg = lostpassForm.nextElementSibling;
         
               if (doneMsg) {
                 lostpassForm.style.display = 'none';
                 DOMAnimations.fadeIn(doneMsg);
+              } else {
+                var errorText = 'Something went wrong'
+                if (JSON.parse(response).errors.email.filter((obj) => obj == 'not found').length > 0) {
+                  errorText = 'Email not found'
+                }
+                showError(errorText)
               }
             }
           });
@@ -130,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (xhr.status === 200 || xhr.status === 201) {
           callback(true);
         } else {
-          showError(JSON.parse(xhr.response).error);
+          callback(false, xhr.response);
         }
 
         btnEndLoad(btn);

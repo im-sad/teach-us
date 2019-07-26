@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             switch (thatStep) {
               case 2:
-                window.location.href = '/profile.html';
+                window.location.href = '/profile';
                 break;
               default:
                 stepsContainers[thatStep].style.display = 'none';
