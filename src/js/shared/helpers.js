@@ -120,3 +120,24 @@ function clearAllMsgs() {
     }, toasts[i]);
   }
 }
+
+var reachGoal = {
+  all: function(goalName, method, params) {
+    this.yandex(goalName, method, params);
+    this.google(goalName);
+    this.fb(goalName);
+  },
+  yandex: function(goalName, method, params) {
+    method = method || 'reachGoal';
+
+    if (window.ym) {
+      ym('54538828', method, goalName, params);
+    }
+  },
+  google: function(goalName) {
+    if (window.gtag) gtag('event', goalName, {'method': 'Empty'});
+  },
+  fb: function(goalName) {
+    if (window.fbq) fbq('trackCustom', goalName);
+  }
+};

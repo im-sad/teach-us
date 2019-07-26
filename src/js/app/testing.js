@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
   (function () {
-    var testingBlock = document.getElementById('js-testing-student');
+    var testingBlock = document.getElementById('js-testing');
 
     if (testingBlock) {
       var stepsBtns = testingBlock.querySelectorAll('[data-to-step]'), j = stepsBtns.length;
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var testingLimit;
       var testingResult = {};
       var testingVariants;
+      var testingBlockType = testingBlock.dataset.type || '';
 
       // Init steps
       while (j--) {
@@ -108,6 +109,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (xhr.readyState !== 4) return;
 
             if (xhr.status === 200 || xhr.status === 201) {
+              if (testingBlockType == 'study') reachGoal.all('QuizDoneAndLoggedStudent');
+              if (testingBlockType == 'teach') reachGoal.all('QuizDoneAndLoggedTeacher');
+              reachGoal.all('QuizDoneAndLogged');
+
               window.location = '/profile';
             } else {
               showError('Something went wrong');
@@ -238,6 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (xhr.status === 200 || xhr.status === 201) {
             testingBlock.classList.add('is-step2');
+
+            if (testingBlockType == 'study') reachGoal.all('EmailSentStudent');
+            if (testingBlockType == 'teach') reachGoal.all('EmailSentTeacher');
+            reachGoal.all('EmailSent');
+
           } else if (xhr.status === 422) {
             var response = JSON.parse(xhr.responseText);
 

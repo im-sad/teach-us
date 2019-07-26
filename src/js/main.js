@@ -17,4 +17,5 @@
 @@include('./app/ava-uploader.js')
 @@include('./app/config.js')
 @@include('./app/lostpass.js')
+@@include('./app/metrics.js')
 @@include('./app/init.js')
