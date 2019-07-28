@@ -5,81 +5,81 @@
   cursor: default;
   clear: both;
 
-	&__sub {
-		font-size: 16px;
-		color: $color-muted;
-		font-weight: 400;
-		padding-left: 0.5em;
-	}
+  &__sub {
+    font-size: 16px;
+    color: $color-muted;
+    font-weight: 400;
+    padding-left: 0.5em;
+  }
 
-	// mods
-	&--h0 {
-		font-size: $h0;
-		font-weight: 500;
-		@include line-height(48px, 56px);
-	}
+  // mods
+  &--h0 {
+    font-size: $h0;
+    font-weight: 500;
+    @include line-height(48px, 56px);
+  }
 
-	&--h1 {
-		font-size: $h1;
-		font-weight: 500;
-		@include line-height($h1, 38px);
-	}
+  &--h1 {
+    font-size: $h1;
+    font-weight: 500;
+    @include line-height($h1, 38px);
+  }
 
-	&--h2 {
-		font-size: $h2;
-		font-weight: 500;
-		@include line-height($h2, 28px);
-	}
+  &--h2 {
+    font-size: $h2;
+    font-weight: 500;
+    @include line-height($h2, 28px);
+  }
 
-	&--h3 {
-		font-size: $h3;
-		font-weight: 500;
-		@include line-height($h3, 22px);
-	}
+  &--h3 {
+    font-size: $h3;
+    font-weight: 500;
+    @include line-height($h3, 22px);
+  }
 
-	// paddings
-	&--padd-mini {
-		margin-bottom: 8px;
-	}
+  // paddings
+  &--padd-mini {
+    margin-bottom: 8px;
+  }
 
-	&--padd-smaller {
-		margin-bottom: 12px;
-	}
+  &--padd-smaller {
+    margin-bottom: 12px;
+  }
 
-	&--padd-small {
-		margin-bottom: 16px;
-	}
+  &--padd-small {
+    margin-bottom: 16px;
+  }
 
-	&--padd-base {
-		margin-bottom: 24px;
-	}
+  &--padd-base {
+    margin-bottom: 24px;
+  }
 
-	&--padd-medium {
-		margin-bottom: 32px;
-	}
+  &--padd-medium {
+    margin-bottom: 32px;
+  }
 }
 
 
 // Container for many titles
 .titles-box {
-	width: 100%;
-	max-width: 100%;
-	flex: 0 0 auto;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-	// mods
-	&--align-bottom {
-		align-items: flex-end;
-	}
+  // mods
+  &--align-bottom {
+    align-items: flex-end;
+  }
 
-	// paddings
-	&--padd-base {
-		margin-bottom: 24px;
-	}
+  // paddings
+  &--padd-base {
+    margin-bottom: 24px;
+  }
 
-	&--padd-medium {
-		margin-bottom: 32px;
-	}
+  &--padd-medium {
+    margin-bottom: 32px;
+  }
 }

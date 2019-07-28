@@ -2,31 +2,61 @@
 
 /* RESET */
 :root {
-	--color-main: $color-main;
-	--color-accent: $color-accent;
+  --color-main: $color-main;
+  --color-accent: $color-accent;
 }
 
-@-ms-viewport {width:device-width}
-
-html,body,div,span,h1,h2,h3,h4,h5,h6,p,img,em,strike,strong,s,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,menu,nav,section,time,mark,audio,video,main {background:transparent;border:0;font-size:100%;margin:0;padding:0;outline:0;vertical-align:baseline;}
-article,aside,details,figcaption,figure,footer,header,nav,section,main,menu {display:block}
-
-
-html {font-size:$font-base;-webkit-tap-highlight-color:transparent;-webkit-backface-visibility:hidden;-ms-overflow-style:scrollbar;box-sizing:border-box;}
-body {font:#{$font-size}/#{$line-height} $font;text-align:left;background:$bg;color:$color-text;}
-html, body {
-	height:100%;
-	-webkit-text-size-adjust:100%;
-	-ms-text-size-adjust:100%;
-	-webkit-font-variant-ligatures: none;
-	font-variant-ligatures: none;
-	text-rendering: optimizeLegibility;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	text-shadow: 0 0 1px rgba(0, 0, 0, .01);
+@-ms-viewport {
+  width:device-width;
 }
 
-*, *:before, *:after {box-sizing:inherit;}
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,img,em,strike,strong,s,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,menu,nav,section,time,mark,audio,video,main {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+article,aside,details,figcaption,figure,footer,header,nav,section,main,menu {
+  display: block;
+}
+
+html {
+  font-size: $font-base;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-backface-visibility: hidden;
+  -ms-overflow-style: scrollbar;
+  box-sizing: border-box;
+}
+
+body {
+  font: #{$font-size}/#{$line-height} $font;
+  text-align: left;
+  background: $bg;
+  color: $color-text;
+}
+
+html,
+body {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
 ol, ul {list-style:none}
 img {border-style:none;vertical-align:middle; @extend .no-select;}
