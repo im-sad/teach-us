@@ -258,7 +258,7 @@ gulp.task('watch', function(){
 			gulp.start('img:temp');
 	});
 	watch([path.watch.fonts], function(event, cb) {
-			gulp.start('fonts:build');
+			gulp.start('fonts');
 	});
 });
 
